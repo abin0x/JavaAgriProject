@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- ১. এখানে Controller লিঙ্ক করা হয়েছে -->
+<BorderPane prefHeight="900" prefWidth="1400" styleClass="root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.marketfruits.CropAdvisoryController">
+
+    <!-- Top Navigation Bar -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15" styleClass="top-nav" stylesheets="@../css/dashboard.css">
+            <padding>
+                <Insets bottom="12" left="20" right="20" top="12" />
+            </padding>
+
+            <Label styleClass="app-title" text="🌾 কৃষি সাথী" />
+            <Label styleClass="bd-badge" text="BD" />
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <Button styleClass="sound-btn">
+                <graphic>
+                    <Label text="🔇" />
+                </graphic>
+            </Button>
+
+            <Label styleClass="online-status" text="📶 অনলাইনে" />
+        </HBox>
+    </top>
+
+    <!-- Left Sidebar -->
+    <left>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="sidebar-scroll" vbarPolicy="AS_NEEDED">
+            <VBox spacing="5" styleClass="sidebar" stylesheets="@../css/dashboard.css">
+                <padding>
+                    <Insets bottom="20" left="10" right="10" top="20" />
+                </padding>
+
+                <!-- ২. সাইডবারের বাটনগুলোতে fx:id দেওয়া হয়েছে -->
+                <Button fx:id="btnHome" styleClass="sidebar-btn" text="🏠 হোম" />
+
+                <Button fx:id="btnAdvisory" styleClass="sidebar-btn, active-btn" text="📅 পরিকল্পনা ও হিসাব" />
+
+                <!-- অন্যান্য বাটন -->
+                <Button fx:id="btnAiHelper" styleClass="sidebar-btn" text="🤖 AI সহায়ক" />
+                <Button styleClass="sidebar-btn" text="🎬 ভিডিও শিক্ষা" />
+                <Button styleClass="sidebar-btn" text="📖 খামার আবহাওয়া" />
+                <Button styleClass="sidebar-btn" text="📈 কৃষি বিশ্লেষণ" />
+                <Button styleClass="sidebar-btn" text="👥 স্থানীয় ব্যবস্থাপনা" />
+                <Button styleClass="sidebar-btn" text="📰 কৃষি সংবাদ" />
+                <Button styleClass="sidebar-btn" text="🎯 ফসল পরিকল্পনা" />
+                <Button styleClass="sidebar-btn" text="💰 লাভ-ক্ষতি হিসাব" />
+                <Button styleClass="sidebar-btn" text="🌦️ আবহাওয়া" />
+                <Button styleClass="sidebar-btn" text="📊 বাজার" />
+                <Button styleClass="sidebar-btn" text="🛒 কৃষক বাজার" />
+                <Button styleClass="sidebar-btn" text="🔔 মাটি স্বাস্থ্য" />
+                <Button styleClass="sidebar-btn" text="☀️ কীটপতঙ্গ শনাক্ত" />
+                <Button styleClass="sidebar-btn" text="🗣️ মন্তব্য ভাড্া" />
+                <Button styleClass="sidebar-btn" text="📰 ওয়াম সেবা" />
+                <Button styleClass="sidebar-btn" text="📅 খবর ট্র্যাফিক" />
+                <Button styleClass="sidebar-btn" text="❓ জরুরি সহায়তা" />
+                <Button styleClass="sidebar-btn" text="👥 সম্প্রদায়" />
+                <Button styleClass="sidebar-btn" text="⚙️ অধ্যয়ন" />
+                <Button styleClass="sidebar-btn" text="👤 প্রোফাইল" />
+            </VBox>
+        </ScrollPane>
+    </left>
+
+    <!-- Main Content Area -->
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefViewportHeight="800" styleClass="content-scroll" vbarPolicy="ALWAYS">
+            <VBox spacing="25" styleClass="main-content" stylesheets="@../css/CropAdvisory.css">
+                <padding>
+                    <Insets bottom="30" left="30" right="30" top="30" />
+                </padding>
+
+                <!-- Page Header -->
+                <VBox spacing="10" styleClass="page-header">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label styleClass="page-title" text="ফসল পরিকল্পনা ও পরামর্শ 📊" />
+                    </HBox>
+                    <Label styleClass="page-subtitle" text="বৈজ্ঞানিক পদ্ধাতিতে আপনার ফসলের পরিচর্যা করুন" />
+                </VBox>
+
+                <!-- Filter Buttons -->
+                <!-- Filter Buttons -->
+                <HBox alignment="CENTER" prefHeight="46.0" prefWidth="970.0" spacing="180.0">
+                    <!-- Added fx:id="btnGuide" -->
+                    <Button fx:id="btnGuide" styleClass="filter-btn, filter-btn-active" text="📖 গাইড" />
+
+                    <!-- Fertilizer Button (Already had ID) -->
+                    <Button fx:id="btnFertilizer" styleClass="filter-btn" text="🌾 সার" />
+
+                    <!-- Irrigation Button (Already had ID) -->
+                    <Button fx:id="btnIrrigation" styleClass="filter-btn" text="🔬 সেচ" />
+
+                    <!-- Added fx:id="btnCropRotation" -->
+                    <Button fx:id="btnCropRotation" styleClass="filter-btn" text="♻ ফসল চক্র" />
+
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+
+                <!-- Crop Cards Grid -->
+                <GridPane alignment="CENTER" hgap="60.0" vgap="20.0">
+
+                    <!-- Rice Card -->
+                    <VBox spacing="15" styleClass="crop-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <padding>
+                            <Insets bottom="25" left="25" right="25" top="25" />
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="crop-icon" text="🌾" />
+                            <Label styleClass="crop-name" text="ধান (Rice)" />
+                        </HBox>
+
+                        <VBox spacing="12">
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="রোপণের সময়" />
+                                <Label styleClass="crop-info-value" text="খরিফ: এপ্রিল-জুন, রবি: নভেম্বর-ডিসেম্বর" />
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="বীজের হার" />
+                                <Label styleClass="crop-info-value" text="৮-১০ কেজি/একর" />
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="প্রত্যাশিত ফলন" />
+                                <Label styleClass="crop-info-value" text="৪০-৫০ মন/একর" />
+                            </VBox>
+                        </VBox>
+
+                        <Button styleClass="view-guide-btn" text="বিস্তারিত গাইড দেখুন" />
+                    </VBox>
+
+                    <!-- Wheat Card -->
+                    <VBox spacing="15.0" styleClass="crop-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <padding>
+                            <Insets bottom="25" left="25" right="25" top="25" />
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="crop-icon" text="🌾" />
+                            <Label styleClass="crop-name" text="গম (Wheat)" />
+                        </HBox>
+
+                        <VBox spacing="12">
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="রোপণের সময়" />
+                                <Label styleClass="crop-info-value" text="নভেম্বর-ডিসেম্বর" />
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="বীজের হার" />
+                                <Label styleClass="crop-info-value" text="৪০-৫০ কেজি/একর" />
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="প্রত্যাশিত ফলন" />
+                                <Label styleClass="crop-info-value" text="৩০-৩৫ মন/একর" />
+                            </VBox>
+                        </VBox>
+
+                        <Button styleClass="view-guide-btn" text="বিস্তারিত গাইড দেখুন" />
+                    </VBox>
+
+                    <!-- Potato Card -->
+                    <VBox spacing="15" styleClass="crop-card" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <padding>
+                            <Insets bottom="25" left="25" right="25" top="25" />
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="crop-icon" text="🥔" />
+                            <Label styleClass="crop-name" text="আলু (Potato)" />
+                        </HBox>
+
+                        <VBox spacing="12">
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="রোপণের সময়" />
+                                <Label styleClass="crop-info-value" text="অক্টোবর-নভেম্বর" />
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="বীজের হার" />
+                                <Label styleClass="crop-info-value" text="৬০০-৮০০ কেজি/একর" />
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="প্রত্যাশিত ফলন" />
+                                <Label styleClass="crop-info-value" text="১৫০-২০০ মন/একর" />
+                            </VBox>
+                        </VBox>
+
+                        <Button styleClass="view-guide-btn" text="বিস্তারিত গাইড দেখুন" />
+                    </VBox>
+
+                    <!-- Jute Card -->
+                    <VBox spacing="15" styleClass="crop-card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <padding>
+                            <Insets bottom="25" left="25" right="25" top="25" />
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="crop-icon" text="🌿" />
+                            <Label styleClass="crop-name" text="পাট (Jute)" />
+                        </HBox>
+
+                        <VBox spacing="12">
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="রোপণের সময়" />
+                                <Label styleClass="crop-info-value" text="মার্চ-এপ্রিল" />
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="বীজের হার" />
+                                <Label styleClass="crop-info-value" text="২-৩ কেজি/একর" />
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label styleClass="crop-info-label" text="প্রত্যাশিত ফলন" />
+                                <Label styleClass="crop-info-value" text="২৫-৩০ মন/একর" />
+                            </VBox>
+                        </VBox>
+
+                        <Button styleClass="view-guide-btn" text="বিস্তারিত গাইড দেখুন" />
+                    </VBox>
+                    <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+
+                </GridPane>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,121 @@
+/* Import Dashboard CSS base styles */
+@import "dashboard.css";
+
+/* Page Header */
+.page-header {
+    -fx-background-color: #f0fdf4;
+    -fx-padding: 25 30;
+    -fx-background-radius: 12;
+    -fx-border-color: #bbf7d0;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+}
+
+.page-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+.page-subtitle {
+    -fx-font-size: 15px;
+    -fx-text-fill: #6b7280;
+}
+
+/* Filter Buttons */
+.filter-btn {
+    -fx-background-color: white;
+    -fx-text-fill: #6b7280;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-padding: 12 24;
+    -fx-background-radius: 8;
+    -fx-border-color: #e5e7eb;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-cursor: hand;
+}
+
+.filter-btn:hover {
+    -fx-background-color: #f9fafb;
+    -fx-border-color: #d1d5db;
+}
+
+.filter-btn-active {
+    -fx-background-color: #16a34a;
+    -fx-text-fill: white;
+    -fx-border-color: #16a34a;
+}
+
+.filter-btn-active:hover {
+    -fx-background-color: #15803d;
+    -fx-border-color: #15803d;
+}
+
+/* Crop Cards */
+.crop-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 10, 0, 0, 2);
+    -fx-min-width: 450px;
+    -fx-pref-width: 450px;
+    -fx-min-height: 320px;
+}
+
+.crop-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 15, 0, 0, 4);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+    -fx-cursor: hand;
+}
+
+.crop-icon {
+    -fx-font-size: 32px;
+}
+
+.crop-name {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+.crop-info-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #374151;
+}
+
+.crop-info-value {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6b7280;
+    -fx-wrap-text: true;
+}
+
+/* View Guide Button */
+.view-guide-btn {
+    -fx-background-color: #16a34a;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-padding: 12 20;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-min-width: 100%;
+}
+
+.view-guide-btn:hover {
+    -fx-background-color: #15803d;
+}
+
+/* Grid Layout */
+.grid-pane {
+    -fx-hgap: 20;
+    -fx-vgap: 20;
+}
+
+/* Responsive adjustments */
+.main-content {
+    -fx-background-color: #f5f7fa;
+    -fx-padding: 30;
+}

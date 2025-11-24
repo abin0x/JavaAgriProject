@@ -1,0 +1,473 @@
+/* Root Styles */
+.root {
+    -fx-background-color: #f5f7fa;
+    -fx-font-family: "Noto Sans Bengali", "Segoe UI", Arial, sans-serif;
+}
+
+/* Top Navigation Bar */
+.top-nav {
+    -fx-background-color: linear-gradient(to right, #16a34a, #15803d);
+    -fx-padding: 12 20;
+}
+
+.app-title {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.bd-badge {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-text-fill: white;
+    -fx-padding: 4 10;
+    -fx-background-radius: 15;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.sound-btn, .notification-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-font-size: 16px;
+}
+
+.sound-btn:hover, .notification-btn:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 5;
+}
+
+.online-status {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+/* Sidebar */
+.sidebar-scroll {
+    -fx-background-color: white;
+    -fx-min-width: 220px;
+    -fx-max-width: 220px;
+    -fx-border-color: #e5e7eb;
+    -fx-border-width: 0 1 0 0;
+    -fx-fit-to-width: true;
+}
+
+.sidebar-scroll > .viewport {
+    -fx-background-color: white;
+}
+
+.sidebar {
+    -fx-background-color: white;
+    -fx-padding: 20 10;
+}
+
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #374151;
+    -fx-font-size: 14px;
+    -fx-padding: 12 15;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+    -fx-background-radius: 8;
+    -fx-min-width: 200px;
+}
+
+.sidebar-btn:hover {
+    -fx-background-color: #f3f4f6;
+}
+
+.sidebar-btn.active-btn {
+    -fx-background-color: #e8f5e9;
+    -fx-text-fill: #16a34a;
+    -fx-font-weight: bold;
+}
+
+/* Main Content */
+.content-scroll {
+    -fx-background-color: #f5f7fa;
+    -fx-background: #f5f7fa;
+    -fx-fit-to-width: true;
+    -fx-fit-to-height: false;
+}
+
+.content-scroll > .viewport {
+    -fx-background-color: #f5f7fa;
+}
+
+.main-content {
+    -fx-padding: 30;
+    -fx-background-color: #f5f7fa;
+    -fx-pref-height: -1;
+}
+
+/* Welcome Section */
+.welcome-title {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+.date-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6b7280;
+}
+
+/* Warning Banner */
+.warning-banner {
+    -fx-background-color: #fef2f2;
+    -fx-border-color: #fca5a5;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 15 20;
+}
+
+.warning-icon {
+    -fx-font-size: 24px;
+}
+
+.warning-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #991b1b;
+    -fx-font-weight: 500;
+}
+
+.warning-link {
+    -fx-text-fill: #dc2626;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-underline: true;
+}
+
+/* Weather Card */
+.weather-card {
+    -fx-background-color: linear-gradient(to right, #3b82f6 0%, #60a5fa 50%, #93c5fd 100%);
+    -fx-background-radius: 15;
+    -fx-padding: 30 40;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 15, 0, 0, 3);
+    -fx-min-height: 180px;
+}
+
+.weather-title {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: 500;
+}
+
+.weather-sun-icon {
+    -fx-font-size: 72px;
+    -fx-text-fill: white;
+    -fx-opacity: 0.9;
+}
+
+.weather-icon-large {
+    -fx-font-size: 48px;
+}
+
+.temperature {
+    -fx-text-fill: white;
+    -fx-font-size: 64px;
+    -fx-font-weight: bold;
+    -fx-line-spacing: -10;
+}
+
+.weather-desc {
+    -fx-text-fill: rgba(255, 255, 255, 0.95);
+    -fx-font-size: 16px;
+    -fx-font-weight: 400;
+}
+
+.weather-metric-icon {
+    -fx-font-size: 48px;
+    -fx-text-fill: white;
+}
+
+.weather-metric-value {
+    -fx-text-fill: white;
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+}
+
+.weather-metric-label {
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+    -fx-font-size: 14px;
+    -fx-text-alignment: center;
+}
+
+/* Stats Cards */
+.stat-card {
+    -fx-background-radius: 12;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 12, 0, 0, 3);
+    -fx-min-width: 220px;
+    -fx-pref-width: 220px;
+}
+
+.stat-card-green {
+    -fx-background-color: #f0fdf4;
+}
+
+.stat-card-orange {
+    -fx-background-color: #fff7ed;
+}
+
+.stat-card-blue {
+    -fx-background-color: #eff6ff;
+}
+
+.stat-card-purple {
+    -fx-background-color: #faf5ff;
+}
+
+.stat-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6b7280;
+}
+
+.stat-value {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+}
+
+.stat-card-green .stat-value {
+    -fx-text-fill: #16a34a;
+}
+
+.stat-card-orange .stat-value {
+    -fx-text-fill: #ea580c;
+}
+
+.stat-card-blue .stat-value {
+    -fx-text-fill: #2563eb;
+}
+
+.stat-card-purple .stat-value {
+    -fx-text-fill: #9333ea;
+}
+
+.stat-icon {
+    -fx-font-size: 48px;
+    -fx-opacity: 0.6;
+}
+
+/* Section Cards */
+.section-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 12, 0, 0, 3);
+    -fx-min-height: 350px;
+    -fx-pref-height: -1;
+}
+
+.section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+.view-all-link {
+    -fx-text-fill: #16a34a;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+}
+
+.view-all-link:hover {
+    -fx-underline: true;
+}
+
+/* Empty State */
+.empty-state {
+    -fx-padding: 40 20;
+}
+
+.empty-icon {
+    -fx-font-size: 72px;
+    -fx-opacity: 0.3;
+}
+
+.empty-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6b7280;
+}
+
+.create-btn {
+    -fx-background-color: #16a34a;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-padding: 12 24;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.create-btn:hover {
+    -fx-background-color: #15803d;
+}
+
+/* Market Items */
+.market-item {
+    -fx-background-color: #f9fafb;
+    -fx-background-radius: 10;
+    -fx-padding: 12 15;
+    -fx-border-color: #e5e7eb;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+}
+
+.market-item:hover {
+    -fx-background-color: #f3f4f6;
+    -fx-cursor: hand;
+}
+
+.market-item-name {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+.market-location {
+    -fx-font-size: 12px;
+    -fx-text-fill: #6b7280;
+}
+
+.market-price {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+.market-unit {
+    -fx-font-size: 11px;
+    -fx-text-fill: #9ca3af;
+}
+
+.market-trend {
+    -fx-font-size: 11px;
+    -fx-padding: 4 8;
+    -fx-background-radius: 12;
+    -fx-font-weight: 600;
+}
+
+.trend-up {
+    -fx-background-color: #dcfce7;
+    -fx-text-fill: #16a34a;
+}
+
+.trend-down {
+    -fx-background-color: #fee2e2;
+    -fx-text-fill: #dc2626;
+}
+
+/* Quick Actions Section */
+.quick-actions-container {
+    -fx-background-color: linear-gradient(to right, #22c55e, #16a34a);
+    -fx-background-radius: 15;
+    -fx-padding: 30;
+}
+
+.quick-actions-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.quick-action-card {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-background-radius: 12;
+    -fx-padding: 25 20;
+    -fx-cursor: hand;
+    -fx-border-color: rgba(255, 255, 255, 0.3);
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+}
+
+.quick-action-card:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.quick-action-icon {
+    -fx-font-size: 42px;
+}
+
+.quick-action-label {
+    -fx-font-size: 15px;
+    -fx-font-weight: 600;
+    -fx-text-fill: white;
+    -fx-text-alignment: center;
+}
+
+/* ScrollBar Styling */
+.scroll-pane > .viewport {
+    -fx-background-color: #f5f7fa;
+}
+
+.scroll-pane {
+    -fx-background-color: #f5f7fa;
+    -fx-border-width: 0;
+}
+
+.sidebar-scroll > .viewport {
+    -fx-background-color: white;
+}
+
+.sidebar-scroll {
+    -fx-background-color: white;
+    -fx-border-width: 0;
+}
+
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: #f3f4f6;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #d1d5db;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #9ca3af;
+}
+
+.scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+/* Button Hover Effects */
+.button {
+    -fx-transition: all 0.3s ease;
+}
+
+.button:hover {
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+/* Grid Styling */
+.grid-pane {
+    -fx-hgap: 20;
+    -fx-vgap: 20;
+}

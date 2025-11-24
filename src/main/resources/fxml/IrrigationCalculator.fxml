@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<!--<BorderPane prefHeight="900" prefWidth="1400" styleClass="root" stylesheets="@../css/FertilizerCalculator.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.marketfruits.FertilizerCalculatorController">-->
+
+<BorderPane prefHeight="900" prefWidth="1400" styleClass="root" stylesheets="@../css/IrrigationCalculator.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.marketfruits.IrrigationCalculatorController">
+<!--    <BorderPane prefHeight="900" prefWidth="1400" styleClass="root" stylesheets="@../css/FertilizerCalculator.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.marketfruits.FertilizerCalculatorController">-->
+    <!-- Top Navigation Bar -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15" styleClass="top-nav">
+            <padding>
+                <Insets bottom="12" left="20" right="20" top="12" />
+            </padding>
+
+            <Label styleClass="app-title" text="🌾 কৃষি সাথী" />
+            <Label styleClass="bd-badge" text="BD" />
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <Button styleClass="sound-btn">
+                <graphic>
+                    <Label text="🔇" />
+                </graphic>
+            </Button>
+
+            <Label styleClass="online-status" text="📶 অনলাইনে" />
+        </HBox>
+    </top>
+
+    <!-- Left Sidebar -->
+    <left>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="sidebar-scroll" vbarPolicy="AS_NEEDED">
+            <VBox spacing="5" styleClass="sidebar">
+                <padding>
+                    <Insets bottom="20" left="10" right="10" top="20" />
+                </padding>
+
+                <Button fx:id="btnHome" styleClass="sidebar-btn" text="🏠 হোম" />
+                <Button fx:id="btnAdvisory" styleClass="sidebar-btn, active-btn" text="📅 পরিকল্পনা ও হিসাব" />
+                <Button fx:id="btnAiHelper" styleClass="sidebar-btn" text="🤖 AI সহায়ক" />
+                <Button fx:id="btnVideoEducation" styleClass="sidebar-btn" text="🎬 ভিডিও শিক্ষা" />
+                <Button fx:id="btnFarmWeather" styleClass="sidebar-btn" text="📖 খামার আবহাওয়া" />
+                <Button fx:id="btnAgriAnalysis" styleClass="sidebar-btn" text="📈 কৃষি বিশ্লেষণ" />
+                <Button fx:id="btnLocalManagement" styleClass="sidebar-btn" text="👥 স্থানীয় ব্যবস্থাপনা" />
+                <Button fx:id="btnAgriNews" styleClass="sidebar-btn" text="📰 কৃষি সংবাদ" />
+                <Button fx:id="btnCropPlanning" styleClass="sidebar-btn" text="🎯 ফসল পরিকল্পনা" />
+
+                <Button fx:id="btnProfitLoss" styleClass="sidebar-btn" text="💰 লাভ-ক্ষতি হিসাব" />
+                <Button fx:id="btnWeather" styleClass="sidebar-btn" text="🌦️ আবহাওয়া" />
+                <Button fx:id="btnMarket" styleClass="sidebar-btn" text="📊 বাজার" />
+                <Button fx:id="btnFarmerMarket" styleClass="sidebar-btn" text="🛒 কৃষক বাজার" />
+                <Button fx:id="btnSoilHealth" styleClass="sidebar-btn" text="🔔 মাটি স্বাস্থ্য" />
+                <Button fx:id="btnPestDetection" styleClass="sidebar-btn" text="☀️ কীটপতঙ্গ শনাক্ত" />
+                <Button fx:id="btnComments" styleClass="sidebar-btn" text="🗣️ মন্তব্য ভাড্রা" />
+                <Button fx:id="btnWamService" styleClass="sidebar-btn" text="📰 ওয়াম সেবা" />
+                <Button fx:id="btnNewsTraffic" styleClass="sidebar-btn" text="📅 খবর ট্র্যাফিক" />
+                <Button fx:id="btnEmergencyHelp" styleClass="sidebar-btn" text="❓ জরুরি সহায়তা" />
+                <Button fx:id="btnCommunity" styleClass="sidebar-btn" text="👥 সম্প্রদায়" />
+                <Button fx:id="btnStudy" styleClass="sidebar-btn" text="⚙️ অধ্যয়ন" />
+                <Button fx:id="btnProfile" styleClass="sidebar-btn" text="👤 প্রোফাইল" />
+            </VBox>
+        </ScrollPane>
+    </left>
+
+    <!-- Main Content Area -->
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" styleClass="content-scroll" vbarPolicy="ALWAYS">
+
+            <VBox spacing="25" styleClass="main-content">
+                <padding>
+                    <Insets bottom="30" left="30" right="30" top="30" />
+                </padding>
+                <VBox spacing="10" styleClass="page-header" stylesheets="@../css/CropAdvisory.css">
+                    <HBox alignment="CENTER_LEFT" spacing="10" stylesheets="@../css/CropAdvisory.css">
+                        <Label styleClass="page-title" text="ফসল পরিকল্পনা ও পরামর্শ 📊" />
+                    </HBox>
+                    <Label styleClass="page-subtitle" text="বৈজ্ঞানিক পদ্ধাতিতে আপনার ফসলের পরিচর্যা করুন" />
+                </VBox>
+
+                <!-- Filter Buttons -->
+                <!-- Filter Buttons -->
+                <HBox alignment="CENTER" prefHeight="46.0" prefWidth="970.0" spacing="180.0" stylesheets="@../css/CropAdvisory.css">
+                    <!-- 1. Guide Button (Added ID) -->
+                    <Button fx:id="btnGuide" styleClass="filter-btn" text="📖 গাইড" />
+
+                    <!-- 2. Fertilizer Button (Link to Fertilizer Page) -->
+                    <Button fx:id="btnFertilizer" styleClass="filter-btn" text="🌾 সার" />
+
+                    <!-- 3. Irrigation Button (Current Active Page) -->
+                    <Button fx:id="btnIrrigation" text="🔬 সেচ">
+                        <styleClass>
+                            <String fx:value="filter-btn-active" />
+                            <String fx:value="filter-btn" />
+                        </styleClass>
+                    </Button>
+
+                    <!-- 4. Crop Rotation Button (Added ID) -->
+                    <Button fx:id="btnCropRotation" styleClass="filter-btn" text="♻ ফসল চক্র" />
+
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+
+                <!-- Page Header -->
+                <VBox spacing="10" styleClass="page-header-irrigation">
+
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label styleClass="page-title" text="সেচ ক্যালকুলেটর 💧" />
+                    </HBox>
+                    <Label styleClass="page-subtitle" text="আপনার ফসলের জন্য সঠিক সেচ পরিমাণ এবং সময়সূচি নির্ধারণ করুন" />
+                </VBox>
+
+                <!-- Main Calculator Container -->
+                <HBox alignment="TOP_LEFT" spacing="20">
+
+                    <!-- Left Side: Input Form -->
+                    <VBox prefWidth="550" spacing="20" styleClass="irrigation-input-section" HBox.hgrow="ALWAYS">
+                        <padding>
+                            <Insets bottom="30" left="30" right="30" top="30" />
+                        </padding>
+
+                        <Label styleClass="section-heading-numbered-blue" text="১. ফসল ও জমির তথ্য" />
+
+                        <!-- Crop Selection -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label-required" text="ফসল নির্বাচন করুন *" />
+                            <ComboBox fx:id="cropComboBox" maxWidth="Infinity" promptText="ফসল বেছে নিন" styleClass="input-field" />
+                        </VBox>
+
+                        <!-- Variety Selection -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="জাত (Variety)" />
+                            <ComboBox fx:id="varietyComboBox" maxWidth="Infinity" promptText="জাত নির্বাচন করুন" styleClass="input-field" />
+                        </VBox>
+
+                        <!-- Crop Age -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="ফসলের বয়স (দিন)" />
+                            <TextField fx:id="cropAgeField" promptText="উদাহরণ: 45" styleClass="input-field" />
+                        </VBox>
+
+                        <!-- Growth Stage -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="বৃদ্ধির পর্যায়" />
+                            <ComboBox fx:id="growthStageComboBox" maxWidth="Infinity" promptText="পর্যায় নির্বাচন করুন" styleClass="input-field" />
+                        </VBox>
+
+                        <!-- Farming Method -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="চাষ পদ্ধতি" />
+                            <ComboBox fx:id="farmingMethodComboBox" maxWidth="Infinity" promptText="পদ্ধতি নির্বাচন করুন" styleClass="input-field" />
+                        </VBox>
+
+                        <!-- Land Area -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label-required" text="জমির পরিমাণ *" />
+                            <HBox spacing="10">
+                                <TextField fx:id="landAreaField" promptText="উদাহরণ: 3" styleClass="input-field" HBox.hgrow="ALWAYS" />
+                                <ComboBox fx:id="unitComboBox" prefWidth="120" styleClass="input-field-small" />
+                            </HBox>
+                        </VBox>
+
+                        <Separator styleClass="section-separator" />
+
+                        <Label styleClass="section-heading-numbered-blue" text="২. মাটি ও আবহাওয়া" />
+
+                        <!-- Soil Type -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label-required" text="মাটির ধরন *" />
+                            <ComboBox fx:id="soilTypeComboBox" maxWidth="Infinity" promptText="মাটির ধরন নির্বাচন করুন" styleClass="input-field" />
+                        </VBox>
+
+                        <!-- Land Type -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="জমির ধরন" />
+                            <ComboBox fx:id="landTypeComboBox" maxWidth="Infinity" promptText="জমির ধরন নির্বাচন করুন" styleClass="input-field" />
+                        </VBox>
+
+                        <!-- Season -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label-required" text="মৌসুম/ঋতু *" />
+                            <ComboBox fx:id="seasonComboBox" maxWidth="Infinity" promptText="মৌসুম নির্বাচন করুন" styleClass="input-field" />
+                        </VBox>
+
+                        <!-- Temperature -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="বর্তমান আবহাওয়া" />
+                            <HBox spacing="10">
+                                <CheckBox fx:id="strongSunCheck" styleClass="checkbox-custom" text="কড়া রোদ" />
+                                <CheckBox fx:id="windyCheck" styleClass="checkbox-custom" text="বাতাস আছে" />
+                                <CheckBox fx:id="cloudyCheck" styleClass="checkbox-custom" text="মেঘাচ্ছন্ন" />
+                            </HBox>
+                        </VBox>
+
+                        <!-- Average Temperature -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="গড় তাপমাত্রা (°C)" />
+                            <HBox alignment="CENTER_LEFT" spacing="15">
+                                <RadioButton fx:id="tempCold" styleClass="weather-radio" text="ঠান্ডা (15-25°)">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="temperatureGroup" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="tempModerate" selected="true" styleClass="weather-radio" text="মাঝারি (25-32°)" toggleGroup="$temperatureGroup" />
+                                <RadioButton fx:id="tempHot" styleClass="weather-radio" text="গরম (32°+)" toggleGroup="$temperatureGroup" />
+                            </HBox>
+                        </VBox>
+
+                        <!-- Rainfall -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="সাম্প্রতিক বৃষ্টিপাত" />
+                            <HBox alignment="CENTER_LEFT" spacing="15">
+                                <CheckBox fx:id="recentRainCheck" styleClass="checkbox-custom" text="গত ৭ দিনে বৃষ্টি হয়েছে" />
+                                <TextField fx:id="rainfallAmount" disable="true" prefWidth="100" promptText="মিমি" styleClass="input-field-small" />
+                            </HBox>
+                        </VBox>
+
+                        <!-- Rainfall Forecast -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="বৃষ্টির পূর্বাভাস (আগামী ৩-৫ দিন)" />
+                            <HBox alignment="CENTER_LEFT" spacing="15">
+                                <RadioButton fx:id="rainForecastYes" styleClass="weather-radio" text="বৃষ্টি হবে">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="rainForecastGroup" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="rainForecastNo" selected="true" styleClass="weather-radio" text="বৃষ্টি নেই" toggleGroup="$rainForecastGroup" />
+                                <RadioButton fx:id="rainForecastUnsure" styleClass="weather-radio" text="অনিশ্চিত" toggleGroup="$rainForecastGroup" />
+                            </HBox>
+                        </VBox>
+
+                        <!-- Last Irrigation -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="শেষ সেচ কবে দিয়েছেন?" />
+                            <HBox spacing="10">
+                                <TextField fx:id="lastIrrigationField" promptText="দিন আগে (উদাহরণ: 10)" styleClass="input-field" HBox.hgrow="ALWAYS" />
+                                <Label styleClass="unit-label" text="দিন আগে" />
+                            </HBox>
+                        </VBox>
+
+                        <Separator styleClass="section-separator" />
+
+                        <Label styleClass="section-heading-numbered-blue" text="৩. সেচ পদ্ধতি" />
+
+                        <!-- Irrigation Method -->
+                        <VBox spacing="12">
+                            <Label styleClass="input-label-required" text="সেচ পদ্ধতি নির্বাচন করুন *" />
+                            <VBox spacing="10">
+                                <RadioButton fx:id="methodSprinkler" styleClass="method-radio" text="🚿 ফোয়ারা সেচ (Sprinkler)">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="irrigationMethodGroup" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="methodDrip" styleClass="method-radio" text="💧 ড্রিপ সেচ (Drip Irrigation)" toggleGroup="$irrigationMethodGroup" />
+                                <RadioButton fx:id="methodFlood" selected="true" styleClass="method-radio" text="🌊 বন্যা সেচ (Flood Irrigation)" toggleGroup="$irrigationMethodGroup" />
+                                <RadioButton fx:id="methodFurrow" styleClass="method-radio" text="🚰 নালা সেচ (Furrow Irrigation)" toggleGroup="$irrigationMethodGroup" />
+                            </VBox>
+                        </VBox>
+
+                        <Separator styleClass="section-separator" />
+
+                        <Label styleClass="section-heading-numbered-blue" text="৪. পানির উৎস" />
+
+                        <!-- Water Source -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="পানির উৎস" />
+                            <ComboBox fx:id="waterSourceComboBox" maxWidth="Infinity" promptText="উৎস নির্বাচন করুন" styleClass="input-field" />
+                        </VBox>
+
+                        <!-- Pump Power -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="মোটরের ক্ষমতা (যদি থাকে)" />
+                            <ComboBox fx:id="pumpPowerComboBox" maxWidth="Infinity" promptText="এইচপি/ঘোড়া নির্বাচন করুন" styleClass="input-field" />
+                        </VBox>
+
+                        <!-- Pipe/Drain Info -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="পাইপ/ড্রেনের ধরন" />
+                            <ComboBox fx:id="pipeTypeComboBox" maxWidth="Infinity" promptText="পাইপের ধরন নির্বাচন করুন" styleClass="input-field" />
+                        </VBox>
+
+                        <!-- Pipe Length -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="পাইপের দৈর্ঘ্য (যদি জানা থাকে)" />
+                            <HBox spacing="10">
+                                <TextField fx:id="pipeLengthField" promptText="উদাহরণ: 500" styleClass="input-field" HBox.hgrow="ALWAYS" />
+                                <ComboBox fx:id="pipeLengthUnitComboBox" prefWidth="100" styleClass="input-field-small" />
+                            </HBox>
+                        </VBox>
+
+                        <Separator styleClass="section-separator" />
+
+                        <!-- Calculate Button -->
+                        <Button fx:id="calculateBtn" maxWidth="Infinity" styleClass="calculate-btn-irrigation" text="সেচ পরিকল্পনা তৈরি করুন 💧" />
+                        <Label styleClass="required-note" text="* চিহ্নিত ঘর অবশ্যই পূরণ করতে হবে" />
+
+                    </VBox>
+
+                    <!-- Right Side: Results -->
+                    <VBox prefWidth="550" spacing="20" styleClass="irrigation-result-section" HBox.hgrow="ALWAYS">
+                        <padding>
+                            <Insets bottom="30" left="30" right="30" top="30" />
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="section-heading" text="সেচ পরিকল্পনা" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Button fx:id="resetBtn" styleClass="reset-btn" text="রিসেট" />
+                        </HBox>
+
+                        <!-- Results Display Area -->
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="700" styleClass="result-scroll" vbarPolicy="AS_NEEDED">
+                            <VBox fx:id="resultsMainContainer" spacing="20">
+
+                                <!-- Default Empty State -->
+                                <VBox fx:id="emptyResultState" alignment="CENTER" minHeight="600" spacing="20" styleClass="empty-result-state">
+                                    <Label styleClass="empty-result-icon" text="💧" />
+                                    <Label styleClass="empty-result-text" text="সেচ পরিকল্পনা দেখতে" />
+                                    <Label styleClass="empty-result-text" text="উপরের ফর্ম পূরণ করে" />
+                                    <Label styleClass="empty-result-text" text="'সেচ পরিকল্পনা তৈরি করুন' বাটনে ক্লিক করুন" />
+                                    <VBox spacing="8" styleClass="info-tip-box-blue">
+                                        <Label styleClass="tip-title-blue" text="💡 গুরুত্বপূর্ণ তথ্য:" />
+                                        <Label styleClass="tip-text-blue" text="• অতিরিক্ত সেচ ফসলের ক্ষতি করতে পারে" />
+                                        <Label styleClass="tip-text-blue" text="• মাটিতে রস দেখে সেচ দিন" />
+                                        <Label styleClass="tip-text-blue" text="• সকাল/সন্ধ্যায় সেচ দিলে পানি কম লাগে" />
+                                    </VBox>
+                                </VBox>
+
+                                <!-- Results Container -->
+                                <VBox fx:id="resultContentContainer" managed="false" spacing="20" visible="false">
+
+                                    <!-- Water Requirement Card -->
+                                    <VBox spacing="15" styleClass="water-requirement-card">
+                                        <Label styleClass="water-req-title" text="💧 পানির প্রয়োজন" />
+
+                                        <HBox alignment="CENTER" spacing="20">
+                                            <VBox alignment="CENTER" spacing="5" HBox.hgrow="ALWAYS">
+                                                <Label styleClass="water-label" text="প্রতি সেচে" />
+                                                <Label fx:id="waterPerIrrigationLabel" styleClass="water-value-large" text="0 লিটার" />
+                                                <Label styleClass="water-sublabel" text="প্রতি একর" />
+                                            </VBox>
+
+                                            <Separator orientation="VERTICAL" prefHeight="80" />
+
+                                            <VBox alignment="CENTER" spacing="5" HBox.hgrow="ALWAYS">
+                                                <Label styleClass="water-label" text="মোট মৌসুমে" />
+                                                <Label fx:id="totalWaterLabel" styleClass="water-value-large" text="0 লিটার" />
+                                                <Label styleClass="water-sublabel" text="সম্পূর্ণ জমিতে" />
+                                            </VBox>
+                                        </HBox>
+
+                                        <HBox alignment="CENTER" spacing="10" styleClass="efficiency-box">
+                                            <Label styleClass="efficiency-label" text="দক্ষতা:" />
+                                            <Label fx:id="efficiencyLabel" styleClass="efficiency-value" text="70%" />
+                                        </HBox>
+                                    </VBox>
+
+                                    <!-- Irrigation Schedule -->
+                                    <VBox spacing="15" styleClass="schedule-card">
+                                        <Label styleClass="schedule-title" text="📅 সেচ সময়সূচি" />
+                                        <VBox fx:id="scheduleContainer" spacing="10">
+                                            <!-- Dynamic schedule items will be added here -->
+                                        </VBox>
+                                    </VBox>
+
+                                    <!-- Cost Estimation -->
+                                    <VBox spacing="15" styleClass="irrigation-cost-card">
+                                        <Label styleClass="cost-title" text="💰 খরচ হিসাব" />
+
+                                        <VBox spacing="12">
+                                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                                <Label styleClass="cost-item-label" text="বিদ্যুৎ/ডিজেল খরচ:" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="fuelCostLabel" styleClass="cost-item-value" text="৳ 0.00" />
+                                            </HBox>
+
+                                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                                <Label styleClass="cost-item-label" text="শ্রমিক খরচ:" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="laborCostLabel" styleClass="cost-item-value" text="৳ 0.00" />
+                                            </HBox>
+
+                                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                                <Label styleClass="cost-item-label" text="রক্ষণাবেক্ষণ:" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="maintenanceCostLabel" styleClass="cost-item-value" text="৳ 0.00" />
+                                            </HBox>
+
+                                            <Separator />
+
+                                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                                <Label styleClass="total-irrigation-cost-label" text="মোট খরচ:" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="totalCostLabel" styleClass="total-irrigation-cost-value" text="৳ 0.00" />
+                                            </HBox>
+                                        </VBox>
+
+                                        <Label styleClass="cost-note" text="প্রতি একর হিসাবে" />
+                                    </VBox>
+
+                                    <!-- Water Saving Tips -->
+                                    <VBox spacing="12" styleClass="tips-card-blue">
+                                        <Label styleClass="tips-title-blue" text="💡 পানি সাশ্রয়ের টিপস" />
+                                        <VBox spacing="8">
+                                            <Label styleClass="tip-item-blue" text="• সকাল ৬-৮টা অথবা বিকাল ৪-৬টায় সেচ দিন" />
+                                            <Label styleClass="tip-item-blue" text="• ড্রিপ বা ফোয়ারা সেচ ব্যবহার করলে ৩০-৫০% পানি সাশ্রয়" />
+                                            <Label styleClass="tip-item-blue" text="• মালচিং করলে মাটিতে রস থাকে বেশিদিন" />
+                                            <Label styleClass="tip-item-blue" text="• বৃষ্টির পর ২-৩ দিন সেচ দেবেন না" />
+                                            <Label styleClass="tip-item-blue" text="• মাটিতে জৈব পদার্থ বাড়ালে পানি ধারণ ক্ষমতা বাড়ে" />
+                                        </VBox>
+                                    </VBox>
+
+                                    <!-- Weather Alert -->
+                                    <VBox spacing="10" styleClass="weather-alert-card">
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <Label styleClass="weather-icon" text="🌤️" />
+                                            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                                <Label styleClass="weather-alert-title" text="আবহাওয়া সতর্কতা" />
+                                                <Label styleClass="weather-alert-text" text="আগামী ৩-৫ দিনের আবহাওয়ার পূর্বাভাস দেখে সেচ পরিকল্পনা করুন" />
+                                            </VBox>
+                                        </HBox>
+                                    </VBox>
+
+                                </VBox>
+
+                            </VBox>
+                        </ScrollPane>
+
+                    </VBox>
+
+                </HBox>
+
+                <!-- Quick Guide Section -->
+                <VBox spacing="20" styleClass="guide-section">
+                    <padding>
+                        <Insets bottom="25" left="30" right="30" top="25" />
+                    </padding>
+
+                    <Label styleClass="guide-title" text="📘 সেচ পদ্ধতির তুলনা" />
+
+                    <GridPane hgap="15" vgap="15">
+
+                        <!-- Drip -->
+                        <VBox spacing="12" styleClass="method-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <padding>
+                                <Insets bottom="20" left="20" right="20" top="20" />
+                            </padding>
+                            <Label styleClass="method-card-name" text="💧 ড্রিপ সেচ" />
+                            <Label styleClass="method-feature-label" text="পানি সাশ্রয়:" />
+                            <Label styleClass="method-feature-value-high" text="৪০-৫০%" />
+                            <Label styleClass="method-info" text="খরচ: বেশি (প্রাথমিক)" />
+                            <Label styleClass="method-info" text="উপযুক্ত: সবজি, ফল" />
+                        </VBox>
+
+                        <!-- Sprinkler -->
+                        <VBox spacing="12" styleClass="method-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <padding>
+                                <Insets bottom="20" left="20" right="20" top="20" />
+                            </padding>
+                            <Label styleClass="method-card-name" text="🚿 ফোয়ারা সেচ" />
+                            <Label styleClass="method-feature-label" text="পানি সাশ্রয়:" />
+                            <Label styleClass="method-feature-value-medium" text="৩০-৪০%" />
+                            <Label styleClass="method-info" text="খরচ: মাঝারি" />
+                            <Label styleClass="method-info" text="উপযুক্ত: গম, ভুট্টা" />
+                        </VBox>
+
+                        <!-- Flood -->
+                        <VBox spacing="12" styleClass="method-card" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                            <padding>
+                                <Insets bottom="20" left="20" right="20" top="20" />
+                            </padding>
+                            <Label styleClass="method-card-name" text="🌊 বন্যা সেচ" />
+                            <Label styleClass="method-feature-label" text="পানি সাশ্রয়:" />
+                            <Label styleClass="method-feature-value-low" text="০-১০%" />
+                            <Label styleClass="method-info" text="খরচ: কম" />
+                            <Label styleClass="method-info" text="উপযুক্ত: ধান" />
+                        </VBox>
+
+                        <!-- Furrow -->
+                        <VBox spacing="12" styleClass="method-card" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                            <padding>
+                                <Insets bottom="20" left="20" right="20" top="20" />
+                            </padding>
+                            <Label styleClass="method-card-name" text="🚰 নালা সেচ" />
+                            <Label styleClass="method-feature-label" text="পানি সাশ্রয়:" />
+                            <Label styleClass="method-feature-value-medium" text="২০-৩০%" />
+                            <Label styleClass="method-info" text="খরচ: কম" />
+                            <Label styleClass="method-info" text="উপযুক্ত: আলু, সবজি" />
+                        </VBox>
+                  <columnConstraints>
+                     <ColumnConstraints />
+                     <ColumnConstraints />
+                     <ColumnConstraints />
+                     <ColumnConstraints />
+                  </columnConstraints>
+                  <rowConstraints>
+                     <RowConstraints />
+                  </rowConstraints>
+
+                    </GridPane>
+
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

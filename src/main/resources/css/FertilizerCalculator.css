@@ -1,0 +1,446 @@
+/* Import base styles */
+@import "dashboard.css";
+
+/* Page Header */
+
+.page-header-calc {
+    -fx-background-color: white;
+    -fx-padding: 25 30;
+    -fx-background-radius: 12;
+    -fx-border-color: #22c55e;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+}
+
+.page-header-calc .page-title {
+
+    -fx-font-size: 32px;
+        -fx-font-weight: bold;
+        -fx-text-fill: #1f2937;
+}
+
+.page-header-calc .page-subtitle {
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+}
+
+/* Input Section */
+.calc-input-section {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 30;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 12, 0, 0, 3);
+}
+
+.section-heading-numbered {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #16a34a;
+    -fx-background-color: #f0fdf4;
+    -fx-padding: 10 15;
+    -fx-background-radius: 8;
+}
+
+.input-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #374151;
+}
+
+.input-label-required {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #374151;
+}
+
+.input-label-required:after {
+    -fx-text-fill: #dc2626;
+}
+
+.input-field {
+    -fx-font-size: 14px;
+    -fx-padding: 12 15;
+    -fx-background-color: #f9fafb;
+    -fx-border-color: #d1d5db;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-family: "Noto Sans Bengali", "Segoe UI", Arial;
+}
+
+.input-field:focused {
+    -fx-border-color: #16a34a;
+    -fx-background-color: white;
+    -fx-border-width: 2;
+}
+
+.input-field-small {
+    -fx-font-size: 14px;
+    -fx-padding: 12 10;
+    -fx-background-color: #f9fafb;
+    -fx-border-color: #d1d5db;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.combo-box {
+    -fx-font-size: 14px;
+    -fx-background-color: #f9fafb;
+    -fx-border-color: #d1d5db;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.combo-box:focused {
+    -fx-border-color: #16a34a;
+    -fx-border-width: 2;
+}
+
+.combo-box .list-cell {
+    -fx-padding: 10;
+    -fx-font-family: "Noto Sans Bengali", "Segoe UI", Arial;
+}
+
+/* Fertility Radio Buttons */
+.fertility-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #374151;
+}
+
+.fertility-radio {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6b7280;
+}
+
+.fertility-radio .radio {
+    -fx-background-color: white;
+    -fx-border-color: #d1d5db;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+}
+
+.fertility-radio:selected .radio {
+    -fx-background-color: white;
+    -fx-border-color: #16a34a;
+}
+
+.fertility-radio:selected .radio .dot {
+    -fx-background-color: #16a34a;
+    -fx-background-radius: 5;
+}
+
+/* Checkboxes */
+.checkbox-custom {
+    -fx-font-size: 14px;
+    -fx-text-fill: #374151;
+}
+
+.checkbox-custom .box {
+    -fx-background-color: white;
+    -fx-border-color: #d1d5db;
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.checkbox-custom:selected .box {
+    -fx-background-color: #16a34a;
+    -fx-border-color: #16a34a;
+}
+
+.checkbox-custom:selected .mark {
+    -fx-background-color: white;
+}
+
+/* Section Separator */
+.section-separator {
+    -fx-background-color: #e5e7eb;
+}
+
+/* Calculate Button */
+
+.calculate-btn {
+    -fx-background-color: #159043;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 16 30;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(22, 163, 74, 0.3), 10, 0, 0, 4);
+}
+
+.calculate-btn:hover {
+    -fx-background-color: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.calculate-btn:pressed {
+    -fx-background-color: #14532d;
+}
+
+.required-note {
+    -fx-font-size: 12px;
+    -fx-text-fill: #9ca3af;
+    -fx-font-style: italic;
+}
+
+/* Reset Button */
+.reset-btn {
+    -fx-background-color: #f3f4f6;
+    -fx-text-fill: #6b7280;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-padding: 8 16;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-border-color: #e5e7eb;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+}
+
+.reset-btn:hover {
+    -fx-background-color: #e5e7eb;
+    -fx-text-fill: #374151;
+}
+
+/* Result Section */
+.calc-result-section {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 30;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 12, 0, 0, 3);
+}
+
+.result-scroll {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+.result-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Empty Result State */
+.empty-result-state {
+    -fx-padding: 40 20;
+    -fx-alignment: center;
+}
+
+.empty-result-icon {
+    -fx-font-size: 80px;
+    -fx-opacity: 0.2;
+}
+
+.empty-result-text {
+    -fx-font-size: 15px;
+    -fx-text-fill: #9ca3af;
+    -fx-text-alignment: center;
+}
+
+.info-tip-box {
+    -fx-background-color: #eff6ff;
+    -fx-padding: 20;
+    -fx-background-radius: 10;
+    -fx-border-color: #bfdbfe;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-max-width: 350;
+}
+
+.tip-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e40af;
+}
+
+.tip-text {
+    -fx-font-size: 12px;
+    -fx-text-fill: #1e3a8a;
+}
+
+/* Summary Card */
+.summary-card {
+    -fx-background-color: #f0fdf4;
+    -fx-padding: 20;
+    -fx-background-radius: 10;
+    -fx-border-color: #bbf7d0;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+}
+
+.summary-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #166534;
+}
+
+.summary-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #6b7280;
+}
+
+.summary-value {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+/* Result Section Title */
+.result-section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+/* Cost Summary Card */
+.cost-summary-card {
+    -fx-background-color: #fef3c7;
+    -fx-padding: 20;
+    -fx-background-radius: 10;
+    -fx-border-color: #fde047;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+}
+
+.cost-summary-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #854d0e;
+}
+
+.total-cost-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #78350f;
+}
+
+.total-cost-value {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #16a34a;
+}
+
+.cost-note {
+    -fx-font-size: 11px;
+    -fx-text-fill: #92400e;
+    -fx-font-style: italic;
+}
+
+/* Timeline Card */
+.timeline-card {
+    -fx-background-color: #eff6ff;
+    -fx-padding: 20;
+    -fx-background-radius: 10;
+    -fx-border-color: #bfdbfe;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+}
+
+.timeline-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e40af;
+}
+
+/* Tips Card */
+.tips-card {
+    -fx-background-color: #fef2f2;
+    -fx-padding: 20;
+    -fx-background-radius: 10;
+    -fx-border-color: #fecaca;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+}
+
+.tips-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #991b1b;
+}
+
+.tip-item {
+    -fx-font-size: 13px;
+    -fx-text-fill: #7f1d1d;
+    -fx-wrap-text: true;
+}
+
+/* Reference Section */
+.reference-section {
+    -fx-background-color: #fefce8;
+    -fx-background-radius: 12;
+    -fx-padding: 25 30;
+    -fx-border-color: #fde047;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+}
+
+.reference-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #854d0e;
+}
+
+/* Price Cards */
+.price-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 8, 0, 0, 2);
+    -fx-alignment: center;
+}
+
+.price-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 12, 0, 0, 4);
+    -fx-cursor: hand;
+}
+
+.price-card-name {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+    -fx-text-alignment: center;
+}
+
+.price-card-value {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #16a34a;
+    -fx-text-alignment: center;
+}
+
+.price-card-info {
+    -fx-font-size: 12px;
+    -fx-text-fill: #6b7280;
+    -fx-text-alignment: center;
+}
+
+.price-note {
+    -fx-font-size: 12px;
+    -fx-text-fill: #92400e;
+    -fx-font-style: italic;
+}
+
+/* Scrollbar Customization */
+.result-scroll .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.result-scroll .scroll-bar:vertical .track {
+    -fx-background-color: #f3f4f6;
+    -fx-background-radius: 4;
+}
+
+.result-scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: #d1d5db;
+    -fx-background-radius: 4;
+}
+
+.result-scroll .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #9ca3af;
+}
