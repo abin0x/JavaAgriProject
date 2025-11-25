@@ -42,10 +42,10 @@ public class FertilizerCalculatorController implements Initializable {
     // ==========================================
     // 2. Top Filter Buttons (Navigation)
     // ==========================================
-    @FXML private Button btnGuide;         // Go back to CropAdvisory
-    @FXML private Button btnFertilizer;    // Current Page
-    @FXML private Button btnIrrigation;    // Go to IrrigationCalculator
-    @FXML private Button btnCropRotation;  // Go to CropRotation
+    @FXML private Button btnGuide;
+    @FXML private Button btnFertilizer;
+    @FXML private Button btnIrrigation;
+    @FXML private Button btnCropRotation;
 
     // ==========================================
     // 3. Calculator Inputs & Outputs
@@ -94,61 +94,30 @@ public class FertilizerCalculatorController implements Initializable {
     }
 
     // ==========================================
-    // 4. Navigation Logic (FIXED)
+    // 4. Navigation Logic
     // ==========================================
     private void setupNavigationHandlers() {
-        // --- Sidebar ---
         if (btnHome != null) btnHome.setOnAction(e -> loadPage(e, "/fxml/dashboard.fxml"));
         if (btnAdvisory != null) btnAdvisory.setOnAction(e -> loadPage(e, "/fxml/CropAdvisory.fxml"));
-
-        // --- Top Filter Buttons ---
-
-        // Guide -> Back to Main Advisory
-        if (btnGuide != null) {
-            btnGuide.setOnAction(e -> loadPage(e, "/fxml/CropAdvisory.fxml"));
-        }
-
-        // Fertilizer -> Reload Current (Optional)
-        if (btnFertilizer != null) {
-            btnFertilizer.setOnAction(e -> loadPage(e, "/fxml/FertilizerCalculator.fxml"));
-        }
-
-        // Irrigation -> Go to Irrigation Page
-        if (btnIrrigation != null) {
-            btnIrrigation.setOnAction(e -> loadPage(e, "/fxml/IrrigationCalculator.fxml"));
-        }
-
-        // Crop Rotation -> Placeholder or Page
-        if (btnCropRotation != null) {
-            btnCropRotation.setOnAction(e -> loadPage(e, "/fxml/CropRotation.fxml"));
-        }
-
-        // --- Other Sidebar Items (Placeholders) ---
-        if (btnAiHelper != null) btnAiHelper.setOnAction(e -> System.out.println("AI Page Loading..."));
+        if (btnGuide != null) btnGuide.setOnAction(e -> loadPage(e, "/fxml/CropAdvisory.fxml"));
+        if (btnFertilizer != null) btnFertilizer.setOnAction(e -> loadPage(e, "/fxml/FertilizerCalculator.fxml"));
+        if (btnIrrigation != null) btnIrrigation.setOnAction(e -> loadPage(e, "/fxml/IrrigationCalculator.fxml"));
+        if (btnCropRotation != null) btnCropRotation.setOnAction(e -> loadPage(e, "/fxml/CropRotation.fxml"));
     }
 
-    /**
-     * Helper method to load pages safely
-     */
     private void loadPage(ActionEvent event, String fxmlPath) {
         try {
-            // 1. Get Stage from the specific button clicked
             Node source = (Node) event.getSource();
             Stage stage = (Stage) source.getScene().getWindow();
 
-            // 2. Check if file exists
             URL fileUrl = getClass().getResource(fxmlPath);
-            if (fileUrl == null) {
-                System.err.println("❌ FXML Not Found: " + fxmlPath);
-                return;
-            }
+            if (fileUrl == null) return;
 
-            // 3. Load FXML
             FXMLLoader loader = new FXMLLoader(fileUrl);
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
-            // 4. Load CSS
+            // CSS Loading
             String dashboardCss = getClass().getResource("/css/dashboard.css").toExternalForm();
             if (dashboardCss != null) scene.getStylesheets().add(dashboardCss);
 
@@ -156,19 +125,14 @@ public class FertilizerCalculatorController implements Initializable {
                 String cropCss = getClass().getResource("/css/CropAdvisory.css").toExternalForm();
                 if (cropCss != null) scene.getStylesheets().add(cropCss);
             }
-
-            // Add Fertilizer CSS if specific styles needed
             String fertCss = getClass().getResource("/css/FertilizerCalculator.css").toExternalForm();
             if (fertCss != null) scene.getStylesheets().add(fertCss);
 
-
-            // 5. Show Scene
             stage.setScene(scene);
             stage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("❌ Error loading page: " + fxmlPath);
         }
     }
 
@@ -262,13 +226,14 @@ public class FertilizerCalculatorController implements Initializable {
             }
             for(int i=0; i<3; i++) if(npk[i]<0) npk[i]=0;
 
-            // Calculate Amounts
+            // Calculate Amounts (KG)
             double ureaKg = (npk[0] * 2.17) * landHa;
             double tspKg = (npk[1] * 2.17) * landHa;
             double mopKg = (npk[2] * 1.67) * landHa;
             double gypsumKg = 60 * landHa;
             double zincKg = 8 * landHa;
 
+            // Display Results
             displayResults(cropComboBox.getValue(), landArea, unitComboBox.getValue(), soilTypeComboBox.getValue(), ureaKg, tspKg, mopKg, gypsumKg, zincKg);
 
         } catch (NumberFormatException e) {
@@ -289,6 +254,8 @@ public class FertilizerCalculatorController implements Initializable {
         timelineContainer.getChildren().clear();
 
         double totalCost = 0;
+
+        // Items add logic
         totalCost += addResultItem("ইউরিয়া (Urea)", u, fertilizerPrices.get("Urea"), "নাইট্রোজেন (N)");
         totalCost += addResultItem("টিএসপি (TSP)", t, fertilizerPrices.get("TSP"), "ফসফরাস (P)");
         totalCost += addResultItem("এমওপি (MoP)", m, fertilizerPrices.get("MOP"), "পটাশ (K)");
@@ -297,6 +264,7 @@ public class FertilizerCalculatorController implements Initializable {
 
         totalCostLabel.setText("৳ " + moneyFormat.format(totalCost));
 
+        // Timeline items
         addTimelineItem("1", "জমি তৈরির শেষ চাষে: সম্পূর্ণ টিএসপি, এমওপি, জিপসাম ও জিংক প্রয়োগ করুন।");
         addTimelineItem("2", "চারা রোপণের ৭-১০ দিন পর: ইউরিয়া সারের ১ম কিস্তি দিন।");
         addTimelineItem("3", "চারা রোপণের ২৫-৩০ দিন পর: ইউরিয়া সারের ২য় কিস্তি দিন।");
@@ -305,12 +273,18 @@ public class FertilizerCalculatorController implements Initializable {
         resultContentContainer.setVisible(true); resultContentContainer.setManaged(true);
     }
 
+    // ==========================================
+    // 6. FIX: Showing Weight in Main Card, Cost in Breakdown
+    // ==========================================
     private double addResultItem(String name, double amount, double price, String nut) {
-        if (amount <= 0.1) return 0;
+        if (amount <= 0.1) return 0; // Skip negligible amounts
+
+        // 1. Create Main Card
         HBox card = new HBox(15);
         card.setAlignment(Pos.CENTER_LEFT);
         card.setStyle("-fx-background-color: #f1f8e9; -fx-padding: 10; -fx-background-radius: 8; -fx-border-color: #c5e1a5;");
 
+        // Left Side: Name
         VBox left = new VBox(3);
         Label nLbl = new Label(name); nLbl.setStyle("-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #2e7d32;");
         Label nutLbl = new Label(nut); nutLbl.setStyle("-fx-text-fill: #666; -fx-font-size: 11px;");
@@ -318,19 +292,28 @@ public class FertilizerCalculatorController implements Initializable {
 
         Region spacer = new Region(); HBox.setHgrow(spacer, Priority.ALWAYS);
 
+        // Right Side: WEIGHT (Updated Fix)
         VBox right = new VBox(3); right.setAlignment(Pos.CENTER_RIGHT);
-        Label amtLbl = new Label(df.format(amount) + " কেজি"); amtLbl.setStyle("-fx-font-weight: bold; -fx-font-size: 16px;");
+
+        // This line ensures WEIGHT is shown in the card, NOT price
+        Label amtLbl = new Label(df.format(amount) + " কেজি");
+        amtLbl.setStyle("-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #1b5e20;");
+
+        right.getChildren().add(amtLbl);
 
         card.getChildren().addAll(left, spacer, right);
         fertilizerResultsContainer.getChildren().add(card);
 
+        // 2. Add to Cost Breakdown (Bottom Section)
         double cost = amount * price;
         HBox costRow = new HBox(10);
         Label cName = new Label("• " + name); cName.setStyle("-fx-text-fill: #555;");
         Region sp = new Region(); HBox.setHgrow(sp, Priority.ALWAYS);
-        Label cVal = new Label("৳ " + df.format(cost)); cVal.setStyle("-fx-font-weight: bold;");
+        Label cVal = new Label("৳ " + df.format(cost)); // Shows Price here
+        cVal.setStyle("-fx-font-weight: bold;");
         costRow.getChildren().addAll(cName, sp, cVal);
         costBreakdownContainer.getChildren().add(costRow);
+
         return cost;
     }
 

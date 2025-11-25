@@ -49,6 +49,7 @@
                 <Button fx:id="btnHome" styleClass="sidebar-btn" text="🏠 হোম" />
 
                 <Button fx:id="btnAdvisory" styleClass="sidebar-btn, active-btn" text="📅 পরিকল্পনা ও হিসাব" />
+                <Button fx:id="btnStorage" styleClass="sidebar-btn" text="🏪 গুদাম ও সংরক্ষণ" />
 
                 <!-- অন্যান্য বাটন -->
                 <Button fx:id="btnAiHelper" styleClass="sidebar-btn" text="🤖 AI সহায়ক" />

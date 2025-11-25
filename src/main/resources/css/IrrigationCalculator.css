@@ -175,7 +175,7 @@
 }
 
 .water-value-large {
-    -fx-font-size: 32px;
+    -fx-font-size: 24px;
     -fx-font-weight: bold;
     -fx-text-fill: #0284c7;
 }

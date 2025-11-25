@@ -22,7 +22,7 @@ public class CropAdvisoryController implements Initializable {
     private Button btnAiHelper;
 
     @FXML
-    private Button btnVideoEducation;
+    private Button btnStorage;
 
     @FXML
     private Button btnFarmWeather;
@@ -130,6 +130,10 @@ public class CropAdvisoryController implements Initializable {
         if (btnIrrigation != null) {
             btnIrrigation.setOnAction(event -> loadPage(event, "/fxml/IrrigationCalculator.fxml"));
         }
+        if (btnStorage != null) {
+            btnStorage.setOnAction(event -> loadPage(event, "/fxml/WarehouseView.fxml"));
+        }
+
 
         // Crop Rotation (Assuming you have a file for this, otherwise shows message)
         if (btnCropRotation != null) {

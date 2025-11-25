@@ -1,0 +1,259 @@
+/* =============================================================================
+   MAIN CONTENT & SCROLLPANE
+   ============================================================================= */
+.content-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-padding: 0;
+}
+
+.content-scroll > .viewport {
+    -fx-background-color: #f9fafb; /* Light Gray-White Background */
+}
+
+.main-content {
+    -fx-background-color: #f9fafb;
+    -fx-padding: 30 40;
+}
+
+/* =============================================================================
+   PAGE HEADER
+   ============================================================================= */
+.page-header {
+    -fx-background-color: #f0fdf4; /* Very Light Green */
+    -fx-background-radius: 12;
+    -fx-border-color: #bbf7d0;      /* Soft Green Border */
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+    -fx-padding: 25 30;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.02), 5, 0, 0, 2);
+}
+
+.page-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #1f2937; /* Dark Slate */
+    -fx-font-family: 'Segoe UI', sans-serif;
+}
+
+.page-icon {
+    -fx-font-size: 28px;
+}
+
+.page-subtitle {
+    -fx-font-size: 15px;
+    -fx-text-fill: #4b5563; /* Medium Gray */
+}
+
+/* =============================================================================
+   SEARCH BAR
+   ============================================================================= */
+.search-bar {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #e5e7eb;
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.04), 8, 0, 0, 2);
+    -fx-padding: 10 15;
+}
+
+.search-icon {
+    -fx-font-size: 16px;
+    -fx-text-fill: #9ca3af;
+}
+
+.search-input {
+    -fx-background-color: transparent;
+    -fx-font-size: 15px;
+    -fx-text-fill: #374151;
+    -fx-prompt-text-fill: #9ca3af;
+}
+
+.search-btn {
+    -fx-background-color: #16a34a; /* Emerald 600 */
+    -fx-text-fill: white;
+    -fx-font-weight: 700;
+    -fx-font-size: 14px;
+    -fx-padding: 10 25;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(22, 163, 74, 0.3), 8, 0, 0, 4);
+}
+
+.search-btn:hover {
+    -fx-background-color: #15803d; /* Emerald 700 */
+}
+
+/* =============================================================================
+   WAREHOUSE CARDS (Professional Style)
+   ============================================================================= */
+.warehouse-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.06), 15, 0, 0, 5);
+    -fx-min-width: 320px;
+    -fx-pref-width: 320px;
+    -fx-spacing: 15;
+
+}
+
+.warehouse-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 20, 0, 0, 8);
+    -fx-scale-x: 1.01;
+    -fx-scale-y: 1.01;
+    -fx-cursor: hand;
+}
+
+.card-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #111827; /* Near Black */
+    -fx-wrap-text: true;
+}
+
+/* Badges & Tags */
+.badge-black {
+    -fx-background-color: #1FBB58;
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+    -fx-padding: 5 12;
+    -fx-background-radius: 20;
+}
+
+.tag-grey {
+    -fx-background-color: #f3f4f6;
+    -fx-text-fill: #4b5563;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-padding: 4 12;
+    -fx-background-radius: 6;
+    -fx-alignment: center;
+}
+
+/* Details Section */
+.details-box {
+    -fx-padding: 10 0;
+}
+
+.detail-icon {
+    -fx-font-size: 16px;
+    -fx-min-width: 24px;
+}
+
+.detail-text {
+    -fx-text-fill: #4b5563; /* Gray 600 */
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+}
+
+.section-header {
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #374151;
+    -fx-padding: 5 0 0 0;
+}
+
+/* Chips/Pills */
+.tag-white {
+    -fx-background-color: white;
+    -fx-border-color: #e5e7eb;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 5 14;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #374151;
+}
+
+.tag-facility {
+    -fx-background-color: #f0fdf4; /* Very light green hint */
+    -fx-text-fill: #166534;        /* Dark Green Text */
+    -fx-background-radius: 20;
+    -fx-padding: 5 14;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+}
+
+/* Contact Button */
+.btn-contact {
+    -fx-background-color: #1FBB58; /* Gray 900 */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 8;
+    -fx-padding: 12 0;
+    -fx-cursor: hand;
+    -fx-margin-top: 10px;
+}
+
+.btn-contact:hover {
+    -fx-background-color: #32ba64;
+}
+
+/* =============================================================================
+   LOAD MORE BUTTON
+   ============================================================================= */
+.load-more-btn {
+    -fx-background-color: white;
+    -fx-border-color: #16a34a;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+    -fx-text-fill: #16a34a;
+    -fx-font-weight: 700;
+    -fx-padding: 10 35;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+}
+
+.load-more-btn:hover {
+    -fx-background-color: #16a34a;
+    -fx-text-fill: white;
+}
+
+/* =============================================================================
+   TIPS SECTION (Bottom)
+   ============================================================================= */
+.tips-section {
+    -fx-padding: 20 0;
+}
+
+.tips-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #111827;
+}
+
+.tip-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-color: #e5e7eb;
+    -fx-border-radius: 12;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.03), 8, 0, 0, 2);
+    -fx-min-width: 250px;
+}
+
+.tip-card:hover {
+    -fx-border-color: #bbf7d0;
+    -fx-effect: dropshadow(gaussian, rgba(22, 163, 74, 0.1), 10, 0, 0, 3);
+}
+
+.tip-icon {
+    -fx-font-size: 24px;
+}
+
+.tip-title-text {
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #1f2937;
+}
+
+.tip-description {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6b7280;
+    -fx-wrap-text: true;
+    -fx-line-spacing: 2;
+}
