@@ -17,7 +17,7 @@
 
 <BorderPane prefHeight="900" prefWidth="1400" styleClass="root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.marketfruits.WarehouseController">
 
-    <!-- Top Navigation Bar (Kept from your old code) -->
+    <!-- Top Navigation Bar -->
     <top>
         <HBox alignment="CENTER_LEFT" spacing="15" styleClass="top-nav" stylesheets="@../css/dashboard.css">
             <padding>
@@ -39,7 +39,7 @@
         </HBox>
     </top>
 
-    <!-- Left Sidebar (Kept from your old code, updated Active button) -->
+    <!-- Left Sidebar -->
     <left>
         <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="sidebar-scroll" vbarPolicy="AS_NEEDED">
             <VBox spacing="5" styleClass="sidebar" stylesheets="@../css/dashboard.css">
@@ -57,14 +57,9 @@
                 <Button fx:id="btnLocalManagement" styleClass="sidebar-btn" text="👥 স্থানীয় ব্যবস্থাপনা" />
                 <Button fx:id="btnAgriNews" styleClass="sidebar-btn" text="📰 কৃষি সংবাদ" />
                 <Button fx:id="btnCropPlanning" styleClass="sidebar-btn" text="🎯 ফসল পরিকল্পনা" />
-<!--                <Button fx:id="btnAdvisory" styleClass="sidebar-btn" text="📅 পরামর্শ ও বিসার" />-->
                 <Button fx:id="btnProfitLoss" styleClass="sidebar-btn" text="💰 লাভ-ক্ষতি হিসাব" />
                 <Button fx:id="btnWeather" styleClass="sidebar-btn" text="🌦️ আবহাওয়া" />
                 <Button fx:id="btnMarket" styleClass="sidebar-btn" text="📊 বাজার" />
-
-                <!-- Updated Active Button for Storage -->
-<!--                <Button fx:id="btnStorage" styleClass="sidebar-btn, active-btn" text="🏪 গুদাম ও সংরক্ষণ" />-->
-
                 <Button fx:id="btnSoilHealth" styleClass="sidebar-btn" text="🔔 মাটি স্বাস্থ্য" />
                 <Button fx:id="btnComments" styleClass="sidebar-btn" text="🗣️ মন্তব্য" />
                 <Button fx:id="btnProfile" styleClass="sidebar-btn" text="👤 প্রোফাইল" />
@@ -72,7 +67,7 @@
         </ScrollPane>
     </left>
 
-    <!-- Main Content Area (UPDATED) -->
+    <!-- Main Content Area -->
     <center>
         <ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" styleClass="content-scroll" vbarPolicy="ALWAYS">
             <VBox spacing="25" styleClass="main-content" stylesheets="@../css/Warehouse.css">
@@ -100,7 +95,6 @@
                 </HBox>
 
                 <!-- Warehouse Cards Grid -->
-                <!-- Use FlowPane or GridPane. Using HBox/FlowPane mimics the image better for responsiveness -->
                 <FlowPane alignment="CENTER" hgap="20" vgap="20">
 
                     <!-- CARD 1: Krishi Bhandar -->
@@ -240,6 +234,147 @@
 
                         <Button maxWidth="Infinity" styleClass="btn-contact" text="📞 যোগাযোগ করুন" />
                     </VBox>
+
+                    <!-- NEW CARD 4: Modern Cold Storage (New Image Left) -->
+                    <VBox styleClass="warehouse-card">
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label maxWidth="180.0" styleClass="card-title" text="আধুনিক হিমাগার" wrapText="true" />
+                            <StackPane alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                                <Label styleClass="badge-black" text="✔ 40% ফাঁকা" />
+                            </StackPane>
+                        </HBox>
+                        <Label styleClass="tag-grey" text="হিমাগার" />
+
+                        <VBox spacing="10.0" styleClass="details-box">
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <Label styleClass="detail-icon" text="📍" />
+                                <Label styleClass="detail-text" text="নরসিংদী সদর" />
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <Label styleClass="detail-icon" text="👤" />
+                                <Label styleClass="detail-text" text="ইঞ্জি. সালমান চৌধুরী" />
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <Label styleClass="detail-icon" text="📦" />
+                                <Label styleClass="detail-text" text="80/200 টন উপলব্ধ" />
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <Label styleClass="detail-icon" text="💰" />
+                                <Label styleClass="detail-text" text="৳ ৩০০/টন/মাস" />
+                            </HBox>
+                        </VBox>
+
+                        <Label styleClass="section-header" text="গ্রহণযোগ্য ফসল:" />
+                        <FlowPane hgap="8.0" vgap="8.0">
+                            <Label styleClass="tag-white" text="আলু" />
+                            <Label styleClass="tag-white" text="টমেটো" />
+                            <Label styleClass="tag-white" text="পেঁয়াজ" />
+                            <Label styleClass="tag-white" text="+1" />
+                        </FlowPane>
+
+                        <Label styleClass="section-header" text="সুবিধাসমূহ:" />
+                        <FlowPane hgap="8.0" vgap="8.0">
+                            <Label styleClass="tag-facility" text="তাপমাত্রা নিয়ন্ত্রণ" />
+                            <Label styleClass="tag-facility" text="আর্দ্রতা নিয়ন্ত্রণ" />
+                        </FlowPane>
+
+                        <Button maxWidth="Infinity" styleClass="btn-contact" text="📞 যোগাযোগ করুন" />
+                    </VBox>
+
+                    <!-- NEW CARD 5: Farmers Cooperative (New Image Right) -->
+                    <VBox styleClass="warehouse-card">
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label maxWidth="180.0" styleClass="card-title" text="কৃষক সমবায় গুদাম" wrapText="true" />
+                            <StackPane alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                                <!-- Inline style for Red Badge -->
+                                <Label style="-fx-background-color: #ef4444;" styleClass="badge-black" text="🕒 পূর্ণ" />
+                            </StackPane>
+                        </HBox>
+                        <Label styleClass="tag-grey" text="গুদাম" />
+
+                        <VBox spacing="10.0" styleClass="details-box">
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <Label styleClass="detail-icon" text="📍" />
+                                <Label styleClass="detail-text" text="মুন্সিগঞ্জ, গজারিয়া" />
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <Label styleClass="detail-icon" text="👤" />
+                                <Label styleClass="detail-text" text="মো. নজরুল ইসলাম" />
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <Label styleClass="detail-icon" text="📦" />
+                                <Label styleClass="detail-text" text="0/300 টন উপলব্ধ" />
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <Label styleClass="detail-icon" text="💰" />
+                                <Label styleClass="detail-text" text="৳ ১২০/টন/মাস" />
+                            </HBox>
+                        </VBox>
+
+                        <Label styleClass="section-header" text="গ্রহণযোগ্য ফসল:" />
+                        <FlowPane hgap="8.0" vgap="8.0">
+                            <Label styleClass="tag-white" text="ধান" />
+                            <Label styleClass="tag-white" text="আলু" />
+                            <Label styleClass="tag-white" text="গম" />
+                        </FlowPane>
+
+                        <Label styleClass="section-header" text="সুবিধাসমূহ:" />
+                        <FlowPane hgap="8.0" vgap="8.0">
+                            <Label styleClass="tag-facility" text="কীটনাশক স্প্রে" />
+                            <Label styleClass="tag-facility" text="পরিষ্কার পরিবেশ" />
+                        </FlowPane>
+
+                        <!-- Grey Button (Disabled Look) -->
+                        <Button disable="false" maxWidth="Infinity" style="-fx-background-color: #9ca3af; -fx-cursor: default;" styleClass="btn-contact" text="📞 যোগাযোগ করুন" />
+                    </VBox>
+
+
+                    <VBox styleClass="warehouse-card">
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label maxWidth="180.0" styleClass="card-title" text="কৃষক সমবায় গুদাম" wrapText="true" />
+                            <StackPane alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                                <!-- Inline style for Red Badge -->
+                                <Label  styleClass="badge-black" text="✔ 90% ফাঁকা" />
+                            </StackPane>
+                        </HBox>
+                        <Label styleClass="tag-grey" text="গুদাম" />
+
+                        <VBox spacing="10.0" styleClass="details-box">
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <Label styleClass="detail-icon" text="📍" />
+                                <Label styleClass="detail-text" text="মুন্সিগঞ্জ, গজারিয়া" />
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <Label styleClass="detail-icon" text="👤" />
+                                <Label styleClass="detail-text" text="মো. নজরুল ইসলাম" />
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <Label styleClass="detail-icon" text="📦" />
+                                <Label styleClass="detail-text" text="0/300 টন উপলব্ধ" />
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <Label styleClass="detail-icon" text="💰" />
+                                <Label styleClass="detail-text" text="৳ ১২০/টন/মাস" />
+                            </HBox>
+                        </VBox>
+
+                        <Label styleClass="section-header" text="গ্রহণযোগ্য ফসল:" />
+                        <FlowPane hgap="8.0" vgap="8.0">
+                            <Label styleClass="tag-white" text="ধান" />
+                            <Label styleClass="tag-white" text="আলু" />
+                            <Label styleClass="tag-white" text="গম" />
+                        </FlowPane>
+
+                        <Label styleClass="section-header" text="সুবিধাসমূহ:" />
+                        <FlowPane hgap="8.0" vgap="8.0">
+                            <Label styleClass="tag-facility" text="কীটনাশক স্প্রে" />
+                            <Label styleClass="tag-facility" text="পরিষ্কার পরিবেশ" />
+                        </FlowPane>
+                        <Button maxWidth="Infinity" styleClass="btn-contact" text="📞 যোগাযোগ করুন" />
+                        <!-- Grey Button (Disabled Look) -->
+<!--                        <Button disable="false" maxWidth="Infinity" style="-fx-background-color: #9ca3af; -fx-cursor: default;" styleClass="btn-contact" text="📞 যোগাযোগ করুন" />-->
+                    </VBox>
+
                 </FlowPane>
 
                 <!-- Load More Button -->
@@ -250,7 +385,7 @@
                     <Button fx:id="loadMoreBtn" styleClass="load-more-btn" text="আরও দেখুন" />
                 </HBox>
 
-                <!-- Storage Tips Section (Updated to be about Storage, not Disease) -->
+                <!-- Storage Tips Section -->
                 <VBox spacing="20" styleClass="tips-section">
                     <padding>
                         <Insets bottom="25" left="30" right="30" top="25" />
@@ -259,7 +394,6 @@
                     <Label styleClass="tips-title" text="💡 গুদামজাতকরণের পরামর্শ" />
 
                     <GridPane hgap="20" vgap="20">
-                        <!-- Tip 1 -->
                         <VBox spacing="10" styleClass="tip-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
                             <padding>
                                 <Insets bottom="20" left="20" right="20" top="20" />
@@ -269,7 +403,6 @@
                             <Label styleClass="tip-description" text="ফসলভেদে হিমাগারের তাপমাত্রা নিয়মিত পরীক্ষা করুন।" wrapText="true" />
                         </VBox>
 
-                        <!-- Tip 2 -->
                         <VBox spacing="10" styleClass="tip-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
                             <padding>
                                 <Insets bottom="20" left="20" right="20" top="20" />
@@ -279,7 +412,6 @@
                             <Label styleClass="tip-description" text="গুদামজাত করার আগে গুদামঘর ভালোভাবে পরিষ্কার ও শুকিয়ে নিন।" wrapText="true" />
                         </VBox>
 
-                        <!-- Tip 3 -->
                         <VBox spacing="10" styleClass="tip-card" GridPane.columnIndex="2" GridPane.rowIndex="0">
                             <padding>
                                 <Insets bottom="20" left="20" right="20" top="20" />
@@ -288,14 +420,14 @@
                             <Label styleClass="tip-title-text" text="আর্দ্রতা রোধ" />
                             <Label styleClass="tip-description" text="ফসল বস্তাবন্দী করার সময় আর্দ্রতা ১২% এর নিচে থাকা উচিত।" wrapText="true" />
                         </VBox>
-                  <columnConstraints>
-                     <ColumnConstraints />
-                     <ColumnConstraints />
-                     <ColumnConstraints />
-                  </columnConstraints>
-                  <rowConstraints>
-                     <RowConstraints />
-                  </rowConstraints>
+                        <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                            <ColumnConstraints />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints />
+                        </rowConstraints>
                     </GridPane>
                 </VBox>
 
