@@ -65,7 +65,7 @@ public class DashboardController implements Initializable {
     private Button btnPestDetection;
 
     @FXML
-    private Button btnComments;
+    private Button btnStorage;
 
     @FXML
     private Button btnWamService;
@@ -105,12 +105,9 @@ public class DashboardController implements Initializable {
         }
 
         // AI Helper
-        if (btnAiHelper != null) {
-            btnAiHelper.setOnAction(event -> {
-                System.out.println("AI সহায়ক পেজ লোড হচ্ছে...");
-                // loadPage("/fxml/AiHelper.fxml");
-                showComingSoon("AI সহায়ক");
-            });
+        if (btnStorage != null) {
+            btnStorage.setOnAction(event -> loadPage("/fxml/WarehouseView.fxml"));
+
         }
 
         // Video Education
