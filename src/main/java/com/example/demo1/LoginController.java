@@ -86,7 +86,7 @@ public class LoginController {
     public void onOpenRegisterClick(ActionEvent event) {
         try {
             // Load the Register FXML (Path is relative to the LoginController package)
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("register-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("com/example/demo1/fxml/register-view.fxml"));
             Parent root = fxmlLoader.load();
 
             // Create the Scene and attach CSS
