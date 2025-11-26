@@ -160,7 +160,7 @@
                     <execution>
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.marketfruits/com.example.demo1.marketfruits.HelloApplication</mainClass>
+                            <mainClass>com.example.demo1.marketfruits/com.example.demo1.marketfruits.HelloApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

@@ -133,7 +133,7 @@ public class CropAdvisoryController implements Initializable {
             btnStorage.setOnAction(event -> loadPage(event, "/com/example/demo1/fxml/WarehouseView.fxml"));
         }
         if (btnLocalManagement != null) {
-            btnLocalManagement.setOnAction(event -> loadPage(event, "/fxml/LocalManagement.fxml"));
+            btnLocalManagement.setOnAction(event -> loadPage(event, "/com/example/demo1/fxml/LocalManagement.fxml"));
         }
 
 
