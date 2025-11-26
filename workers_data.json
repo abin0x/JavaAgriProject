@@ -22,17 +22,5 @@
     "totalAmount": 1464.0,
     "paymentStatus": "completed",
     "notes": "32432"
-  },
-  {
-    "id": "550e8400-e29b-41d4-a716-446655440000",
-    "name": "করিম মিয়া",
-    "phone": "01712345678",
-    "workType": "জমি চাষ",
-    "date": "26/11/2025",
-    "hours": 8.0,
-    "ratePerHour": 200.0,
-    "totalAmount": 1600.0,
-    "paymentStatus": "completed",
-    "notes": "সকাল ৮টা থেকে বিকাল ৪টা পর্যন্ত কাজ করেছে"
   }
 ]

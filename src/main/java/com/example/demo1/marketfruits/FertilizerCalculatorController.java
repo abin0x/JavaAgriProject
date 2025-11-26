@@ -98,14 +98,14 @@ public class FertilizerCalculatorController implements Initializable {
     // ==========================================
     private void setupNavigationHandlers() {
 
-        if (btnHome != null) btnHome.setOnAction(e -> loadPage(e, "/fxml/dashboard.fxml"));
-        if (btnAdvisory != null) btnAdvisory.setOnAction(e -> loadPage(e, "/fxml/CropAdvisory.fxml"));
-        if (btnGuide != null) btnGuide.setOnAction(e -> loadPage(e, "/fxml/CropAdvisory.fxml"));
-        if (btnFertilizer != null) btnFertilizer.setOnAction(e -> loadPage(e, "/fxml/FertilizerCalculator.fxml"));
-        if (btnIrrigation != null) btnIrrigation.setOnAction(e -> loadPage(e, "/fxml/IrrigationCalculator.fxml"));
-        if (btnCropRotation != null) btnCropRotation.setOnAction(e -> loadPage(e, "/fxml/CropRotation.fxml"));
-        if (btnLocalManagement != null) btnLocalManagement.setOnAction(e -> loadPage(e, "/fxml/LocalManagement.fxml"));
-        if (btnStorage != null) btnStorage.setOnAction(e -> loadPage(e, "/fxml/WarehouseView.fxml"));
+        if (btnHome != null) btnHome.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/dashboard.fxml"));
+        if (btnAdvisory != null) btnAdvisory.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/CropAdvisory.fxml"));
+        if (btnGuide != null) btnGuide.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/CropAdvisory.fxml"));
+        if (btnFertilizer != null) btnFertilizer.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/FertilizerCalculator.fxml"));
+        if (btnIrrigation != null) btnIrrigation.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/IrrigationCalculator.fxml"));
+        if (btnCropRotation != null) btnCropRotation.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/CropRotation.fxml"));
+        if (btnLocalManagement != null) btnLocalManagement.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/LocalManagement.fxml"));
+        if (btnStorage != null) btnStorage.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/WarehouseView.fxml"));
 
     }
 
