@@ -132,6 +132,9 @@ public class CropAdvisoryController implements Initializable {
         if (btnStorage != null) {
             btnStorage.setOnAction(event -> loadPage(event, "/com/example/demo1/fxml/WarehouseView.fxml"));
         }
+        if (btnLocalManagement != null) {
+            btnLocalManagement.setOnAction(event -> loadPage(event, "/fxml/LocalManagement.fxml"));
+        }
 
 
         // Crop Rotation (Assuming you have a file for this, otherwise shows message)

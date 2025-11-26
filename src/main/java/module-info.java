@@ -5,7 +5,14 @@ module com.example.demo1.marketfruits {
     // Core JavaFX Modules
     requires javafx.controls;
     requires javafx.fxml;
-    requires javafx.graphics; // Often needed for the Application class
+
+    requires javafx.web;
+    requires javafx.swing;
+    requires javafx.media;
+
+    // Gson লাইব্রেরি
+    requires com.google.gson;
+
 
     // Jackson JSON Library (REQUIRED for JsonDbService, fixes "module not found" error)
     requires com.fasterxml.jackson.databind;
@@ -32,5 +39,11 @@ module com.example.demo1.marketfruits {
     // 4. Export the sub-package to make its public classes available.
     exports com.example.demo1.marketfruits;
 
+
+
+    // FXML এবং Gson উভয়ের জন্য প্যাকেজটি ওপেন করা হলো
+    opens com.example.marketfruits to javafx.fxml, com.google.gson;
+
+    exports com.example.marketfruits;
 
 }

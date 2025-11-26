@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 public class CropRotationController implements Initializable {
 
     // Navigation Buttons
-    @FXML private Button btnHome, btnAdvisory, btnGuide, btnFertilizer, btnIrrigation, btnCropRotation;
+    @FXML private Button btnHome, btnAdvisory, btnGuide, btnFertilizer, btnIrrigation, btnCropRotation, btnLocalManagement, btnStorage;
     @FXML private Button btnAiHelper, btnWeather;
 
     // Inputs
@@ -52,14 +52,27 @@ public class CropRotationController implements Initializable {
     // 1. Navigation Logic
     // ===========================
     private void setupNavigationHandlers() {
-        if(btnHome != null) btnHome.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/dashboard.fxml"));
-        if(btnGuide != null) {
-            btnGuide.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/CropAdvisory.fxml"));
-        }
 
-        if(btnFertilizer != null) btnFertilizer.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/FertilizerCalculator.fxml"));
-        if(btnIrrigation != null) btnIrrigation.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/IrrigationCalculator.fxml"));
-        if(btnCropRotation != null) btnCropRotation.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/CropRotation.fxml"));
+        if(btnHome != null)
+            btnHome.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/dashboard.fxml"));
+
+        if(btnGuide != null)
+            btnGuide.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/CropAdvisory.fxml"));
+
+        if(btnFertilizer != null)
+            btnFertilizer.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/FertilizerCalculator.fxml"));
+
+        if(btnIrrigation != null)
+            btnIrrigation.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/IrrigationCalculator.fxml"));
+
+        if(btnCropRotation != null)
+            btnCropRotation.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/CropRotation.fxml"));
+
+        if(btnLocalManagement != null)
+            btnLocalManagement.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/LocalManagement.fxml"));
+
+        if(btnStorage != null)
+            btnStorage.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/WarehouseView.fxml"));
     }
 
     private void loadPage(ActionEvent event, String fxmlPath) {
@@ -96,7 +109,6 @@ public class CropRotationController implements Initializable {
         soilTypeComboBox.getItems().addAll("দোআঁশ", "বেলে দোআঁশ", "এঁটেল দোআঁশ", "এঁটেল", "পলি মাটি");
         currentSeasonComboBox.getItems().addAll("রবি (শীত: নভে-ফেব্রু)", "খরিফ-১ (গ্রীষ্ম: মার্চ-জুন)", "খরিফ-২ (বর্ষা: জুলাই-অক্টো)");
 
-        // Common crops for "Previous Crop"
         prevCropComboBox.getItems().addAll(
                 "আমন ধান", "বোরো ধান", "গম", "ভুট্টা", "আলু", "সরিষা", "মসুর ডাল", "পাট", "সবজি"
         );
@@ -106,9 +118,10 @@ public class CropRotationController implements Initializable {
     // 3. Calculation Logic
     // ===========================
     private void calculateRotation() {
-        // Validation
+
         if(landTypeComboBox.getValue() == null || soilTypeComboBox.getValue() == null ||
                 currentSeasonComboBox.getValue() == null || prevCropComboBox.getValue() == null) {
+
             showAlert("দয়া করে * চিহ্নিত ঘরগুলো পূরণ করুন।");
             return;
         }
@@ -119,21 +132,18 @@ public class CropRotationController implements Initializable {
         String prevCrop = prevCropComboBox.getValue();
         boolean hasIrrigation = irrigationYes.isSelected();
 
-        // Clear previous results
         resultsContainer.getChildren().clear();
         emptyState.setVisible(false);
         emptyState.setManaged(false);
 
-        // Generate Logic based on Bangladesh Agriculture patterns
         generatePatterns(land, soil, season, prevCrop, hasIrrigation);
     }
 
     private void generatePatterns(String land, String soil, String currentSeason, String prevCrop, boolean irrigation) {
 
-        // --- SCENARIO 1: Previous was AMAN RICE (Harvested in Dec/Jan -> RABI Season starts) ---
+        // Scenario 1
         if(prevCrop.contains("আমন") || currentSeason.contains("রবি")) {
 
-            // Option 1: Classic Profit (Potato based) - Needs Soil: Loam/Sandy Loam
             if((soil.contains("দোআঁশ") || soil.contains("বেলে")) && irrigation) {
                 addRotationCard("বানিজ্যিক লাভজনক মডেল", "সর্বাধিক মুনাফা",
                         new CycleStep("সরিষা/আলু", "রবি (বর্তমান)", "💰"),
@@ -143,7 +153,6 @@ public class CropRotationController implements Initializable {
                 );
             }
 
-            // Option 2: Soil Health (Pulse based) - Good for Clay/Loam
             addRotationCard("মাটির স্বাস্থ্য সুরক্ষা মডেল", "মাটির উর্বরতা বৃদ্ধি",
                     new CycleStep("মসুর/মুগ ডাল", "রবি (বর্তমান)", "🌿"),
                     new CycleStep("পাট/আউশ", "খরিফ-১", "☘️"),
@@ -151,7 +160,6 @@ public class CropRotationController implements Initializable {
                     "ডাল জাতীয় ফসল মাটির নাইট্রোজেন বাড়ায়। এরপর পাট চাষ করলে মাটির গঠন ভালো থাকে।"
             );
 
-            // Option 3: Wheat Based (Alternative to Boro)
             if(land.contains("উঁচু") || land.contains("মাঝারি উঁচু")) {
                 addRotationCard("স্বল্প সেচ মডেল", "পানি সাশ্রয়ী",
                         new CycleStep("গম", "রবি (বর্তমান)", "🌾"),
@@ -162,18 +170,15 @@ public class CropRotationController implements Initializable {
             }
         }
 
-        // --- SCENARIO 2: Previous was BORO/MAIZE/WHEAT (Harvested April/May -> KHARIF-1 Starts) ---
         else if(prevCrop.contains("বোরো") || prevCrop.contains("গম") || currentSeason.contains("খরিফ-১")) {
 
-            // Option 1: Green Manure
             addRotationCard("সবুজ সার মডেল", "জৈব পদার্থ বৃদ্ধি",
                     new CycleStep("ধঞ্চে (সবুজ সার)", "খরিফ-১ (বর্তমান)", "🌿"),
                     new CycleStep("আমন ধান", "খরিফ-২", "🌧️"),
-                    new CycleStep("সরিষা/আলু", "রবি", "💰"),
+                    new CycleStep("সরিষা/আলু", "ರবি", "💰"),
                     "ধঞ্চে চাষ করে মাটিতে মিশিয়ে দিলে ইউরিয়া সারের খরচ অর্ধেক কমে যায়।"
             );
 
-            // Option 2: Cash Crop (Jute)
             addRotationCard("অর্থকরী ফসল মডেল", "পাট চাষ",
                     new CycleStep("পাট", "খরিফ-১ (বর্তমান)", "🌿"),
                     new CycleStep("আমন ধান", "খরিফ-২", "🌧️"),
@@ -182,7 +187,6 @@ public class CropRotationController implements Initializable {
             );
         }
 
-        // --- SCENARIO 3: Generic / Fallback ---
         else {
             addRotationCard("আদর্শ সবজি চক্র", "পারিবারিক পুষ্টি",
                     new CycleStep("বেগুন/টমেটো", "রবি", "🍆"),
@@ -194,14 +198,13 @@ public class CropRotationController implements Initializable {
     }
 
     // ===========================
-    // 4. UI Generation Helper
+    // 4. UI Card Builder
     // ===========================
     private void addRotationCard(String title, String badgeText, CycleStep step1, CycleStep step2, CycleStep step3, String benefit) {
 
         VBox card = new VBox(10);
         card.getStyleClass().add("rotation-card");
 
-        // Header
         HBox header = new HBox(10);
         header.setAlignment(Pos.CENTER_LEFT);
         header.getStyleClass().add("card-header");
@@ -217,7 +220,6 @@ public class CropRotationController implements Initializable {
 
         header.getChildren().addAll(titleLbl, spacer, badge);
 
-        // Cycle Flow
         HBox cycleBox = new HBox(5);
         cycleBox.setAlignment(Pos.CENTER);
         cycleBox.getStyleClass().add("cycle-container");
@@ -228,7 +230,6 @@ public class CropRotationController implements Initializable {
         cycleBox.getChildren().add(createArrow());
         cycleBox.getChildren().add(createStepView(step3));
 
-        // Benefit Footer
         HBox benefitBox = new HBox(5);
         benefitBox.getStyleClass().add("benefit-box");
         Label bulb = new Label("💡");
@@ -284,7 +285,6 @@ public class CropRotationController implements Initializable {
         alert.showAndWait();
     }
 
-    // Helper Class for data
     private static class CycleStep {
         String name, season, icon;
         public CycleStep(String name, String season, String icon) {
