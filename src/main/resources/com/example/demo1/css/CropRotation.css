@@ -1,0 +1,150 @@
+/* Import Dashboard CSS base styles */
+@import "dashboard.css";
+/* Page Header */
+.page-header-rotation {
+    -fx-background-color: #e0f2f1; /* Light Teal Background */
+    -fx-padding: 20;
+    -fx-background-radius: 10;
+    -fx-border-color: #b2dfdb;
+    -fx-border-width: 1;
+}
+
+/* Input Section */
+.input-section {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 2);
+}
+
+.section-heading {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00695c;
+    -fx-border-color: transparent transparent #00695c transparent;
+    -fx-border-width: 0 0 2 0;
+    -fx-padding: 0 0 5 0;
+}
+
+.input-label-required {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.input-field {
+    -fx-font-size: 14px;
+    -fx-background-color: #fff;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 8;
+}
+
+.generate-btn {
+    -fx-background-color: #00897b;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 20;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+.generate-btn:hover { -fx-background-color: #00796b; }
+
+/* Result Section */
+.result-section {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 2);
+}
+
+/* Rotation Card Styles */
+.rotation-card {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b2dfdb;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 5, 0, 0, 2);
+}
+
+.rotation-card:hover {
+    -fx-border-color: #00897b;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,137,123,0.1), 10, 0, 0, 4);
+}
+
+.card-header {
+    -fx-border-color: transparent transparent #eee transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 0 0 10 0;
+}
+
+.option-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00695c;
+}
+
+.option-badge {
+    -fx-background-color: #e0f2f1;
+    -fx-text-fill: #00695c;
+    -fx-padding: 3 8;
+    -fx-background-radius: 15;
+    -fx-font-size: 12px;
+}
+
+.cycle-container {
+    -fx-padding: 10 0;
+}
+
+/* Cycle Step (The individual crop in the chain) */
+.cycle-step {
+    -fx-alignment: center;
+}
+
+.step-icon {
+    -fx-font-size: 24px;
+}
+
+.step-crop {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.step-season {
+    -fx-font-size: 12px;
+    -fx-text-fill: #666;
+}
+
+.arrow-icon {
+    -fx-text-fill: #aaa;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.benefit-box {
+    -fx-background-color: #f1f8e9;
+    -fx-padding: 10;
+    -fx-background-radius: 6;
+    -fx-border-color: #c5e1a5;
+    -fx-border-radius: 6;
+}
+
+.benefit-text {
+    -fx-text-fill: #33691e;
+    -fx-font-size: 13px;
+}
+
+/* Empty State */
+.empty-icon { -fx-font-size: 60px; }
+.empty-text { -fx-font-size: 16px; -fx-text-fill: #777; }
+.tip-box {
+    -fx-background-color: #fff3e0;
+    -fx-padding: 15;
+    -fx-background-radius: 8;
+    -fx-border-color: #ffe0b2;
+}
+.tip-title { -fx-font-weight: bold; -fx-text-fill: #e65100; }
+.tip-text { -fx-text-fill: #555; }

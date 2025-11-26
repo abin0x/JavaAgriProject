@@ -1,0 +1,411 @@
+/* Import base styles */
+@import "dashboard.css";
+
+/* Page Header - Blue Theme for Irrigation */
+.page-header-irrigation {
+    -fx-background-color: white;
+    -fx-padding: 25 30;
+    -fx-background-radius: 12;
+    -fx-border-color: #38bdf8;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+}
+
+.page-header-irrigation .page-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+    -fx-text-fill: black;
+}
+
+.page-header-irrigation .page-subtitle {
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+}
+
+/* Input Section */
+.irrigation-input-section {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 30;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 12, 0, 0, 3);
+}
+
+.section-heading-numbered-blue {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0284c7;
+    -fx-background-color: #e0f2fe;
+    -fx-padding: 10 15;
+    -fx-background-radius: 8;
+}
+
+/* Weather Radio Buttons */
+.weather-radio {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6b7280;
+}
+
+.weather-radio .radio {
+    -fx-background-color: white;
+    -fx-border-color: #d1d5db;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+}
+
+.weather-radio:selected .radio {
+    -fx-background-color: white;
+    -fx-border-color: #0284c7;
+}
+
+.weather-radio:selected .radio .dot {
+    -fx-background-color: #0284c7;
+    -fx-background-radius: 5;
+}
+
+/* Method Radio Buttons */
+.method-radio {
+    -fx-font-size: 14px;
+    -fx-text-fill: #374151;
+    -fx-padding: 10;
+    -fx-background-color: #f9fafb;
+    -fx-background-radius: 8;
+}
+
+.method-radio:hover {
+    -fx-background-color: #e0f2fe;
+}
+
+.method-radio .radio {
+    -fx-background-color: white;
+    -fx-border-color: #d1d5db;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+}
+
+.method-radio:selected {
+    -fx-background-color: #dbeafe;
+    -fx-border-color: #0284c7;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+}
+
+.method-radio:selected .radio {
+    -fx-background-color: white;
+    -fx-border-color: #0284c7;
+}
+
+.method-radio:selected .radio .dot {
+    -fx-background-color: #0284c7;
+    -fx-background-radius: 5;
+}
+
+/* Calculate Button - Blue Theme */
+.calculate-btn-irrigation {
+        -fx-background-color: #159043;
+        -fx-text-fill: white;
+        -fx-font-size: 16px;
+        -fx-font-weight: bold;
+        -fx-padding: 16 30;
+        -fx-background-radius: 10;
+        -fx-cursor: hand;
+        -fx-effect: dropshadow(gaussian, rgba(22, 163, 74, 0.3), 10, 0, 0, 4);
+}
+
+.calculate-btn-irrigation:hover {
+        -fx-background-color: linear-gradient(135deg, #15803d 0%, #16a34a 100%);
+        -fx-scale-x: 1.02;
+        -fx-scale-y: 1.02;
+}
+
+.calculate-btn-irrigation:pressed {
+    -fx-background-color: #14532d;
+}
+
+/* Result Section */
+.irrigation-result-section {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 30;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 12, 0, 0, 3);
+}
+
+/* Info Tip Box - Blue */
+.info-tip-box-blue {
+    -fx-background-color: #dbeafe;
+    -fx-padding: 20;
+    -fx-background-radius: 10;
+    -fx-border-color: #93c5fd;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-max-width: 350;
+}
+
+.tip-title-blue {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e40af;
+}
+
+.tip-text-blue {
+    -fx-font-size: 12px;
+    -fx-text-fill: #1e3a8a;
+}
+
+/* Water Requirement Card */
+.water-requirement-card {
+    -fx-background-color: #f0f9ff;
+    -fx-padding: 25;
+    -fx-background-radius: 12;
+    -fx-border-color: #bae6fd;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 12;
+}
+
+.water-req-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0c4a6e;
+}
+
+.water-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #64748b;
+}
+
+.water-value-large {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0284c7;
+}
+
+.water-sublabel {
+    -fx-font-size: 12px;
+    -fx-text-fill: #94a3b8;
+}
+
+.efficiency-box {
+    -fx-background-color: #dbeafe;
+    -fx-padding: 12;
+    -fx-background-radius: 8;
+}
+
+.efficiency-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #1e40af;
+}
+
+.efficiency-value {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0284c7;
+}
+
+/* Schedule Card */
+.schedule-card {
+    -fx-background-color: #f8fafc;
+    -fx-padding: 20;
+    -fx-background-radius: 12;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+}
+
+.schedule-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e293b;
+}
+
+/* Irrigation Cost Card */
+.irrigation-cost-card {
+    -fx-background-color: #fffbeb;
+    -fx-padding: 20;
+    -fx-background-radius: 12;
+    -fx-border-color: #fde047;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+}
+
+.cost-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #854d0e;
+}
+
+.cost-item-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #6b7280;
+}
+
+.cost-item-value {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+.total-irrigation-cost-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #78350f;
+}
+
+.total-irrigation-cost-value {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0284c7;
+}
+
+/* Tips Card - Blue */
+.tips-card-blue {
+    -fx-background-color: #dbeafe;
+    -fx-padding: 20;
+    -fx-background-radius: 12;
+    -fx-border-color: #93c5fd;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+}
+
+.tips-title-blue {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e40af;
+}
+
+.tip-item-blue {
+    -fx-font-size: 13px;
+    -fx-text-fill: #1e3a8a;
+    -fx-wrap-text: true;
+}
+
+/* Unit Label */
+.unit-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6b7280;
+    -fx-padding: 12 10;
+}
+
+/* Weather Alert Card */
+.weather-alert-card {
+    -fx-background-color: #fef3c7;
+    -fx-padding: 15;
+    -fx-background-radius: 10;
+    -fx-border-color: #fde047;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+}
+
+.weather-icon {
+    -fx-font-size: 32px;
+}
+
+.weather-alert-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #854d0e;
+}
+
+.weather-alert-text {
+    -fx-font-size: 13px;
+    -fx-text-fill: #92400e;
+}
+
+/* Guide Section */
+.guide-section {
+    -fx-background-color: #f1f5f9;
+    -fx-background-radius: 12;
+    -fx-padding: 25 30;
+    -fx-border-color: #cbd5e1;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+}
+
+.guide-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e293b;
+}
+
+/* Method Cards */
+.method-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 8, 0, 0, 2);
+    -fx-alignment: top-left;
+    -fx-min-height: 180;
+}
+
+.method-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 12, 0, 0, 4);
+    -fx-cursor: hand;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.method-card-name {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+.method-feature-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #6b7280;
+}
+
+.method-feature-value-high {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #16a34a;
+}
+
+.method-feature-value-medium {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f59e0b;
+}
+
+.method-feature-value-low {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #dc2626;
+}
+
+.method-info {
+    -fx-font-size: 12px;
+    -fx-text-fill: #9ca3af;
+}
+
+/* Separator */
+.separator {
+    -fx-background-color: #e5e7eb;
+}
+
+.separator:vertical {
+    -fx-background-color: #cbd5e1;
+    -fx-pref-width: 1;
+}
+
+/* Scrollbar */
+.result-scroll .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.result-scroll .scroll-bar:vertical .track {
+    -fx-background-color: #f3f4f6;
+    -fx-background-radius: 4;
+}
+
+.result-scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: #0ea5e9;
+    -fx-background-radius: 4;
+}
+
+.result-scroll .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #0284c7;
+}

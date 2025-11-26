@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="900" prefWidth="1400" styleClass="root" stylesheets="@../css/CropRotation.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.marketfruits.CropRotationController">
+
+    <!-- Top Navigation Bar -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15" styleClass="top-nav" stylesheets="@../css/dashboard.css">
+            <padding>
+                <Insets bottom="12" left="20" right="20" top="12" />
+            </padding>
+
+            <Label styleClass="app-title" text="🌾 কৃষি সাথী" />
+            <Label styleClass="bd-badge" text="BD" />
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <Button styleClass="sound-btn">
+                <graphic>
+                    <Label text="🔇" />
+                </graphic>
+            </Button>
+
+            <Label styleClass="online-status" text="📶 অনলাইনে" />
+        </HBox>
+    </top>
+
+    <!-- Left Sidebar -->
+    <left>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="sidebar-scroll" vbarPolicy="AS_NEEDED">
+            <VBox spacing="5" styleClass="sidebar">
+                <padding>
+                    <Insets bottom="20" left="10" right="10" top="20" />
+                </padding>
+
+                <Button fx:id="btnHome" styleClass="sidebar-btn" text="🏠 হোম" />
+                <Button fx:id="btnAdvisory" styleClass="sidebar-btn, active-btn" text="📅 পরিকল্পনা ও হিসাব" />
+                <Button fx:id="btnAiHelper" styleClass="sidebar-btn" text="🤖 AI সহায়ক" />
+                <Button fx:id="btnVideoEducation" styleClass="sidebar-btn" text="🎬 ভিডিও শিক্ষা" />
+                <Button fx:id="btnFarmWeather" styleClass="sidebar-btn" text="📖 খামার আবহাওয়া" />
+                <Button fx:id="btnAgriAnalysis" styleClass="sidebar-btn" text="📈 কৃষি বিশ্লেষণ" />
+                <Button fx:id="btnLocalManagement" styleClass="sidebar-btn" text="👥 স্থানীয় ব্যবস্থাপনা" />
+                <Button fx:id="btnAgriNews" styleClass="sidebar-btn" text="📰 কৃষি সংবাদ" />
+                <Button fx:id="btnCropPlanning" styleClass="sidebar-btn" text="🎯 ফসল পরিকল্পনা" />
+
+                <Button fx:id="btnProfitLoss" styleClass="sidebar-btn" text="💰 লাভ-ক্ষতি হিসাব" />
+                <Button fx:id="btnWeather" styleClass="sidebar-btn" text="🌦️ আবহাওয়া" />
+                <Button fx:id="btnMarket" styleClass="sidebar-btn" text="📊 বাজার" />
+                <Button fx:id="btnFarmerMarket" styleClass="sidebar-btn" text="🛒 কৃষক বাজার" />
+                <Button fx:id="btnSoilHealth" styleClass="sidebar-btn" text="🔔 মাটি স্বাস্থ্য" />
+                <Button fx:id="btnPestDetection" styleClass="sidebar-btn" text="☀️ কীটপতঙ্গ শনাক্ত" />
+                <Button fx:id="btnComments" styleClass="sidebar-btn" text="🗣️ মন্তব্য ভাড্া" />
+                <Button fx:id="btnWamService" styleClass="sidebar-btn" text="📰 ওয়াম সেবা" />
+                <Button fx:id="btnNewsTraffic" styleClass="sidebar-btn" text="📅 খবর ট্র্যাফিক" />
+                <Button fx:id="btnEmergencyHelp" styleClass="sidebar-btn" text="❓ জরুরি সহায়তা" />
+                <Button fx:id="btnCommunity" styleClass="sidebar-btn" text="👥 সম্প্রদায়" />
+                <Button fx:id="btnStudy" styleClass="sidebar-btn" text="⚙️ অধ্যয়ন" />
+                <Button fx:id="btnProfile" styleClass="sidebar-btn" text="👤 প্রোফাইল" />
+            </VBox>
+        </ScrollPane>
+    </left>
+
+    <!-- Main Content Area -->
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" styleClass="content-scroll" vbarPolicy="ALWAYS">
+            <VBox spacing="25" styleClass="main-content">
+                <padding>
+                    <Insets bottom="30" left="30" right="30" top="30" />
+                </padding>
+
+                <VBox spacing="10" styleClass="page-header" stylesheets="@../css/CropAdvisory.css">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label styleClass="page-title" text="ফসল পরিকল্পনা ও পরামর্শ 📊" />
+                    </HBox>
+                    <Label styleClass="page-subtitle" text="বৈজ্ঞানিক পদ্ধতিতে আপনার ফসলের পরিচর্যা করুন" />
+                </VBox>
+
+                <!-- Filter Buttons (Navigation) -->
+                <HBox alignment="CENTER" prefHeight="46.0" prefWidth="970.0" spacing="180.0" stylesheets="@../css/CropAdvisory.css">
+                    <Button fx:id="btnGuide" styleClass="filter-btn" text="📖 গাইড" />
+                    <Button fx:id="btnFertilizer" styleClass="filter-btn" text="🌾 সার" />
+                    <Button fx:id="btnIrrigation" styleClass="filter-btn" text="🔬 সেচ" />
+
+                    <!-- Active Button -->
+                    <Button fx:id="btnCropRotation" text="♻ ফসল চক্র">
+                        <styleClass>
+                            <String fx:value="filter-btn-active" />
+                            <String fx:value="filter-btn" />
+                        </styleClass>
+                    </Button>
+
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+
+                <!-- Page Header -->
+                <VBox spacing="10" styleClass="page-header" stylesheets="@../css/CropAdvisory.css">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label styleClass="page-title" text="ফসল চক্র জেনারেটর ♻️" />
+                    </HBox>
+                    <Label styleClass="page-subtitle" text="মাটির উর্বরতা রক্ষা ও ফলন বাড়াতে সঠিক ফসল চক্র নির্বাচন করুন" />
+                </VBox>
+
+                <!-- Main Calculator Container -->
+                <HBox alignment="TOP_LEFT" spacing="20">
+
+                    <!-- Left Side: Input Form -->
+                    <VBox prefWidth="500" spacing="20" styleClass="input-section" HBox.hgrow="ALWAYS">
+                        <padding>
+                            <Insets bottom="30" left="30" right="30" top="30" />
+                        </padding>
+
+                        <Label styleClass="section-heading" text="১. জমির ও মাটির তথ্য" />
+
+                        <!-- Location/District -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="আপনার জেলা/এলাকা" />
+                            <ComboBox fx:id="districtComboBox" maxWidth="Infinity" promptText="জেলা নির্বাচন করুন" styleClass="input-field" />
+                        </VBox>
+
+                        <!-- Land Type -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label-required" text="জমির ধরন *" />
+                            <ComboBox fx:id="landTypeComboBox" maxWidth="Infinity" promptText="জমির ধরন নির্বাচন করুন" styleClass="input-field" />
+                        </VBox>
+
+                        <!-- Soil Type -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label-required" text="মাটির ধরন *" />
+                            <ComboBox fx:id="soilTypeComboBox" maxWidth="Infinity" promptText="মাটির ধরন নির্বাচন করুন" styleClass="input-field" />
+                        </VBox>
+
+                        <Separator styleClass="section-separator" />
+
+                        <Label styleClass="section-heading" text="২. বর্তমান অবস্থা" />
+
+                        <!-- Season -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label-required" text="বর্তমান মৌসুম *" />
+                            <ComboBox fx:id="currentSeasonComboBox" maxWidth="Infinity" promptText="বর্তমান মৌসুম নির্বাচন করুন" styleClass="input-field" />
+                        </VBox>
+
+                        <!-- Previous Crop -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label-required" text="মাঠে সর্বশেষ কোন ফসল ছিল? *" />
+                            <ComboBox fx:id="prevCropComboBox" maxWidth="Infinity" promptText="আগের ফসল নির্বাচন করুন" styleClass="input-field" />
+                        </VBox>
+
+                        <!-- Irrigation -->
+                        <VBox spacing="8">
+                            <Label styleClass="input-label" text="সেচ ব্যবস্থা কেমন?" />
+                            <HBox spacing="15">
+                                <RadioButton fx:id="irrigationYes" selected="true" styleClass="radio-custom" text="পর্যাপ্ত সেচ আছে">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="irrigationGroup" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="irrigationRain" styleClass="radio-custom" text="বৃষ্টি নির্ভর" toggleGroup="$irrigationGroup" />
+                            </HBox>
+                        </VBox>
+
+                        <Separator styleClass="section-separator" />
+
+                        <Button fx:id="generateBtn" maxWidth="Infinity" styleClass="generate-btn" text="ফসল চক্র তৈরি করুন 🚀" />
+
+                    </VBox>
+
+                    <!-- Right Side: Results -->
+                    <VBox prefWidth="600" spacing="20" styleClass="result-section" HBox.hgrow="ALWAYS">
+                        <padding>
+                            <Insets bottom="30" left="30" right="30" top="30" />
+                        </padding>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="section-heading" text="প্রস্তাবিত ফসল চক্র" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Button fx:id="resetBtn" styleClass="reset-btn" text="মুছে ফেলুন" />
+                        </HBox>
+
+                        <!-- Results Display Area -->
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="700" styleClass="result-scroll" vbarPolicy="AS_NEEDED">
+                            <VBox fx:id="resultsContainer" spacing="20">
+
+                                <!-- Empty State -->
+                                <VBox fx:id="emptyState" alignment="CENTER" minHeight="500" spacing="20" styleClass="empty-state">
+                                    <Label styleClass="empty-icon" text="♻️" />
+                                    <Label styleClass="empty-text" text="সঠিক ফসল চক্র দেখতে বাম পাশের ফর্ম পূরণ করুন" />
+                                    <VBox spacing="5" styleClass="tip-box">
+                                        <Label styleClass="tip-title" text="কেন ফসল চক্র মানবেন?" />
+                                        <Label styleClass="tip-text" text="• মাটির উর্বরতা বৃদ্ধি পায়" />
+                                        <Label styleClass="tip-text" text="• পোকা ও রোগবালাই দমন হয়" />
+                                        <Label styleClass="tip-text" text="• সারের খরচ কমে ও ফলন বাড়ে" />
+                                    </VBox>
+                                </VBox>
+
+                            </VBox>
+                        </ScrollPane>
+                    </VBox>
+
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
