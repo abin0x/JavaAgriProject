@@ -1,4 +1,4 @@
-package com.example.marketfruits;
+package com.example.demo1.marketfruits;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,8 +17,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class CropRotationController implements Initializable {
@@ -54,14 +52,14 @@ public class CropRotationController implements Initializable {
     // 1. Navigation Logic
     // ===========================
     private void setupNavigationHandlers() {
-        if(btnHome != null) btnHome.setOnAction(e -> loadPage(e, "/fxml/dashboard.fxml"));
+        if(btnHome != null) btnHome.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/dashboard.fxml"));
         if(btnGuide != null) {
-            btnGuide.setOnAction(e -> loadPage(e, "/fxml/CropAdvisory.fxml"));
+            btnGuide.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/CropAdvisory.fxml"));
         }
 
-        if(btnFertilizer != null) btnFertilizer.setOnAction(e -> loadPage(e, "/fxml/FertilizerCalculator.fxml"));
-        if(btnIrrigation != null) btnIrrigation.setOnAction(e -> loadPage(e, "/fxml/IrrigationCalculator.fxml"));
-        if(btnCropRotation != null) btnCropRotation.setOnAction(e -> loadPage(e, "/fxml/CropRotation.fxml"));
+        if(btnFertilizer != null) btnFertilizer.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/FertilizerCalculator.fxml"));
+        if(btnIrrigation != null) btnIrrigation.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/IrrigationCalculator.fxml"));
+        if(btnCropRotation != null) btnCropRotation.setOnAction(e -> loadPage(e, "/com/example/demo1/fxml/CropRotation.fxml"));
     }
 
     private void loadPage(ActionEvent event, String fxmlPath) {
@@ -78,7 +76,7 @@ public class CropRotationController implements Initializable {
             // Apply CSS
             String[] cssFiles = {"dashboard.css", "CropAdvisory.css", "CropRotation.css"};
             for(String css : cssFiles) {
-                URL cssUrl = getClass().getResource("/css/" + css);
+                URL cssUrl = getClass().getResource("/com/example/demo1/css/" + css);
                 if(cssUrl != null) scene.getStylesheets().add(cssUrl.toExternalForm());
             }
 

@@ -21,7 +21,7 @@
 
 <!-- stylesheets লিংক করা হয়েছে যাতে ডিজাইন লোড হয় -->
 
-<BorderPane prefHeight="900" prefWidth="1400" styleClass="root" stylesheets="@../css/FertilizerCalculator.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.marketfruits.FertilizerCalculatorController">
+<BorderPane prefHeight="900" prefWidth="1400" styleClass="root" stylesheets="@../css/FertilizerCalculator.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.marketfruits.FertilizerCalculatorController">
 
     <!-- Top Navigation Bar -->
     <top>

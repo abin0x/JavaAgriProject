@@ -1,0 +1,125 @@
+/* General Background and Font */
+.link-text-bold:focused {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+}
+.root {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+/* The Main White Card */
+.login-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
+}
+
+/* Headings */
+.heading-text {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+}
+
+/* Input Labels */
+.field-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+}
+
+/* The Container appearing as the Text Field
+   (We wrap the textfield in an HBox to put icons inside) */
+.input-container {
+    -fx-background-color: white;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5 10 5 10;
+}
+
+/* The actual TextField/PasswordField inside the container
+   Make it transparent so the Container looks like the border */
+.transparent-field {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-prompt-text-fill: #999999;
+    -fx-font-size: 14px;
+}
+
+/* Icons (Emojis used in FXML, style here) */
+.icon-label {
+    -fx-text-fill: #777777;
+    -fx-font-size: 16px;
+    -fx-padding: 0 5 0 5;
+    -fx-cursor: hand;
+}
+
+/* Links (Forgot pass, etc) */
+.link-text {
+    -fx-text-fill: #28a745; /* The Green Color */
+    -fx-cursor: hand;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.link-text-bold {
+    -fx-text-fill: #28a745;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+/* Login Button */
+.login-btn {
+    -fx-background-color: #28a745;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+    -fx-padding: 10 20 10 20;
+}
+
+.login-btn:hover {
+    -fx-background-color: #218838;
+}
+
+/* Footer */
+.footer-text {
+    -fx-text-fill: #888888;
+    -fx-font-size: 11px;
+    -fx-cursor: hand;
+}
+/* --- New Styles for Registration Page --- */
+
+/* The light gray input field style seen in the image */
+.filled-input-container {
+    -fx-background-color: #f3f4f6; /* Light gray */
+    -fx-border-color: #e5e7eb;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 8 12 8 12;
+}
+
+.filled-input-container:focused-within {
+    -fx-border-color: #28a745; /* Green border when clicking inside */
+    -fx-border-width: 1.5;
+}
+
+/* Make the text field inside fully transparent */
+.filled-input-field {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+}
+
+/* The scroll pane helper to remove ugly borders */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}

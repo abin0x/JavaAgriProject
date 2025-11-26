@@ -1,9 +1,8 @@
-package com.example.marketfruits;
+package com.example.demo1.marketfruits;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -137,13 +136,13 @@ public class WarehouseController implements Initializable {
     private void setupNavigationHandlers() {
         // FIXED: Removed the 'event' argument from the loadPage calls
         if (btnHome != null) {
-            btnHome.setOnAction(event -> loadPage("/fxml/dashboard.fxml"));
+            btnHome.setOnAction(event -> loadPage("/com/example/demo1/fxml/dashboard.fxml"));
         }
         if (btnAdvisory != null) {
-            btnAdvisory.setOnAction(event -> loadPage("/fxml/CropAdvisory.fxml"));
+            btnAdvisory.setOnAction(event -> loadPage("/com/example/demo1/fxml/CropAdvisory.fxml"));
         }
         if (btnStorage != null) {
-            btnStorage.setOnAction(event -> loadPage("/fxml/Warehouse.fxml"));
+            btnStorage.setOnAction(event -> loadPage("/com/example/demo1/fxml/Warehouse.fxml"));
         }
     }
 
@@ -324,7 +323,7 @@ public class WarehouseController implements Initializable {
 
             // Set styles
             // Note: Update "style.css" to the actual name of your CSS file
-            URL cssUrl = getClass().getResource("/css/dashboard.css");
+            URL cssUrl = getClass().getResource("/com/example/demo1/css/dashboard.css");
             if (cssUrl != null) scene.getStylesheets().add(cssUrl.toExternalForm());
 
             stage.setScene(scene);

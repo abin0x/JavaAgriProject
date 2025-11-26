@@ -1,4 +1,4 @@
-package com.example.marketfruits;
+package com.example.demo1.marketfruits;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -96,17 +96,17 @@ public class DashboardController implements Initializable {
     private void setupNavigationHandlers() {
         // Home button - reload dashboard
         if (btnHome != null) {
-            btnHome.setOnAction(event -> loadPage("/fxml/dashboard.fxml"));
+            btnHome.setOnAction(event -> loadPage("/com/example/demo1/fxml/dashboard.fxml"));
         }
 
         // Advisory button - load crop advisory page
         if (btnAdvisory != null) {
-            btnAdvisory.setOnAction(event -> loadPage("/fxml/CropAdvisory.fxml"));
+            btnAdvisory.setOnAction(event -> loadPage("/com/example/demo1/fxml/CropAdvisory.fxml"));
         }
 
         // AI Helper
         if (btnStorage != null) {
-            btnStorage.setOnAction(event -> loadPage("/fxml/WarehouseView.fxml"));
+            btnStorage.setOnAction(event -> loadPage("/com/example/demo1/fxml/WarehouseView.fxml"));
 
         }
 
@@ -156,14 +156,14 @@ public class DashboardController implements Initializable {
             Scene scene = new Scene(root);
 
             // Apply CSS
-            String css = getClass().getResource("/css/dashboard.css").toExternalForm();
+            String css = getClass().getResource("/com/example/demo1/css/dashboard.css").toExternalForm();
             if (css != null) {
                 scene.getStylesheets().add(css);
             }
 
             // If it's CropAdvisory page, add its CSS too
             if (fxmlPath.contains("CropAdvisory")) {
-                String cropCss = getClass().getResource("/css/CropAdvisory.css").toExternalForm();
+                String cropCss = getClass().getResource("/com/example/demo1/css/CropAdvisory.css").toExternalForm();
                 if (cropCss != null) {
                     scene.getStylesheets().add(cropCss);
                 }

@@ -1,4 +1,4 @@
-package com.example.marketfruits;
+package com.example.demo1.marketfruits;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +13,7 @@ public class HelloApplication extends Application {
 
         // FXML ফাইল লোড করুন
         FXMLLoader fxmlLoader = new FXMLLoader(
-                HelloApplication.class.getResource("/fxml/dashboard.fxml")
+                HelloApplication.class.getResource("/com/example/demo1/fxml/dashboard.fxml")
         );
 
         if (fxmlLoader.getLocation() == null) {
@@ -25,7 +25,7 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
 
         // CSS লোড করুন
-        String css = getClass().getResource("/css/dashboard.css").toExternalForm();
+        String css = getClass().getResource("/com/example/demo1/css/dashboard.css").toExternalForm();
         if (css != null) {
             scene.getStylesheets().add(css);
         } else {

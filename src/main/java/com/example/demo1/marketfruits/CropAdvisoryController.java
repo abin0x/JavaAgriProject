@@ -1,4 +1,4 @@
-package com.example.marketfruits;
+package com.example.demo1.marketfruits;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -105,10 +104,10 @@ public class CropAdvisoryController implements Initializable {
     private void setupNavigationHandlers() {
         // 1. Sidebar Navigation
         if (btnHome != null) {
-            btnHome.setOnAction(event -> loadPage(event, "/fxml/dashboard.fxml"));
+            btnHome.setOnAction(event -> loadPage(event, "/com/example/demo1/fxml/dashboard.fxml"));
         }
         if (btnAdvisory != null) {
-            btnAdvisory.setOnAction(event -> loadPage(event, "/fxml/CropAdvisory.fxml"));
+            btnAdvisory.setOnAction(event -> loadPage(event, "/com/example/demo1/fxml/CropAdvisory.fxml"));
         }
         if (btnAiHelper != null) {
             btnAiHelper.setOnAction(event -> showComingSoon("AI সহায়ক"));
@@ -118,20 +117,20 @@ public class CropAdvisoryController implements Initializable {
 
         // Guide (Current Page - just refreshes)
         if (btnGuide != null) {
-            btnGuide.setOnAction(event -> loadPage(event, "/fxml/CropAdvisory.fxml"));
+            btnGuide.setOnAction(event -> loadPage(event, "/com/example/demo1/fxml/CropAdvisory.fxml"));
         }
 
         // Fertilizer Calculator
         if (btnFertilizer != null) {
-            btnFertilizer.setOnAction(event -> loadPage(event, "/fxml/FertilizerCalculator.fxml"));
+            btnFertilizer.setOnAction(event -> loadPage(event, "/com/example/demo1/fxml/FertilizerCalculator.fxml"));
         }
 
         // Irrigation Calculator
         if (btnIrrigation != null) {
-            btnIrrigation.setOnAction(event -> loadPage(event, "/fxml/IrrigationCalculator.fxml"));
+            btnIrrigation.setOnAction(event -> loadPage(event, "/com/example/demo1/fxml/IrrigationCalculator.fxml"));
         }
         if (btnStorage != null) {
-            btnStorage.setOnAction(event -> loadPage(event, "/fxml/WarehouseView.fxml"));
+            btnStorage.setOnAction(event -> loadPage(event, "/com/example/demo1/fxml/WarehouseView.fxml"));
         }
 
 
@@ -139,7 +138,7 @@ public class CropAdvisoryController implements Initializable {
         if (btnCropRotation != null) {
             btnCropRotation.setOnAction(event -> showComingSoon("ফসল চক্র (Crop Rotation)"));
             // If you have the page, use this instead:
-             btnCropRotation.setOnAction(event -> loadPage(event, "/fxml/CropRotation.fxml"));
+             btnCropRotation.setOnAction(event -> loadPage(event, "/com/example/demo1/fxml/CropRotation.fxml"));
         }
     }
 
@@ -169,12 +168,12 @@ public class CropAdvisoryController implements Initializable {
 
             // 4. Add CSS
             // Add Global Dashboard CSS
-            String dashboardCss = getClass().getResource("/css/dashboard.css").toExternalForm();
+            String dashboardCss = getClass().getResource("/com/example/demo1/css/dashboard.css").toExternalForm();
             if (dashboardCss != null) scene.getStylesheets().add(dashboardCss);
 
             // Add specific CSS if needed
             if (fxmlPath.contains("CropAdvisory")) {
-                String cropCss = getClass().getResource("/css/CropAdvisory.css").toExternalForm();
+                String cropCss = getClass().getResource("/com/example/demo1/css/CropAdvisory.css").toExternalForm();
                 if (cropCss != null) scene.getStylesheets().add(cropCss);
             }
 
