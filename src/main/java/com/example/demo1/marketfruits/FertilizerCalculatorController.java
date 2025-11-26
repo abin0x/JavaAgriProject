@@ -1,4 +1,4 @@
-package com.example.marketfruits;
+package com.example.demo1.marketfruits;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -97,6 +97,7 @@ public class FertilizerCalculatorController implements Initializable {
     // 4. Navigation Logic
     // ==========================================
     private void setupNavigationHandlers() {
+
         if (btnHome != null) btnHome.setOnAction(e -> loadPage(e, "/fxml/dashboard.fxml"));
         if (btnAdvisory != null) btnAdvisory.setOnAction(e -> loadPage(e, "/fxml/CropAdvisory.fxml"));
         if (btnGuide != null) btnGuide.setOnAction(e -> loadPage(e, "/fxml/CropAdvisory.fxml"));
@@ -105,6 +106,7 @@ public class FertilizerCalculatorController implements Initializable {
         if (btnCropRotation != null) btnCropRotation.setOnAction(e -> loadPage(e, "/fxml/CropRotation.fxml"));
         if (btnLocalManagement != null) btnLocalManagement.setOnAction(e -> loadPage(e, "/fxml/LocalManagement.fxml"));
         if (btnStorage != null) btnStorage.setOnAction(e -> loadPage(e, "/fxml/WarehouseView.fxml"));
+
     }
 
     private void loadPage(ActionEvent event, String fxmlPath) {
@@ -120,14 +122,14 @@ public class FertilizerCalculatorController implements Initializable {
             Scene scene = new Scene(root);
 
             // CSS Loading
-            String dashboardCss = getClass().getResource("/css/dashboard.css").toExternalForm();
+            String dashboardCss = getClass().getResource("/com/example/demo1/css/dashboard.css").toExternalForm();
             if (dashboardCss != null) scene.getStylesheets().add(dashboardCss);
 
             if (fxmlPath.contains("CropAdvisory") || fxmlPath.contains("Calculator")) {
-                String cropCss = getClass().getResource("/css/CropAdvisory.css").toExternalForm();
+                String cropCss = getClass().getResource("/com/example/demo1/css/CropAdvisory.css").toExternalForm();
                 if (cropCss != null) scene.getStylesheets().add(cropCss);
             }
-            String fertCss = getClass().getResource("/css/FertilizerCalculator.css").toExternalForm();
+            String fertCss = getClass().getResource("/com/example/demo1/css/FertilizerCalculator.css").toExternalForm();
             if (fertCss != null) scene.getStylesheets().add(fertCss);
 
             stage.setScene(scene);

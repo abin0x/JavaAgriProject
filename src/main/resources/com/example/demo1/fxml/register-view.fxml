@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<StackPane style="-fx-background-color: #f8f9fa;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.RegisterController">
+
+    <ScrollPane fitToWidth="true" styleClass="edge-to-edge">
+        <content>
+            <VBox alignment="CENTER" spacing="20.0">
+                <padding>
+                    <Insets bottom="50.0" top="50.0" />
+                </padding>
+
+                <VBox alignment="CENTER" spacing="5">
+                    <Text fill="#28a745" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="🌱 স্মার্ট কৃষি" />
+                    <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1f2937;" text="নতুন অ্যাকাউন্ট তৈরি করুন" />
+                    <Label style="-fx-text-fill: #6b7280;" text="আপনার কৃষিকাজকে আরও সহজ ও লাভজনক করতে যোগ দিন।" />
+                </VBox>
+
+                <VBox maxWidth="500.0" spacing="15.0" styleClass="login-card" stylesheets="@../css/style.css">
+                    <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                    </padding>
+
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 16px;" text="ব্যক্তিগত তথ্য" />
+
+                    <VBox spacing="5">
+                        <Label styleClass="field-label" text="সম্পূর্ণ নাম" />
+                        <HBox alignment="CENTER_LEFT" styleClass="filled-input-container">
+                            <TextField fx:id="fullNameField" promptText="আপনার সম্পূর্ণ নাম লিখুন" styleClass="filled-input-field" HBox.hgrow="ALWAYS" />
+                        </HBox>
+                    </VBox>
+
+                    <VBox spacing="5">
+                        <Label styleClass="field-label" text="ইমেইল" />
+                        <HBox alignment="CENTER_LEFT" styleClass="filled-input-container">
+                            <TextField fx:id="emailField" promptText="example@email.com" styleClass="filled-input-field" HBox.hgrow="ALWAYS" />
+                        </HBox>
+                    </VBox>
+
+                    <VBox spacing="5">
+                        <Label styleClass="field-label" text="মোবাইল নম্বর" />
+                        <HBox alignment="CENTER_LEFT" styleClass="filled-input-container">
+                            <TextField fx:id="mobileField" promptText="+৮৮০ আপনার মোবাইল নম্বর লিখুন" styleClass="filled-input-field" HBox.hgrow="ALWAYS" />
+                        </HBox>
+                    </VBox>
+
+                    <VBox spacing="5">
+                        <Label styleClass="field-label" text="পাসওয়ার্ড" />
+                        <HBox alignment="CENTER_LEFT" styleClass="filled-input-container">
+                            <PasswordField fx:id="passwordField" promptText="একটি নতুন পাসওয়ার্ড তৈরি করুন" styleClass="filled-input-field" HBox.hgrow="ALWAYS" />
+                            <Label style="-fx-text-fill: #9ca3af; -fx-cursor: hand;" text="👁" />
+                        </HBox>
+                    </VBox>
+
+                    <VBox spacing="5">
+                        <Label styleClass="field-label" text="পাসওয়ার্ড নিশ্চিত করুন" />
+                        <HBox alignment="CENTER_LEFT" styleClass="filled-input-container">
+                            <PasswordField fx:id="confirmPasswordField" promptText="পাসওয়ার্ডটি পুনরায় লিখুন" styleClass="filled-input-field" HBox.hgrow="ALWAYS" />
+                        </HBox>
+                    </VBox>
+
+                    <Button onAction="#handleRegister" maxWidth="1.0E308" styleClass="login-btn" text="নিবন্ধন করুন →">
+                        <VBox.margin>
+                            <Insets top="10.0" />
+                        </VBox.margin>
+                    </Button>
+                </VBox>
+
+                <HBox alignment="CENTER" spacing="5">
+                    <Text fill="#6b7280" text="আপনার কি ইতিমধ্যে একটি অ্যাকাউন্ট আছে?" />
+                    <Label onMouseClicked="#switchToLogin" styleClass="link-text-bold" text="এখানে লগইন করুন" />
+                </HBox>
+
+            </VBox>
+        </content>
+    </ScrollPane>
+</StackPane>
