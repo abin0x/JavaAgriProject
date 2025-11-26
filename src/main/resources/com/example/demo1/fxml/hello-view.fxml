@@ -16,14 +16,14 @@
 
 <StackPane style="-fx-background-color: rgba(0,0,0,0.5);" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.LoginController">
 
-    <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="400.0" styleClass="login-card" stylesheets="@style.css">
+    <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="400.0" styleClass="login-card" stylesheets="@../css/style.css">
         <padding>
             <Insets bottom="30.0" left="30.0" right="30.0" top="40.0" />
         </padding>
         <children>
          <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@Gemini_Generated_Image_ewlg54ewlg54ewlg.png" />
+               <Image url="@../Gemini_Generated_Image_ewlg54ewlg54ewlg.png" />
             </image>
          </ImageView>
 

@@ -26,7 +26,7 @@
                     <Label style="-fx-text-fill: #6b7280;" text="আপনার কৃষিকাজকে আরও সহজ ও লাভজনক করতে যোগ দিন।" />
                 </VBox>
 
-                <VBox maxWidth="500.0" spacing="15.0" styleClass="login-card" stylesheets="@style.css">
+                <VBox maxWidth="500.0" spacing="15.0" styleClass="login-card" stylesheets="@../css/style.css">
                     <padding>
                         <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                     </padding>
