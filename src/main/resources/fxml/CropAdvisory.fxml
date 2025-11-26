@@ -50,7 +50,7 @@
 
                 <Button fx:id="btnAdvisory" styleClass="sidebar-btn, active-btn" text="📅 পরিকল্পনা ও হিসাব" />
                 <Button fx:id="btnStorage" styleClass="sidebar-btn" text="🏪 গুদাম ও সংরক্ষণ" />
-
+                <Button text="👷শ্রমিক ব্যবস্থাপনা" styleClass="sidebar-btn" fx:id="btnLocalManagement"/>
                 <!-- অন্যান্য বাটন -->
                 <Button fx:id="btnAiHelper" styleClass="sidebar-btn" text="🤖 AI সহায়ক" />
                 <Button styleClass="sidebar-btn" text="🎬 ভিডিও শিক্ষা" />

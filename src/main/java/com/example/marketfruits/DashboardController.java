@@ -109,6 +109,10 @@ public class DashboardController implements Initializable {
             btnStorage.setOnAction(event -> loadPage("/fxml/WarehouseView.fxml"));
 
         }
+        if (btnLocalManagement != null) {
+            btnLocalManagement.setOnAction(event -> loadPage("/fxml/LocalManagement.fxml"));
+
+        }
 
         // Video Education
         if (btnVideoEducation != null) {

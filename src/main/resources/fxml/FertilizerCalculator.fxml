@@ -49,11 +49,12 @@
 
                 <Button fx:id="btnHome" styleClass="sidebar-btn" text="🏠 হোম" />
                 <Button fx:id="btnAdvisory" styleClass="sidebar-btn,active-btn" text="📅 পরিকল্পনা ও হিসাব" />
-                <Button fx:id="btnAiHelper" styleClass="sidebar-btn" text="🤖 AI সহায়ক" />
+                <Button fx:id="btnStorage" styleClass="sidebar-btn" text="🏪 গুদাম ও সংরক্ষণ" />
+                <Button text="👷শ্রমিক ব্যবস্থাপনা" styleClass="sidebar-btn" fx:id="btnLocalManagement"/>
                 <Button fx:id="btnVideoEducation" styleClass="sidebar-btn" text="🎬 ভিডিও শিক্ষা" />
                 <Button fx:id="btnFarmWeather" styleClass="sidebar-btn" text="📖 খামার আবহাওয়া" />
                 <Button fx:id="btnAgriAnalysis" styleClass="sidebar-btn" text="📈 কৃষি বিশ্লেষণ" />
-                <Button fx:id="btnLocalManagement" styleClass="sidebar-btn" text="👥 স্থানীয় ব্যবস্থাপনা" />
+<!--                <Button fx:id="btnLocalManagement" styleClass="sidebar-btn" text="👥 স্থানীয় ব্যবস্থাপনা" />-->
                 <Button fx:id="btnAgriNews" styleClass="sidebar-btn" text="📰 কৃষি সংবাদ" />
                 <Button fx:id="btnCropPlanning" styleClass="sidebar-btn" text="🎯 ফসল পরিকল্পনা" />
 

@@ -25,7 +25,7 @@ import java.util.*;
 public class WarehouseController implements Initializable {
 
     // Sidebar buttons
-    @FXML private Button btnHome, btnAdvisory, btnStorage;
+    @FXML private Button btnHome, btnAdvisory, btnStorage,btnLocalManagement;
 
     // Search
     @FXML private TextField searchField;
@@ -144,6 +144,9 @@ public class WarehouseController implements Initializable {
         }
         if (btnStorage != null) {
             btnStorage.setOnAction(event -> loadPage("/fxml/Warehouse.fxml"));
+        }
+        if (btnLocalManagement != null) {
+            btnLocalManagement.setOnAction(event -> loadPage("/fxml/LocalManagement.fxml"));
         }
     }
 

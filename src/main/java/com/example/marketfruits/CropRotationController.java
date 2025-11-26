@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 public class CropRotationController implements Initializable {
 
     // Navigation Buttons
-    @FXML private Button btnHome, btnAdvisory, btnGuide, btnFertilizer, btnIrrigation, btnCropRotation;
+    @FXML private Button btnHome, btnAdvisory, btnGuide, btnFertilizer, btnIrrigation, btnCropRotation,btnLocalManagement,btnStorage;
     @FXML private Button btnAiHelper, btnWeather;
 
     // Inputs
@@ -62,6 +62,8 @@ public class CropRotationController implements Initializable {
         if(btnFertilizer != null) btnFertilizer.setOnAction(e -> loadPage(e, "/fxml/FertilizerCalculator.fxml"));
         if(btnIrrigation != null) btnIrrigation.setOnAction(e -> loadPage(e, "/fxml/IrrigationCalculator.fxml"));
         if(btnCropRotation != null) btnCropRotation.setOnAction(e -> loadPage(e, "/fxml/CropRotation.fxml"));
+        if (btnLocalManagement != null) btnLocalManagement.setOnAction(e -> loadPage(e, "/fxml/LocalManagement.fxml"));
+        if (btnStorage != null) btnStorage.setOnAction(e -> loadPage(e, "/fxml/WarehouseView.fxml"));
     }
 
     private void loadPage(ActionEvent event, String fxmlPath) {

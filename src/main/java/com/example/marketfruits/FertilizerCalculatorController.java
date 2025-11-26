@@ -29,8 +29,8 @@ public class FertilizerCalculatorController implements Initializable {
     // ==========================================
     @FXML private Button btnHome;
     @FXML private Button btnAdvisory;
-    @FXML private Button btnAiHelper;
-    @FXML private Button btnVideoEducation;
+    @FXML private Button btnLocalManagement;
+    @FXML private Button btnStorage;
     @FXML private Button btnFarmWeather;
     @FXML private Button btnAgriAnalysis;
     @FXML private Button btnAgriNews;
@@ -103,6 +103,8 @@ public class FertilizerCalculatorController implements Initializable {
         if (btnFertilizer != null) btnFertilizer.setOnAction(e -> loadPage(e, "/fxml/FertilizerCalculator.fxml"));
         if (btnIrrigation != null) btnIrrigation.setOnAction(e -> loadPage(e, "/fxml/IrrigationCalculator.fxml"));
         if (btnCropRotation != null) btnCropRotation.setOnAction(e -> loadPage(e, "/fxml/CropRotation.fxml"));
+        if (btnLocalManagement != null) btnLocalManagement.setOnAction(e -> loadPage(e, "/fxml/LocalManagement.fxml"));
+        if (btnStorage != null) btnStorage.setOnAction(e -> loadPage(e, "/fxml/WarehouseView.fxml"));
     }
 
     private void loadPage(ActionEvent event, String fxmlPath) {
@@ -162,7 +164,7 @@ public class FertilizerCalculatorController implements Initializable {
 
     private void initializeFertilizerPrices() {
         fertilizerPrices = new HashMap<>();
-        fertilizerPrices.put("Urea", 22.0);
+        fertilizerPrices.put("Urea", 27.0);
         fertilizerPrices.put("TSP", 24.0);
         fertilizerPrices.put("MOP", 18.0);
         fertilizerPrices.put("Gypsum", 12.0);

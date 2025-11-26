@@ -26,7 +26,8 @@ public class IrrigationCalculatorController implements Initializable {
     @FXML private Button btnHome;
     @FXML private Button btnAdvisory;
     @FXML private Button btnAiHelper;
-    @FXML private Button btnWeather;
+    @FXML private Button btnLocalManagement;
+    @FXML private Button btnStorage;
 
     // Top Filter Buttons
     @FXML private Button btnGuide;
@@ -100,6 +101,8 @@ public class IrrigationCalculatorController implements Initializable {
         if (btnFertilizer != null) btnFertilizer.setOnAction(e -> loadPage(e, "/fxml/FertilizerCalculator.fxml"));
         if (btnIrrigation != null) btnIrrigation.setOnAction(e -> loadPage(e, "/fxml/IrrigationCalculator.fxml"));
         if (btnCropRotation != null) btnCropRotation.setOnAction(e -> loadPage(e, "/fxml/CropRotation.fxml"));
+        if (btnLocalManagement != null) btnLocalManagement.setOnAction(e -> loadPage(e, "/fxml/LocalManagement.fxml"));
+        if (btnStorage != null) btnStorage.setOnAction(e -> loadPage(e, "/fxml/WarehouseView.fxml"));
         if (btnAiHelper != null) btnAiHelper.setOnAction(e -> System.out.println("AI Helper..."));
     }
 
