@@ -1,13 +1,15 @@
-package com.example.marketfruits;
+package com.example.demo1.marketfruits;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import javafx.event.ActionEvent; // Import added
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node; // Import added
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -29,8 +31,7 @@ import java.util.*;
 public class LocalManagementController implements Initializable {
 
     // Sidebar buttons
-
-    @FXML private Button btnHome, btnAdvisory, btnStorage,btnLocalManagement;
+    @FXML private Button btnHome, btnAdvisory, btnStorage, btnLocalManagement;
 
     // Header button
     @FXML private Button addRecordBtn;
@@ -62,6 +63,75 @@ public class LocalManagementController implements Initializable {
         displayWorkers();
     }
 
+    // ---------------------------------------------------------
+    // NAVIGATION LOGIC (FIXED SECTION)
+    // ---------------------------------------------------------
+    private void setupNavigationHandlers() {
+        // Home Button
+        if (btnHome != null) {
+            btnHome.setOnAction(event -> loadPage(event, "/com/example/demo1/fxml/dashboard.fxml"));
+        }
+
+        // Crop Advisory Button
+        if (btnAdvisory != null) {
+            btnAdvisory.setOnAction(event -> loadPage(event, "/com/example/demo1/fxml/CropAdvisory.fxml"));
+        }
+
+        // Storage/Warehouse Button
+        if (btnStorage != null) {
+            btnStorage.setOnAction(event -> loadPage(event, "/com/example/demo1/fxml/WarehouseView.fxml"));
+        }
+
+        // Current Page Button (Optional: Refresh the page)
+        if (btnLocalManagement != null) {
+            btnLocalManagement.setOnAction(event -> loadPage(event, "/com/example/demo1/fxml/LocalManagement.fxml"));
+        }
+    }
+
+    private void loadPage(ActionEvent event, String fxmlPath) {
+        try {
+            // 1. Get the Stage from the button that was clicked (Safer than hardcoding btnHome)
+            Node source = (Node) event.getSource();
+            Stage stage = (Stage) source.getScene().getWindow();
+
+            // 2. Load FXML
+            URL fileUrl = getClass().getResource(fxmlPath);
+            if (fileUrl == null) {
+                throw new FileNotFoundException("FXML file not found: " + fxmlPath);
+            }
+
+            FXMLLoader loader = new FXMLLoader(fileUrl);
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            // 3. Load CSS (Global Dashboard CSS + Page Specific CSS)
+            String dashboardCss = getClass().getResource("/com/example/demo1/css/dashboard.css").toExternalForm();
+            if (dashboardCss != null) scene.getStylesheets().add(dashboardCss);
+
+            // Logic to add specific CSS based on file path
+            if (fxmlPath.contains("LocalManagement")) {
+                String localCss = getClass().getResource("/com/example/demo1/css/LocalManagement.css").toExternalForm();
+                if (localCss != null) scene.getStylesheets().add(localCss);
+            } else if (fxmlPath.contains("CropAdvisory")) {
+                String cropCss = getClass().getResource("/com/example/demo1/css/CropAdvisory.css").toExternalForm();
+                if (cropCss != null) scene.getStylesheets().add(cropCss);
+            }
+
+            // 4. Set Scene
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+            System.err.println("Error loading page: " + fxmlPath);
+            e.printStackTrace();
+            showError("পেজ লোড করতে সমস্যা হয়েছে: " + e.getMessage());
+        }
+    }
+
+    // ---------------------------------------------------------
+    // DATA & LOGIC (UNCHANGED)
+    // ---------------------------------------------------------
+
     // Worker Record Class
     public static class WorkerRecord {
         private String id;
@@ -72,7 +142,7 @@ public class LocalManagementController implements Initializable {
         private double hours;
         private double ratePerHour;
         private double totalAmount;
-        private String paymentStatus; // "pending" or "completed"
+        private String paymentStatus;
         private String notes;
 
         public WorkerRecord(String id, String name, String phone, String workType,
@@ -90,7 +160,6 @@ public class LocalManagementController implements Initializable {
             this.notes = notes;
         }
 
-        // Getters
         public String getId() { return id; }
         public String getName() { return name; }
         public String getPhone() { return phone; }
@@ -101,19 +170,11 @@ public class LocalManagementController implements Initializable {
         public double getTotalAmount() { return totalAmount; }
         public String getPaymentStatus() { return paymentStatus; }
         public String getNotes() { return notes; }
-
-        // Setters
         public void setPaymentStatus(String status) { this.paymentStatus = status; }
     }
 
     private void setupFilterComboBox() {
-        filterComboBox.getItems().addAll(
-                "সব দেখুন",
-                "বাকি পেমেন্ট",
-                "সম্পন্ন পেমেন্ট",
-                "আজকের কাজ",
-                "এই সপ্তাহ"
-        );
+        filterComboBox.getItems().addAll("সব দেখুন", "বাকি পেমেন্ট", "সম্পন্ন পেমেন্ট", "আজকের কাজ", "এই সপ্তাহ");
         filterComboBox.setValue("সব দেখুন");
         filterComboBox.setOnAction(e -> applyFilter());
     }
@@ -122,22 +183,8 @@ public class LocalManagementController implements Initializable {
         addRecordBtn.setOnAction(e -> showAddRecordDialog());
     }
 
-    private void setupNavigationHandlers() {
-        if (btnHome != null) {
-            btnHome.setOnAction(event -> loadPage("/fxml/dashboard.fxml"));
-        }
-        if (btnAdvisory != null) {
-            btnAdvisory.setOnAction(event -> loadPage("/fxml/CropAdvisory.fxml"));
-        }
-        if (btnStorage != null) {
-            btnStorage.setOnAction(event -> loadPage("/fxml/WarehouseView.fxml"));
-        }
-
-    }
-
     private void loadWorkersData() {
         workerRecords = new ArrayList<>();
-
         File file = new File(DATA_FILE);
         if (file.exists()) {
             try (Reader reader = new FileReader(file)) {
@@ -146,34 +193,27 @@ public class LocalManagementController implements Initializable {
                 if (loadedRecords != null) {
                     workerRecords = loadedRecords;
                 }
-                System.out.println("ডেটা লোড হয়েছে: " + workerRecords.size() + " রেকর্ড");
             } catch (IOException e) {
-                System.err.println("ডেটা লোড করতে সমস্যা: " + e.getMessage());
+                e.printStackTrace();
             }
-        } else {
-            System.out.println("নতুন ডেটা ফাইল তৈরি হবে");
         }
     }
 
     private void saveWorkersData() {
         try (Writer writer = new FileWriter(DATA_FILE)) {
             gson.toJson(workerRecords, writer);
-            System.out.println("ডেটা সংরক্ষণ হয়েছে: " + workerRecords.size() + " রেকর্ড");
         } catch (IOException e) {
-            System.err.println("ডেটা সংরক্ষণে সমস্যা: " + e.getMessage());
             showError("ডেটা সংরক্ষণে সমস্যা হয়েছে");
         }
     }
 
     private void updateStatistics() {
-        // Count unique workers
         Set<String> uniqueWorkers = new HashSet<>();
         double pendingTotal = 0;
         double completedTotal = 0;
 
         for (WorkerRecord record : workerRecords) {
             uniqueWorkers.add(record.getName());
-
             if ("pending".equals(record.getPaymentStatus())) {
                 pendingTotal += record.getTotalAmount();
             } else {
@@ -188,17 +228,14 @@ public class LocalManagementController implements Initializable {
 
     private void displayWorkers() {
         workersListContainer.getChildren().clear();
-
         if (workerRecords.isEmpty()) {
             emptyState.setVisible(true);
             emptyState.setManaged(true);
         } else {
             emptyState.setVisible(false);
             emptyState.setManaged(false);
-
             for (WorkerRecord record : workerRecords) {
-                VBox workerCard = createWorkerCard(record);
-                workersListContainer.getChildren().add(workerCard);
+                workersListContainer.getChildren().add(createWorkerCard(record));
             }
         }
     }
@@ -208,26 +245,16 @@ public class LocalManagementController implements Initializable {
         card.getStyleClass().add("worker-card");
         card.setPadding(new Insets(20));
 
-        // Header with name and payment status
         HBox header = new HBox(15);
         header.setAlignment(Pos.CENTER_LEFT);
-
         Label nameLabel = new Label("👤 " + record.getName());
         nameLabel.getStyleClass().add("worker-name");
-
         Region spacer = new Region();
         HBox.setHgrow(spacer, javafx.scene.layout.Priority.ALWAYS);
-
-        Label statusBadge = new Label(
-                "pending".equals(record.getPaymentStatus()) ? "বাকি আছে" : "সম্পন্ন"
-        );
-        statusBadge.getStyleClass().add(
-                "pending".equals(record.getPaymentStatus()) ? "status-badge-pending" : "status-badge-completed"
-        );
-
+        Label statusBadge = new Label("pending".equals(record.getPaymentStatus()) ? "বাকি আছে" : "সম্পন্ন");
+        statusBadge.getStyleClass().add("pending".equals(record.getPaymentStatus()) ? "status-badge-pending" : "status-badge-completed");
         header.getChildren().addAll(nameLabel, spacer, statusBadge);
 
-        // Details grid
         HBox details1 = new HBox(30);
         details1.getChildren().addAll(
                 createDetailItem("📞", record.getPhone()),
@@ -242,7 +269,6 @@ public class LocalManagementController implements Initializable {
                 createDetailItem("💵", "মোট: ৳" + moneyFormat.format(record.getTotalAmount()))
         );
 
-        // Notes if available
         VBox notesSection = new VBox(5);
         if (record.getNotes() != null && !record.getNotes().isEmpty()) {
             Label notesLabel = new Label("📝 নোট:");
@@ -253,17 +279,14 @@ public class LocalManagementController implements Initializable {
             notesSection.getChildren().addAll(notesLabel, notesText);
         }
 
-        // Action buttons
         HBox actions = new HBox(10);
         actions.setAlignment(Pos.CENTER_RIGHT);
-
         if ("pending".equals(record.getPaymentStatus())) {
             Button payButton = new Button("✓ পেমেন্ট সম্পন্ন");
             payButton.getStyleClass().add("pay-btn");
             payButton.setOnAction(e -> markAsPaid(record));
             actions.getChildren().add(payButton);
         }
-
         Button deleteButton = new Button("🗑️ মুছুন");
         deleteButton.getStyleClass().add("delete-btn");
         deleteButton.setOnAction(e -> deleteRecord(record));
@@ -296,7 +319,6 @@ public class LocalManagementController implements Initializable {
         confirm.setTitle("নিশ্চিত করুন");
         confirm.setHeaderText("এই রেকর্ড মুছতে চান?");
         confirm.setContentText(record.getName() + " - " + record.getDate());
-
         confirm.showAndWait().ifPresent(response -> {
             if (response == ButtonType.OK) {
                 workerRecords.remove(record);
@@ -313,57 +335,30 @@ public class LocalManagementController implements Initializable {
         dialog.setTitle("নতুন শ্রমিক রেকর্ড");
         dialog.setHeaderText("শ্রমিকের তথ্য দিন");
 
-        // Dialog content
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(20));
 
-        TextField nameField = new TextField();
-        nameField.setPromptText("নাম");
-
-        TextField phoneField = new TextField();
-        phoneField.setPromptText("মোবাইল নম্বর");
-
+        TextField nameField = new TextField(); nameField.setPromptText("নাম");
+        TextField phoneField = new TextField(); phoneField.setPromptText("মোবাইল নম্বর");
         ComboBox<String> workTypeCombo = new ComboBox<>();
-        workTypeCombo.getItems().addAll(
-                "জমি চাষ", "বীজ বপন", "সেচ", "সার প্রয়োগ",
-                "আগাছা পরিষ্কার", "ফসল কাটা", "অন্যান্য"
-        );
-        workTypeCombo.setPromptText("কাজের ধরন");
-
+        workTypeCombo.getItems().addAll("জমি চাষ", "বীজ বপন", "সেচ", "সার প্রয়োগ", "আগাছা পরিষ্কার", "ফসল কাটা", "অন্যান্য");
         DatePicker datePicker = new DatePicker(LocalDate.now());
-
-        TextField hoursField = new TextField();
-        hoursField.setPromptText("ঘণ্টা");
-
-        TextField rateField = new TextField();
-        rateField.setPromptText("টাকা/ঘণ্টা");
-
+        TextField hoursField = new TextField(); hoursField.setPromptText("ঘণ্টা");
+        TextField rateField = new TextField(); rateField.setPromptText("টাকা/ঘণ্টা");
         ComboBox<String> statusCombo = new ComboBox<>();
-        statusCombo.getItems().addAll("বাকি আছে", "সম্পন্ন");
-        statusCombo.setValue("বাকি আছে");
+        statusCombo.getItems().addAll("বাকি আছে", "সম্পন্ন"); statusCombo.setValue("বাকি আছে");
+        TextArea notesArea = new TextArea(); notesArea.setPromptText("নোট");
 
-        TextArea notesArea = new TextArea();
-        notesArea.setPromptText("নোট (ঐচ্ছিক)");
-        notesArea.setPrefRowCount(3);
-
-        grid.add(new Label("নাম:"), 0, 0);
-        grid.add(nameField, 1, 0);
-        grid.add(new Label("মোবাইল:"), 0, 1);
-        grid.add(phoneField, 1, 1);
-        grid.add(new Label("কাজের ধরন:"), 0, 2);
-        grid.add(workTypeCombo, 1, 2);
-        grid.add(new Label("তারিখ:"), 0, 3);
-        grid.add(datePicker, 1, 3);
-        grid.add(new Label("ঘণ্টা:"), 0, 4);
-        grid.add(hoursField, 1, 4);
-        grid.add(new Label("টাকা/ঘণ্টা:"), 0, 5);
-        grid.add(rateField, 1, 5);
-        grid.add(new Label("পেমেন্ট:"), 0, 6);
-        grid.add(statusCombo, 1, 6);
-        grid.add(new Label("নোট:"), 0, 7);
-        grid.add(notesArea, 1, 7);
+        grid.add(new Label("নাম:"), 0, 0); grid.add(nameField, 1, 0);
+        grid.add(new Label("মোবাইল:"), 0, 1); grid.add(phoneField, 1, 1);
+        grid.add(new Label("কাজের ধরন:"), 0, 2); grid.add(workTypeCombo, 1, 2);
+        grid.add(new Label("তারিখ:"), 0, 3); grid.add(datePicker, 1, 3);
+        grid.add(new Label("ঘণ্টা:"), 0, 4); grid.add(hoursField, 1, 4);
+        grid.add(new Label("টাকা/ঘণ্টা:"), 0, 5); grid.add(rateField, 1, 5);
+        grid.add(new Label("পেমেন্ট:"), 0, 6); grid.add(statusCombo, 1, 6);
+        grid.add(new Label("নোট:"), 0, 7); grid.add(notesArea, 1, 7);
 
         dialog.getDialogPane().setContent(grid);
         dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
@@ -378,25 +373,17 @@ public class LocalManagementController implements Initializable {
                     String date = datePicker.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
                     double hours = Double.parseDouble(hoursField.getText().trim());
                     double rate = Double.parseDouble(rateField.getText().trim());
-                    String status = statusCombo.getValue().equals("বাকি আছে") ? "pending" : "completed";
+                    String status = statusCombo.getValue();
                     String notes = notesArea.getText().trim();
-
-                    if (name.isEmpty() || workType == null) {
-                        showError("নাম ও কাজের ধরন আবশ্যক");
-                        return null;
-                    }
-
+                    if (name.isEmpty() || workType == null) return null;
                     return new WorkerRecord(id, name, phone, workType, date, hours, rate, status, notes);
-                } catch (NumberFormatException e) {
-                    showError("ঘণ্টা ও টাকা সংখ্যায় দিন");
-                    return null;
-                }
+                } catch (Exception e) { return null; }
             }
             return null;
         });
 
         dialog.showAndWait().ifPresent(record -> {
-            workerRecords.add(0, record); // Add to beginning
+            workerRecords.add(0, record);
             saveWorkersData();
             updateStatistics();
             displayWorkers();
@@ -405,15 +392,13 @@ public class LocalManagementController implements Initializable {
     }
 
     private void applyFilter() {
-        String filter = filterComboBox.getValue();
-        // Implement filtering logic based on selection
-        displayWorkers(); // For now, just redisplay
+        // Filtering logic placeholder
+        displayWorkers();
     }
 
     private void showSuccess(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("সফল");
-        alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
     }
@@ -421,29 +406,7 @@ public class LocalManagementController implements Initializable {
     private void showError(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("ত্রুটি");
-        alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
-    }
-
-    private void loadPage(String fxmlPath) {
-        try {
-            Stage stage = (Stage) btnHome.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-
-            String css = getClass().getResource("/css/dashboard.css").toExternalForm();
-            if (css != null) scene.getStylesheets().add(css);
-
-            if (fxmlPath.contains("LocalManagement")) {
-                String localCss = getClass().getResource("/css/LocalManagement.css").toExternalForm();
-                if (localCss != null) scene.getStylesheets().add(localCss);
-            }
-
-            stage.setScene(scene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

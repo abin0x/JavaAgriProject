@@ -110,7 +110,7 @@ public class DashboardController implements Initializable {
 
         }
         if (btnLocalManagement != null) {
-            btnLocalManagement.setOnAction(event -> loadPage("/fxml/LocalManagement.fxml"));
+            btnLocalManagement.setOnAction(event -> loadPage("/com/example/demo1/fxml/LocalManagement.fxml"));
 
         }
 

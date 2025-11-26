@@ -145,7 +145,7 @@ public class WarehouseController implements Initializable {
             btnStorage.setOnAction(event -> loadPage("/com/example/demo1/fxml/Warehouse.fxml"));
         }
         if (btnLocalManagement != null) {
-            btnLocalManagement.setOnAction(event -> loadPage("/fxml/LocalManagement.fxml"));
+            btnLocalManagement.setOnAction(event -> loadPage("/com/example/demo1/fxml/LocalManagement.fxml"));
         }
     }
 
