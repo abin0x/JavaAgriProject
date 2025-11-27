@@ -30,6 +30,8 @@ module com.example.demo1.marketfruits {
 
     // 4. Export the sub-package to make its public classes available.
     exports com.example.demo1.marketfruits;
+    exports com.example.demo1.utils;
+    opens com.example.demo1.utils to javafx.fxml;
 
 
 }
