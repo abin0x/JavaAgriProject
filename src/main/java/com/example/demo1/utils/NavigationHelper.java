@@ -20,6 +20,10 @@ public class NavigationHelper {
     private static final String ADVISORY_FXML = "/com/example/demo1/fxml/CropAdvisory.fxml";
     private static final String ADVISORY_CSS = "CropAdvisory.css";
 
+    // Machenary
+    private static final String MACHENARY_FXML = "/com/example/demo1/fxml/MachineryView.fxml";
+    private static final String MACHENARY_CSS = "Machinery.css";
+
     private static final String FERTILIZER_FXML = "/com/example/demo1/fxml/FertilizerCalculator.fxml";
     private static final String FERTILIZER_CSS = "FertilizerCalculator.css";
 
@@ -36,11 +40,12 @@ public class NavigationHelper {
 
 
     // --- 2. সাইডবার সেটআপ মেথড ---
-    public static void setupSidebar(Button btnHome, Button btnAdvisory, Button btnStorage, Button btnLocal) {
+    public static void setupSidebar(Button btnHome, Button btnAdvisory, Button btnStorage, Button btnLocal, Button btnMachinery) {
         assignAction(btnHome, HOME_FXML, null);
         assignAction(btnAdvisory, ADVISORY_FXML, ADVISORY_CSS);
         assignAction(btnStorage, STORAGE_FXML, null);
         assignAction(btnLocal, LOCAL_FXML, LOCAL_CSS);
+        assignAction(btnMachinery, MACHENARY_FXML, MACHENARY_CSS);
     }
 
     // --- 3. নতুন: টপ ন্যাভিগেশন বার (Guide, Fertilizer, Irrigation, Rotation) সেটআপ মেথড ---

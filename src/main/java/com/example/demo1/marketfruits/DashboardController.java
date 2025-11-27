@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 public class DashboardController implements Initializable {
 
     // --- Core Navigation Buttons ---
-    @FXML private Button btnHome, btnAdvisory, btnStorage, btnLocalManagement;
+    @FXML private Button btnHome, btnAdvisory, btnStorage, btnLocalManagement,btnMachinery;
 
     // --- Feature Buttons (Placeholders) ---
     @FXML private Button btnAiHelper, btnVideoEducation, btnFarmWeather, btnAgriAnalysis;
@@ -21,7 +21,7 @@ public class DashboardController implements Initializable {
         System.out.println("✅ Dashboard Initialized");
 
         // 1. Setup Main Sidebar Navigation (1 Line)
-        NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement);
+        NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement,btnMachinery);
 
         // 2. Setup Placeholder Features
         setupPlaceholder(btnAiHelper, "AI Helper");

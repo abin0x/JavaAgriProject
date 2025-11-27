@@ -14,7 +14,7 @@ import java.util.*;
 public class IrrigationCalculatorController implements Initializable {
 
     // --- Navigation Buttons ---
-    @FXML private Button btnHome, btnAdvisory, btnAiHelper, btnLocalManagement, btnStorage;
+    @FXML private Button btnHome, btnAdvisory, btnAiHelper, btnLocalManagement, btnStorage,btnMachinery;
     @FXML private Button btnGuide, btnFertilizer, btnIrrigation, btnCropRotation;
 
     // --- Inputs ---
@@ -51,7 +51,7 @@ public class IrrigationCalculatorController implements Initializable {
     // ---------------------------------------------------------
     private void setupNavigation() {
         // Sidebar
-        NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement);
+        NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement,btnMachinery);
         // ২. উপরের ক্যাটাগরি বাটন সেটআপ (নতুন ফাংশন ব্যবহার করে)
         NavigationHelper.setupAdvisoryNav(btnGuide, btnFertilizer, btnIrrigation, btnCropRotation);
     }

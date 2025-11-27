@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 public class CropAdvisoryController implements Initializable {
 
     // --- Sidebar Buttons (Only the ones used for navigation) ---
-    @FXML private Button btnHome, btnAdvisory, btnStorage, btnLocalManagement;
+    @FXML private Button btnHome, btnAdvisory, btnStorage, btnLocalManagement,btnMachinery;
     @FXML private Button btnAiHelper; // Kept as it had specific logic
 
     // --- Top Navigation / Filter Buttons ---
@@ -27,7 +27,7 @@ public class CropAdvisoryController implements Initializable {
     // ---------------------------------------------------------
     private void setupNavigation() {
         // 1. Setup Sidebar (Home, Advisory, Storage, Local)
-        NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement);
+        NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement,btnMachinery);
 
         // 2. Setup Top Menu (Guide, Fertilizer, Irrigation, Rotation)
         NavigationHelper.setupAdvisoryNav(btnGuide, btnFertilizer, btnIrrigation, btnCropRotation);

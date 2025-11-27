@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- লক্ষ্য করুন: এখানে আমরা SidebarController কানেক্ট করেছি -->
+<ScrollPane fitToWidth="true" styleClass="sidebar-scroll" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo1.marketfruits.SidebarController">
+
+    <VBox styleClass="sidebar" spacing="5">
+        <padding>
+            <Insets top="20" right="10" bottom="20" left="10"/>
+        </padding>
+
+        <Button text="🏠 হোম" styleClass="sidebar-btn" fx:id="btnHome"/>
+        <Button text="📅 পরিকল্পনা ও হিসাব" styleClass="sidebar-btn" fx:id="btnAdvisory"/>
+        <Button text="🏪 গুদাম ও সংরক্ষণ" styleClass="sidebar-btn" fx:id="btnStorage"/>
+        <Button text="👷শ্রমিক ব্যবস্থাপনা" styleClass="sidebar-btn" fx:id="btnLocalManagement"/>
+        <Button text="🤖 AI সহায়ক" styleClass="sidebar-btn" fx:id="btnAiHelper"/>
+        <Button text="🎯 ফসল পরিকল্পনা" styleClass="sidebar-btn" fx:id="btnCropPlanning"/>
+
+        <!-- অন্যান্য বাটন... -->
+        <Button text="📰 কৃষি সংবাদ" styleClass="sidebar-btn" fx:id="btnAgriNews"/>
+        <Button text="💰 লাভ-ক্ষতি হিসাব" styleClass="sidebar-btn" fx:id="btnProfitLoss"/>
+        <Button text="🌦️ আবহাওয়া" styleClass="sidebar-btn" fx:id="btnWeather"/>
+        <Button text="🛒 কৃষক বাজার" styleClass="sidebar-btn" fx:id="btnFarmerMarket"/>
+        <Button styleClass="sidebar-btn" text="🛒 কৃষক বাজার" />
+        <Button styleClass="sidebar-btn" text="🔔 মাটি স্বাস্থ্য" />
+        <Button styleClass="sidebar-btn" text="☀️ কীটপতঙ্গ শনাক্ত" />
+        <Button styleClass="sidebar-btn" text="🗣️ মন্তব্য ভাড্া" />
+        <Button styleClass="sidebar-btn" text="📰 ওয়াম সেবা" />
+        <Button styleClass="sidebar-btn" text="📅 খবর ট্র্যাফিক" />
+        <Button styleClass="sidebar-btn" text="❓ জরুরি সহায়তা" />
+        <Button styleClass="sidebar-btn" text="👥 সম্প্রদায়" />
+        <Button styleClass="sidebar-btn" text="⚙️ অধ্যয়ন" />
+        <Button styleClass="sidebar-btn" text="👤 প্রোফাইল" />
+    </VBox>
+</ScrollPane>

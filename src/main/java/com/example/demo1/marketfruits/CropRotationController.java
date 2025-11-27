@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 public class CropRotationController implements Initializable {
 
     // --- Navigation Buttons ---
-    @FXML private Button btnHome, btnAdvisory, btnGuide, btnFertilizer, btnIrrigation, btnCropRotation, btnLocalManagement, btnStorage;
+    @FXML private Button btnHome, btnAdvisory, btnGuide, btnFertilizer, btnIrrigation, btnCropRotation, btnLocalManagement, btnStorage,btnMachinery;
 
     // --- Inputs ---
     @FXML private ComboBox<String> districtComboBox, landTypeComboBox, soilTypeComboBox, currentSeasonComboBox, prevCropComboBox;
@@ -27,7 +27,7 @@ public class CropRotationController implements Initializable {
         System.out.println("✅ Crop Rotation Controller Initialized");
 
         // 1. Setup Navigation (1 Line)
-        NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement);
+        NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement,btnMachinery);
         NavigationHelper.setupAdvisoryNav(btnGuide, btnFertilizer, btnIrrigation, btnCropRotation);
 
         // 2. Setup Logic
