@@ -95,27 +95,36 @@ public class RegisterController {
     }
 
     // --- Action: "Login Here" Link Clicked ---
-    @FXML
-    public void switchToLogin(MouseEvent event) {
+    // RegisterController.java (switchToLoginScreen method)
+
+    public void switchToLoginScreen(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+            // 🛑 ফিক্স: এবসোলিউট পাথ ব্যবহার করুন 🛑
+            FXMLLoader fxmlLoader = new FXMLLoader(
+                    // /com/example/demo1/fxml/hello-view.fxml
+                    getClass().getResource("/com/example/demo1/fxml/hello-view.fxml")
+            );
             Parent root = fxmlLoader.load();
-            Scene scene = new Scene(root, 800, 600);
 
-            // Add CSS to the new scene
-            scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            // ... (বাকি কোড যেমন ছিল) ...
 
-            // Get the current window (Stage) from the Label that was clicked
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+
+            // 🛑 CSS ফিক্স: Login স্ক্রিনের CSS পাথ যুক্ত করুন 🛑
+            scene.getStylesheets().add(
+                    getClass().getResource("/com/example/demo1/css/style.css").toExternalForm()
+            );
 
             stage.setTitle("Login");
             stage.setScene(scene);
             stage.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            // ... (handle exception)
         }
     }
+
 
     // --- Helper: Show Popup Message ---
     private void showAlert(Alert.AlertType alertType, String title, String message) {
@@ -125,4 +134,6 @@ public class RegisterController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+
 }

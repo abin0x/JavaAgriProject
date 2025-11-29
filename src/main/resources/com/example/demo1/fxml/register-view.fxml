@@ -78,7 +78,7 @@
 
                 <HBox alignment="CENTER" spacing="5">
                     <Text fill="#6b7280" text="আপনার কি ইতিমধ্যে একটি অ্যাকাউন্ট আছে?" />
-                    <Label onMouseClicked="#switchToLogin" styleClass="link-text-bold" text="এখানে লগইন করুন" />
+                    <Label onMouseClicked="#switchToLoginScreen" styleClass="link-text-bold" text="এখানে লগইন করুন" />
                 </HBox>
 
             </VBox>

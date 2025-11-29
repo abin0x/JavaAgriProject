@@ -12,9 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-// NOTE: Ensure your JsonDbService, User, and FXML files are in the right packages/locations.
-
-public class LoginController {
+public class LoginController { // 🛑 নিশ্চিত করুন যে এই ক্লাস সংজ্ঞাটি ফাইলে একবারই আছে 🛑
 
     @FXML
     private TextField usernameField;
@@ -34,26 +32,25 @@ public class LoginController {
         }
 
         try {
-            // Note: JsonDbService should be in the 'com.example.demo1' package
-            JsonDbService dbService = new JsonDbService();
+            JsonDbService dbService = new JsonDbService(); // Assumes JsonDbService is in the same package
             User loggedInUser = dbService.loginUser(username, password);
 
             if (loggedInUser != null) {
-                // ✅ 1. SUCCESSFUL LOGIN: Load the Dashboard Scene
+                // ✅ Load the Dashboard Scene
 
-                // Load the Dashboard FXML resource (Path: /com/example/demo1/fxml/dashboard.fxml)
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/fxml/dashboard.fxml"));
+                // 🛑 FXML Fix: Absolute path to dashboard.fxml 🛑
+                FXMLLoader fxmlLoader = new FXMLLoader(
+                        getClass().getResource("/com/example/demo1/fxml/dashboard.fxml")
+                );
                 Parent root = fxmlLoader.load();
 
-                // Get the current Window (Stage)
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-                // Create and set the new Scene
                 Scene scene = new Scene(root);
 
-                // 🛑 CORRECTED CSS LINE: Using the confirmed path with leading slash 🛑
-                // Path: /com/example/demo1/css/dashboard.css
-                scene.getStylesheets().add(getClass().getResource("/com/example/demo1/css/dashboard.css").toExternalForm());
+                // 🛑 CSS Fix: Absolute path to dashboard.css 🛑
+                scene.getStylesheets().add(
+                        getClass().getResource("/com/example/demo1/css/dashboard.css").toExternalForm()
+                );
 
                 stage.setTitle("কৃষি সাখী ড্যাশবোর্ড");
                 stage.setScene(scene);
@@ -65,19 +62,16 @@ public class LoginController {
                 showAlert(Alert.AlertType.ERROR, "ব্যর্থ", "ভুল ইউজারনেম/মোবাইল বা পাসওয়ার্ড।");
             }
         } catch (IOException e) {
-            // Catches errors if the Dashboard FXML or resources are not found/loaded
+            // Catches errors like 'Dashboard লোড করতে সমস্যা হয়েছে।'
             showAlert(Alert.AlertType.ERROR, "ত্রুটি", "ড্যাশবোর্ড লোড করতে সমস্যা হয়েছে।");
             System.err.println("Error loading Dashboard FXML or resources:");
             e.printStackTrace();
         } catch (Exception e) {
-            // Catches errors like database connection/file read issues
             showAlert(Alert.AlertType.ERROR, "ত্রুটি", "ডাটাবেস বা সিস্টেমে সমস্যা: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
-
-    // --- Auxiliary Methods ---
 
     /**
      * Handles the click event to open the Registration view.
@@ -85,18 +79,23 @@ public class LoginController {
     @FXML
     public void onOpenRegisterClick(ActionEvent event) {
         try {
-            // Load the Register FXML (Path is relative to the LoginController package)
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("com/example/demo1/fxml/register-view.fxml"));
+            // ✅ Load the Register FXML
+
+            // 🛑 FXML Fix: Absolute path to register-view.fxml 🛑
+            FXMLLoader fxmlLoader = new FXMLLoader(
+                    getClass().getResource("/com/example/demo1/fxml/register-view.fxml")
+            );
             Parent root = fxmlLoader.load();
 
-            // Create the Scene and attach CSS
             Scene scene = new Scene(root, 800, 600);
-            scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
-            // Get the current Window (Stage)
+            // 🛑 CSS Fix: Absolute path to style.css (for register view) 🛑
+            scene.getStylesheets().add(
+                    getClass().getResource("/com/example/demo1/css/style.css").toExternalForm()
+            );
+
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            // Switch the scene
             stage.setTitle("নতুন অ্যাকাউন্ট তৈরি করুন");
             stage.setScene(scene);
             stage.show();
