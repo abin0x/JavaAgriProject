@@ -13,7 +13,7 @@ import java.util.*;
 public class FertilizerCalculatorController implements Initializable {
 
     // --- Navigation Buttons ---
-    @FXML private Button btnHome, btnAdvisory, btnLocalManagement, btnStorage;
+    @FXML private Button btnHome, btnAdvisory, btnLocalManagement, btnStorage,btnMachinery;
     @FXML private Button btnGuide, btnFertilizer, btnIrrigation, btnCropRotation;
 
     // --- Inputs ---
@@ -38,7 +38,7 @@ public class FertilizerCalculatorController implements Initializable {
         System.out.println("✅ Fertilizer Calculator Initialized");
 
         // 1. Setup Navigation (1 Line for Sidebar, 1 Line for Top Nav)
-        NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement);
+        NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement,btnMachinery);
         NavigationHelper.setupAdvisoryNav(btnGuide, btnFertilizer, btnIrrigation, btnCropRotation);
 
         // 2. Setup Logic

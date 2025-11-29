@@ -1,14 +1,14 @@
 [
   {
-    "id": "bd9bdfaf-39b5-4409-8092-cc4b14af766b",
-    "name": "35454",
-    "phone": "3543543",
-    "workType": "বীজ বপন",
+    "id": "d1430f54-11c7-41cb-9332-215759debe29",
+    "name": "ytr",
+    "phone": "ytryt",
+    "workType": "ফসল কাটা",
     "date": "27/11/2025",
     "status": "completed",
     "notes": "",
-    "hours": 555555.0,
-    "rate": 1.0
+    "hours": 8.0,
+    "rate": 60.0
   },
   {
     "id": "d54dc088-4c3c-47ae-9d57-38a78d61b822",
@@ -20,16 +20,5 @@
     "notes": "",
     "hours": 56.0,
     "rate": 5.0
-  },
-  {
-    "id": "afaed913-3d15-4eba-aa11-45036fec4288",
-    "name": "gfgfd",
-    "phone": "fdgfd",
-    "workType": "জমি চাষ",
-    "date": "27/11/2025",
-    "status": "completed",
-    "notes": "",
-    "hours": 4.0,
-    "rate": 55.0
   }
 ]

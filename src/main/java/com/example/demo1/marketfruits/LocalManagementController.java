@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class LocalManagementController implements Initializable {
 
     // --- FXML Controls ---
-    @FXML private Button btnHome, btnAdvisory, btnStorage, btnLocalManagement, addRecordBtn;
+    @FXML private Button btnHome, btnAdvisory, btnStorage, btnLocalManagement, addRecordBtn,btnMachinery;
     @FXML private Label totalWorkersLabel, pendingPaymentLabel, completedPaymentLabel;
     @FXML private ComboBox<String> filterComboBox;
     @FXML private VBox workersListContainer, emptyState;
@@ -36,7 +36,7 @@ public class LocalManagementController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // 1. Navigation: Managed centrally by Helper (Clean & Short)
-        NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement);
+        NavigationHelper.setupSidebar(btnHome, btnAdvisory, btnStorage, btnLocalManagement,btnMachinery);
 
         // 2. Setup UI & Data
         setupFilter();
