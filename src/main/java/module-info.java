@@ -1,37 +1,38 @@
-module com.example.demo1.marketfruits {
+// src/main/java/com/example/demo1/module-info.java
+
+module com.example.demo.marketfruits {
 
     // --- REQUIRED DEPENDENCIES ---
+
+    // Core JavaFX Modules
     requires javafx.controls;
     requires javafx.fxml;
-    requires javafx.web;
-    requires com.google.gson;
+    requires javafx.graphics;
+
+    // Jackson JSON Library (REQUIRED for JsonDbService)
+    requires com.fasterxml.jackson.databind;
+    requires com.fasterxml.jackson.core; // Jackson Core is often needed explicitly
+
+    // Additional Libraries (from your pom.xml, ensuring all are present)
     requires org.controlsfx.controls;
-    requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
-    requires javafx.swing;
-    requires javafx.media;
-    requires com.fasterxml.jackson.databind;
-    requires com.fasterxml.jackson.core;
+    requires com.google.gson;
 
+    // --- PACKAGE ACCESS / EXPORTS (Crucial for FXML) ---
 
-
-    // 1. Export the main package where the Application Launcher is located.
-    exports com.example.demo1;
-
-    // 2. Open the main package for FXML (LoginController, RegisterController).
+    // 🛑 FXML Controller Access Fix: Open the main package to FXML loader 🛑
     opens com.example.demo1 to javafx.fxml;
 
-    // এখানে demo1 যুক্ত করতে হবে
-    opens com.example.demo1.marketfruits to javafx.fxml, com.google.gson;
+    // 🛑 FXML Controller Access Fix: Open the sub-package to FXML loader 🛑
+    opens com.example.demo1.marketfruits to javafx.fxml;
 
-    // 4. Export the sub-package to make its public classes available.
+    // Export the main package
+    exports com.example.demo1;
+    // Export the sub-package
     exports com.example.demo1.marketfruits;
-    exports com.example.demo1.utils;
-    opens com.example.demo1.utils to javafx.fxml;
-
 
 }

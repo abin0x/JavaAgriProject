@@ -1,4 +1,5 @@
 package com.example.demo1;
+// প্যাকেজ আপনার ফাইল লোকেশন অনুযায়ী ঠিক করুন: com.example.demo1 বা com.example.demo1.marketfruits
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,33 +13,32 @@ import java.util.List;
 
 public class JsonDbService {
 
-    // Save the file in the user's home folder so it persists forever
-    private static final String FILE_NAME = "smart_krishi_users.json";
+    // 🛑 ফিক্স ১: সঠিক আপেক্ষিক পাথ 🛑
+    private static final String FILE_PATH = "src/main/resources/com/example/demo1/user_data.json";
+
     private final ObjectMapper mapper = new ObjectMapper();
     private final File databaseFile;
 
     public JsonDbService() throws IOException {
-        // 1. Get the path to C:\Users\DELL\smart_krishi_users.json
-        String userHome = System.getProperty("user.home");
-        this.databaseFile = new File(userHome, FILE_NAME);
+        this.databaseFile = new File(FILE_PATH);
 
-        // 2. If the file doesn't exist yet, create it with an empty list
-        if (!databaseFile.exists()) {
-            databaseFile.createNewFile();
-            saveUsers(new ArrayList<>()); // Initialize with empty array []
-
-            // Optional: Create the default Admin user on first run
+        if (!databaseFile.exists() || databaseFile.length() == 0) {
+            // ডিরেক্টরি তৈরি নিশ্চিত করা
+            databaseFile.getParentFile().mkdirs();
+            saveUsers(new ArrayList<>());
             createDefaultAdmin();
         }
+        System.out.println("DB location: " + databaseFile.getAbsolutePath());
     }
 
     private void createDefaultAdmin() throws IOException {
-        List<User> users = new ArrayList<>();
-        // Password "1234" hashed
-        String adminHash = "a94a8fe5ccb19ba61c4c0873d391e987982fbbd3";
-        users.add(new User("Admin User", "admin@example.com", "01700000000", "admin", adminHash));
-        saveUsers(users);
-        System.out.println("Database created at: " + databaseFile.getAbsolutePath());
+        List<User> users = loadUsers();
+        if (users.isEmpty() || users.stream().noneMatch(u -> u.getUsername().equals("admin"))) {
+            String adminHash = "a94a8fe5ccb19ba61c4c0873d391e987982fbbd3"; // Hash for "1234"
+            users.add(new User("Admin User", "admin@example.com", "01700000000", "admin", adminHash));
+            saveUsers(users);
+            System.out.println("Default Admin created/re-created.");
+        }
     }
 
     // --- Core Read/Write Methods ---
@@ -58,10 +58,9 @@ public class JsonDbService {
 
     public boolean registerUser(User newUser) throws IOException {
         List<User> users = loadUsers();
-        // Check duplicate mobile or name
         boolean exists = users.stream().anyMatch(u ->
                 u.getMobile().equals(newUser.getMobile()) ||
-                        u.getName().equalsIgnoreCase(newUser.getName())
+                        u.getUsername().equalsIgnoreCase(newUser.getUsername())
         );
 
         if (exists) {
@@ -72,6 +71,8 @@ public class JsonDbService {
         return true;
     }
 
+    // JsonDbService.java (loginUser method)
+
     public User loginUser(String input, String rawPassword) throws IOException {
         List<User> users = loadUsers();
         String hashedPassword = hashPassword(rawPassword);
@@ -81,7 +82,7 @@ public class JsonDbService {
                         (u.getMobile().equals(input) ||
                                 u.getUsername().equals(input) ||
                                 u.getEmail().equals(input) ||
-                                u.getName().equalsIgnoreCase(input))
+                                u.getName().equalsIgnoreCase(input)) // 🛑 এই লাইনটি যুক্ত করুন 🛑
                                 && u.getPasswordHash().equals(hashedPassword)
                 )
                 .findFirst()
