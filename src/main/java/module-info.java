@@ -1,38 +1,38 @@
-// src/main/java/com/example/demo1/module-info.java
-
 module com.example.demo.marketfruits {
 
     // --- REQUIRED DEPENDENCIES ---
-
-    // Core JavaFX Modules
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;
 
-    // Jackson JSON Library (REQUIRED for JsonDbService)
     requires com.fasterxml.jackson.databind;
-    requires com.fasterxml.jackson.core; // Jackson Core is often needed explicitly
+    requires com.fasterxml.jackson.core;
+    requires com.google.gson;
 
-    // Additional Libraries (from your pom.xml, ensuring all are present)
     requires org.controlsfx.controls;
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
-    requires com.google.gson;
+    requires java.desktop;
 
-    // --- PACKAGE ACCESS / EXPORTS (Crucial for FXML) ---
 
-    // 🛑 FXML Controller Access Fix: Open the main package to FXML loader 🛑
+    // --- PACKAGE ACCESS / OPENS ---
+
+    // FXML Access for main package (LoginApplication, LoginController etc.)
     opens com.example.demo1 to javafx.fxml;
 
-    // 🛑 FXML Controller Access Fix: Open the sub-package to FXML loader 🛑
-    opens com.example.demo1.marketfruits to javafx.fxml;
+    // FXML and GSON access for marketfruits package (LocalManagementController, WorkerRecord etc.)
+    // 🛑 নিশ্চিত করুন যে এখানে শুধু কমা (,) আছে, অন্য কোনো ক্যারেক্টার নেই 🛑
+    opens com.example.demo1.marketfruits to javafx.fxml, com.google.gson;
 
-    // Export the main package
+    // FXML and GSON access for other packages (like utils) if needed
+    // opens com.example.demo1.utils to com.google.gson;
+
+
+    // --- EXPORTS ---
+
     exports com.example.demo1;
-    // Export the sub-package
     exports com.example.demo1.marketfruits;
-
 }
