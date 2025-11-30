@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fitToWidth="true"
+            styleClass="content-scroll"
+            hbarPolicy="NEVER"
+            vbarPolicy="ALWAYS"
+            pannable="true"
+            prefViewportHeight="800">
+
+    <VBox spacing="20" styleClass="main-content">
+        <padding>
+            <Insets top="30" right="30" bottom="30" left="30"/>
+        </padding>
+
+        <VBox spacing="8">
+            <Label text="স্বাগতম, কৃষক!" styleClass="welcome-title"/>
+            <Label text="আজ Sunday, 23 November 2025" styleClass="date-text"/>
+        </VBox>
+
+        <HBox styleClass="warning-banner" spacing="15" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20"/>
+            </padding>
+            <Label text="⚠" styleClass="warning-icon"/>
+            <Label text="ভারী বৃষ্টিপাতের সতর্কতা - " styleClass="warning-text"/>
+            <Label text="বিস্তারিত দেখুন" styleClass="warning-link"/>
+        </HBox>
+
+        <HBox styleClass="weather-card" spacing="0" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="30" right="40" bottom="30" left="40"/>
+            </padding>
+
+            <VBox spacing="0" alignment="TOP_LEFT">
+                <Label text="আজকের আবহাওয়া" styleClass="weather-title"/>
+                <Region VBox.vgrow="ALWAYS"/>
+                <Label text="☀" styleClass="weather-sun-icon"/>
+            </VBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <VBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="28°C" styleClass="temperature"/>
+                <Label text="Partly Cloudy" styleClass="weather-desc"/>
+            </VBox>
+
+            <Region prefWidth="80"/>
+
+            <VBox spacing="8" alignment="CENTER">
+                <Label text="💧" styleClass="weather-metric-icon"/>
+                <Label text="75%" styleClass="weather-metric-value"/>
+                <Label text="আর্দ্রতা" styleClass="weather-metric-label"/>
+            </VBox>
+
+            <Region prefWidth="80"/>
+
+            <VBox spacing="8" alignment="CENTER">
+                <Label text="💨" styleClass="weather-metric-icon"/>
+                <Label text="12" styleClass="weather-metric-value"/>
+                <Label text="কিমি/ঘণ্টা" styleClass="weather-metric-label"/>
+            </VBox>
+
+            <Region prefWidth="80"/>
+
+            <VBox spacing="8" alignment="CENTER">
+                <Label text="☔" styleClass="weather-metric-icon"/>
+                <Label text="40%" styleClass="weather-metric-value"/>
+                <Label text="বৃষ্টির সম্ভাবনা" styleClass="weather-metric-label"/>
+            </VBox>
+        </HBox>
+
+        <GridPane hgap="20" vgap="20">
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="25"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="25"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="25"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="25"/>
+            </columnConstraints>
+
+            <VBox styleClass="stat-card, stat-card-green" spacing="15" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <padding>
+                    <Insets top="25" right="25" bottom="25" left="25"/>
+                </padding>
+                <HBox alignment="CENTER_LEFT">
+                    <VBox spacing="5">
+                        <Label text="সক্রিয় ফসল" styleClass="stat-label"/>
+                        <Label text="0" styleClass="stat-value"/>
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label text="🌱" styleClass="stat-icon"/>
+                </HBox>
+            </VBox>
+
+            <VBox styleClass="stat-card, stat-card-orange" spacing="15" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <padding>
+                    <Insets top="25" right="25" bottom="25" left="25"/>
+                </padding>
+                <HBox alignment="CENTER_LEFT">
+                    <VBox spacing="5">
+                        <Label text="সতর্কতা" styleClass="stat-label"/>
+                        <Label text="2" styleClass="stat-value"/>
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label text="⚠️" styleClass="stat-icon"/>
+                </HBox>
+            </VBox>
+
+            <VBox styleClass="stat-card, stat-card-blue" spacing="15" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                <padding>
+                    <Insets top="25" right="25" bottom="25" left="25"/>
+                </padding>
+                <HBox alignment="CENTER_LEFT">
+                    <VBox spacing="5">
+                        <Label text="মাটির আর্দ্রতা" styleClass="stat-label"/>
+                        <Label text="65%" styleClass="stat-value"/>
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label text="💧" styleClass="stat-icon"/>
+                </HBox>
+            </VBox>
+
+            <VBox styleClass="stat-card, stat-card-purple" spacing="15" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                <padding>
+                    <Insets top="25" right="25" bottom="25" left="25"/>
+                </padding>
+                <HBox alignment="CENTER_LEFT">
+                    <VBox spacing="5">
+                        <Label text="সম্প্রদায়" styleClass="stat-label"/>
+                        <Label text="3" styleClass="stat-value"/>
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label text="👥" styleClass="stat-icon"/>
+                </HBox>
+            </VBox>
+        </GridPane>
+
+        <HBox spacing="20" alignment="TOP_LEFT">
+            <VBox styleClass="section-card" spacing="20" HBox.hgrow="ALWAYS" minWidth="400" prefWidth="500">
+                <padding>
+                    <Insets top="25" right="25" bottom="25" left="25"/>
+                </padding>
+
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="🏆 চলমান ফসল পরিকল্পনা" styleClass="section-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label text="সব দেখুন →" styleClass="view-all-link"/>
+                </HBox>
+
+                <VBox spacing="15" alignment="CENTER" styleClass="empty-state" minHeight="250">
+                    <Label text="🌱" styleClass="empty-icon"/>
+                    <Label text="কোনো সক্রিয় ফসল পরিকল্পনা নেই" styleClass="empty-text"/>
+                    <Button text="নতুন পরিকল্পনা তৈরি করুন" styleClass="create-btn"/>
+                </VBox>
+            </VBox>
+
+            <VBox styleClass="section-card" spacing="20" HBox.hgrow="ALWAYS" minWidth="400" prefWidth="500">
+                <padding>
+                    <Insets top="25" right="25" bottom="25" left="25"/>
+                </padding>
+
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="📊 বাজার মূল্য" styleClass="section-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label text="সব দেখুন →" styleClass="view-all-link"/>
+                </HBox>
+
+                <VBox spacing="15">
+                    <HBox styleClass="market-item" spacing="15" alignment="CENTER_LEFT">
+                        <padding>
+                            <Insets top="12" right="15" bottom="12" left="15"/>
+                        </padding>
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="গম" styleClass="market-item-name"/>
+                            <Label text="বারাদেতলী বাজার" styleClass="market-location"/>
+                        </VBox>
+                        <VBox spacing="5" alignment="CENTER_RIGHT">
+                            <Label text="৳40" styleClass="market-price"/>
+                            <Label text="প্রতি কেজি" styleClass="market-unit"/>
+                        </VBox>
+                        <Label text="📈 বৃদ্ধি" styleClass="market-trend, trend-up"/>
+                    </HBox>
+
+                    <HBox styleClass="market-item" spacing="15" alignment="CENTER_LEFT">
+                        <padding>
+                            <Insets top="12" right="15" bottom="12" left="15"/>
+                        </padding>
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="পেঁয়াজ" styleClass="market-item-name"/>
+                            <Label text="কারওয়ান বাজার" styleClass="market-location"/>
+                        </VBox>
+                        <VBox spacing="5" alignment="CENTER_RIGHT">
+                            <Label text="৳55" styleClass="market-price"/>
+                            <Label text="প্রতি কেজি" styleClass="market-unit"/>
+                        </VBox>
+                        <Label text="📈 বৃদ্ধি" styleClass="market-trend, trend-up"/>
+                    </HBox>
+
+                    <HBox styleClass="market-item" spacing="15" alignment="CENTER_LEFT">
+                        <padding>
+                            <Insets top="12" right="15" bottom="12" left="15"/>
+                        </padding>
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="পাট" styleClass="market-item-name"/>
+                            <Label text="আদমজী বাজার" styleClass="market-location"/>
+                        </VBox>
+                        <VBox spacing="5" alignment="CENTER_RIGHT">
+                            <Label text="৳28" styleClass="market-price"/>
+                            <Label text="প্রতি কেজি" styleClass="market-unit"/>
+                        </VBox>
+                        <Label text="📉 হ্রাস" styleClass="market-trend, trend-down"/>
+                    </HBox>
+
+                    <HBox styleClass="market-item" spacing="15" alignment="CENTER_LEFT">
+                        <padding>
+                            <Insets top="12" right="15" bottom="12" left="15"/>
+                        </padding>
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="ধান" styleClass="market-item-name"/>
+                            <Label text="কারওয়ান বাজার" styleClass="market-location"/>
+                        </VBox>
+                        <VBox spacing="5" alignment="CENTER_RIGHT">
+                            <Label text="৳45" styleClass="market-price"/>
+                            <Label text="প্রতি কেজি" styleClass="market-unit"/>
+                        </VBox>
+                        <Label text="📈 বৃদ্ধি" styleClass="market-trend, trend-up"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </HBox>
+
+        <VBox styleClass="quick-actions-container" spacing="15">
+            <padding>
+                <Insets top="30" right="30" bottom="30" left="30"/>
+            </padding>
+
+            <Label text="দ্রুত কাজ" styleClass="quick-actions-title"/>
+
+            <HBox spacing="15" alignment="CENTER">
+                <VBox styleClass="quick-action-card" spacing="10" alignment="CENTER" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets top="25" right="20" bottom="25" left="20"/>
+                    </padding>
+                    <Label text="🌱" styleClass="quick-action-icon"/>
+                    <Label text="নতুন পরিকল্পনা" styleClass="quick-action-label"/>
+                </VBox>
+
+                <VBox styleClass="quick-action-card" spacing="10" alignment="CENTER" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets top="25" right="20" bottom="25" left="20"/>
+                    </padding>
+                    <Label text="💲" styleClass="quick-action-icon"/>
+                    <Label text="মূল্য চেক করুন" styleClass="quick-action-label"/>
+                </VBox>
+
+                <VBox styleClass="quick-action-card" spacing="10" alignment="CENTER" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets top="25" right="20" bottom="25" left="20"/>
+                    </padding>
+                    <Label text="☔" styleClass="quick-action-icon"/>
+                    <Label text="পর্যালোচনা" styleClass="quick-action-label"/>
+                </VBox>
+
+                <VBox styleClass="quick-action-card" spacing="10" alignment="CENTER" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets top="25" right="20" bottom="25" left="20"/>
+                    </padding>
+                    <Label text="👥" styleClass="quick-action-icon"/>
+                    <Label text="প্রশ্ন করুন" styleClass="quick-action-label"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </VBox>
+</ScrollPane>

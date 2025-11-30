@@ -96,4 +96,28 @@ public class NavigationHelper {
             e.printStackTrace();
         }
     }
+    // --- 6. নতুন মেথড: Scene থেকে FXML লোড করার জন্য ---
+    public static void navigateTo(Scene currentScene, String fxmlPath) throws IOException {
+        // Stage এবং Scene পাওয়া
+        Stage stage = (Stage) currentScene.getWindow();
+
+        // FXML লোড করা
+        // এখানে FXML লোড করার জন্য একটি ফরোয়ার্ড স্ল্যাশ (/) প্রয়োজন
+        FXMLLoader loader = new FXMLLoader(NavigationHelper.class.getResource(fxmlPath));
+        Parent root = loader.load();
+        Scene newScene = new Scene(root);
+
+        // গ্লোবাল ড্যাশবোর্ড CSS লোড করা
+        // লগইন বা অন্যান্য পেজের জন্য, আপনাকে হয় এখানে সঠিক CSS লোড করতে হবে, অথবা CSS ছাড়া চলতে দিতে হবে
+        URL globalCssUrl = NavigationHelper.class.getResource("/com/example/demo1/css/dashboard.css");
+        if (globalCssUrl != null) {
+            newScene.getStylesheets().add(globalCssUrl.toExternalForm());
+        }
+
+        stage.setScene(newScene);
+        stage.show();
+    }
+
+
+
 }

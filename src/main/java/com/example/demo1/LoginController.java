@@ -1,5 +1,6 @@
 package com.example.demo1;
 
+import com.example.demo1.utils.SessionManager; // 🛑 SessionManager আমদানি করা হয়েছে
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-public class LoginController { // 🛑 নিশ্চিত করুন যে এই ক্লাস সংজ্ঞাটি ফাইলে একবারই আছে 🛑
+public class LoginController {
 
     @FXML
     private TextField usernameField;
@@ -32,13 +33,18 @@ public class LoginController { // 🛑 নিশ্চিত করুন যে
         }
 
         try {
-            JsonDbService dbService = new JsonDbService(); // Assumes JsonDbService is in the same package
+            // ধরে নেওয়া হলো JsonDbService এবং User ক্লাস একই প্যাকেজে আছে
+            JsonDbService dbService = new JsonDbService();
             User loggedInUser = dbService.loginUser(username, password);
 
             if (loggedInUser != null) {
-                // ✅ Load the Dashboard Scene
 
-                // 🛑 FXML Fix: Absolute path to dashboard.fxml 🛑
+                // 🛑 সমাধান: সফল লগইনের পর ইউজার সেশন সেট করা হলো 🛑
+                SessionManager.setLoggedInUser(loggedInUser);
+
+                // ✅ Dashboard Scene লোড করা
+
+                // FXML পাথ: /com/example/demo1/fxml/dashboard.fxml
                 FXMLLoader fxmlLoader = new FXMLLoader(
                         getClass().getResource("/com/example/demo1/fxml/dashboard.fxml")
                 );
@@ -47,7 +53,7 @@ public class LoginController { // 🛑 নিশ্চিত করুন যে
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
 
-                // 🛑 CSS Fix: Absolute path to dashboard.css 🛑
+                // CSS পাথ: /com/example/demo1/css/dashboard.css
                 scene.getStylesheets().add(
                         getClass().getResource("/com/example/demo1/css/dashboard.css").toExternalForm()
                 );
@@ -62,7 +68,6 @@ public class LoginController { // 🛑 নিশ্চিত করুন যে
                 showAlert(Alert.AlertType.ERROR, "ব্যর্থ", "ভুল ইউজারনেম/মোবাইল বা পাসওয়ার্ড।");
             }
         } catch (IOException e) {
-            // Catches errors like 'Dashboard লোড করতে সমস্যা হয়েছে।'
             showAlert(Alert.AlertType.ERROR, "ত্রুটি", "ড্যাশবোর্ড লোড করতে সমস্যা হয়েছে।");
             System.err.println("Error loading Dashboard FXML or resources:");
             e.printStackTrace();
@@ -81,7 +86,7 @@ public class LoginController { // 🛑 নিশ্চিত করুন যে
         try {
             // ✅ Load the Register FXML
 
-            // 🛑 FXML Fix: Absolute path to register-view.fxml 🛑
+            // FXML পাথ: /com/example/demo1/fxml/register-view.fxml
             FXMLLoader fxmlLoader = new FXMLLoader(
                     getClass().getResource("/com/example/demo1/fxml/register-view.fxml")
             );
@@ -89,7 +94,7 @@ public class LoginController { // 🛑 নিশ্চিত করুন যে
 
             Scene scene = new Scene(root, 800, 600);
 
-            // 🛑 CSS Fix: Absolute path to style.css (for register view) 🛑
+            // CSS পাথ: /com/example/demo1/css/style.css
             scene.getStylesheets().add(
                     getClass().getResource("/com/example/demo1/css/style.css").toExternalForm()
             );
