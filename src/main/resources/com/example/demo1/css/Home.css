@@ -1,0 +1,202 @@
+/* ১. গ্লোবাল সেটিংস ও ফন্ট */
+.main-scroll-pane {
+    -fx-background-color: #F0F4F8;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.root-container {
+    -fx-background-color: #F0F4F8;
+}
+
+/* ২. প্রিমিয়াম হিরো ব্যানার (Vibrant Green Gradient) */
+.hero-banner {
+    -fx-background-color: linear-gradient(to right, #1E5128, #4E944F, #83BD75);
+    -fx-background-radius: 20;
+    -fx-min-height: 180;
+    -fx-effect: dropshadow(three-pass-box, rgba(30, 81, 40, 0.3), 20, 0, 0, 10);
+}
+
+.hero-welcome {
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.hero-date {
+    -fx-text-fill: #E8F5E9;
+    -fx-font-size: 15px;
+}
+
+.premium-badge {
+    -fx-background-color: #FFD700;
+    -fx-text-fill: #1E5128;
+    -fx-padding: 4 12;
+    -fx-background-radius: 15;
+    -fx-font-weight: bold;
+    -fx-font-size: 11px;
+}
+
+/* সতর্কবার্তা পিল */
+.alert-pill-container {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-padding: 10 18;
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    -fx-border-width: 1;
+}
+
+.alert-pill-text {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+/* ওয়েদার গ্লাস বক্স */
+.weather-glass-box {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-background-radius: 20;
+    -fx-padding: 15 25;
+    -fx-border-color: rgba(255, 255, 255, 0.3);
+    -fx-border-width: 1;
+}
+
+.hero-temp {
+    -fx-text-fill: white;
+    -fx-font-size: 40px;
+    -fx-font-weight: bold;
+}
+
+.hero-weather-icon {
+    -fx-font-size: 50px;
+}
+
+.hero-weather-desc {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+/* ৩. রঙিন স্মার্ট স্ট্যাটাস কার্ডস */
+.stat-card {
+    -fx-background-radius: 18;
+    -fx-padding: 22;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.06), 12, 0, 0, 4);
+    -fx-cursor: hand;
+}
+
+.stat-card:hover {
+    -fx-translate-y: -3;
+}
+
+/* কার্ড কালার ভ্যারিয়েশন */
+.br-green {
+    -fx-background-color: linear-gradient(to bottom right, #E8F5E9, #C8E6C9);
+    -fx-border-color: #4CAF50; -fx-border-width: 0 0 0 6;
+}
+.br-blue {
+    -fx-background-color: linear-gradient(to bottom right, #E3F2FD, #BBDEFB);
+    -fx-border-color: #2196F3; -fx-border-width: 0 0 0 6;
+}
+.br-orange {
+    -fx-background-color: linear-gradient(to bottom right, #FFF3E0, #FFE0B2);
+    -fx-border-color: #FF9800; -fx-border-width: 0 0 0 6;
+}
+.br-purple {
+    -fx-background-color: linear-gradient(to bottom right, #F3E5F5, #E1BEE7);
+    -fx-border-color: #9C27B0; -fx-border-width: 0 0 0 6;
+}
+
+.stat-label { -fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #444; }
+.stat-value-main { -fx-font-size: 28px; -fx-font-weight: bold; }
+.stat-trend-up { -fx-text-fill: #2E7D32; -fx-font-size: 12px; }
+.stat-subtext { -fx-text-fill: #666; -fx-font-size: 12px; }
+
+/* প্রোগ্রেস বার স্টাইল */
+.moisture-bar .track { -fx-background-color: #D1E3F3; -fx-background-radius: 5; }
+.moisture-bar .bar { -fx-background-color: #2196F3; -fx-background-radius: 5; }
+
+/* ৪. মেইন কন্টেন্ট কার্ড */
+.main-card {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 15, 0, 0, 0);
+}
+
+.card-header-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1B5E20;
+}
+
+.btn-view-all {
+    -fx-background-color: transparent;
+    -fx-text-fill: #4CAF50;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+/* ক্যালেন্ডার ডেট চিপ */
+.calendar-chip {
+    -fx-background-color: #2E7D32;
+    -fx-padding: 10;
+    -fx-background-radius: 12;
+    -fx-min-width: 60;
+}
+
+.chip-day { -fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold; }
+.chip-month { -fx-text-fill: #A5D6A7; -fx-font-size: 12px; }
+
+.task-main-text { -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333; }
+.task-sub-text { -fx-text-fill: #777; -fx-font-size: 13px; }
+
+/* ৫. মার্কেট লিস্ট */
+.market-list-item {
+    -fx-padding: 12 5;
+    -fx-border-color: #F1F1F1;
+    -fx-border-width: 0 0 1 0;
+}
+.m-item-name { -fx-font-size: 15px; -fx-font-weight: 600; }
+.m-item-price { -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2E7D32; }
+.m-trend-up { -fx-text-fill: #2E7D32; }
+.m-trend-down { -fx-text-fill: #D32F2F; }
+
+/* ৬. কালারফুল একশন বাটনস */
+.smart-action-btn {
+    -fx-padding: 18 30;
+    -fx-background-radius: 15;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+    -fx-cursor: hand;
+    -fx-border-width: 1.5;
+}
+
+.action-pest   { -fx-background-color: #FCE4EC; -fx-text-fill: #C2185B; -fx-border-color: #F8BBD0; }
+.action-market { -fx-background-color: #E8F5E9; -fx-text-fill: #2E7D32; -fx-border-color: #C8E6C9; }
+.action-gov    { -fx-background-color: #FFF3E0; -fx-text-fill: #E65100; -fx-border-color: #FFE0B2; }
+.action-expert { -fx-background-color: #E3F2FD; -fx-text-fill: #1565C0; -fx-border-color: #BBDEFB; }
+
+.smart-action-btn:hover {
+    -fx-translate-y: -4;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 12, 0, 0, 6);
+}
+
+/* বটম এনালাইসিস বাটন */
+.btn-market-analysis {
+    -fx-background-color: linear-gradient(to right, #1B5E20, #4CAF50);
+    -fx-text-fill: white;
+    -fx-padding: 12;
+    -fx-background-radius: 12;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-margin: 15 0 0 0;
+}
+
+.btn-mini-apply {
+    -fx-background-color: white;
+    -fx-text-fill: #9C27B0;
+    -fx-background-radius: 8;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}

@@ -15,27 +15,26 @@
             <Insets top="20" right="10" bottom="20" left="10"/>
         </padding>
 
-        <Button text="🏠 হোম" styleClass="sidebar-btn" fx:id="btnHome"/>
+        <Button text="🏠 হোম" styleClass="sidebar-btn, active-btn" fx:id="btnHome"/>
         <Button text="📅 পরিকল্পনা ও হিসাব" styleClass="sidebar-btn" fx:id="btnAdvisory"/>
-        <Button text="🏪 গুদাম ও সংরক্ষণ" styleClass="sidebar-btn" fx:id="btnStorage"/>
+        <Button fx:id="btnStorage" styleClass="sidebar-btn" text="🏪 গুদাম ও সংরক্ষণ" />
         <Button text="👷শ্রমিক ব্যবস্থাপনা" styleClass="sidebar-btn" fx:id="btnLocalManagement"/>
-        <Button text="🤖 AI সহায়ক" styleClass="sidebar-btn" fx:id="btnAiHelper"/>
-        <Button text="🎯 ফসল পরিকল্পনা" styleClass="sidebar-btn" fx:id="btnCropPlanning"/>
+        <Button fx:id="btnMachinery" styleClass="sidebar-btn" text="🚜 যন্ত্রপাতি" />
+        <Button text="🚜 খামার ব্যবস্থাপনা" styleClass="sidebar-btn" fx:id="btnFarmManagement"/>
 
-        <!-- অন্যান্য বাটন... -->
-        <Button text="📰 কৃষি সংবাদ" styleClass="sidebar-btn" fx:id="btnAgriNews"/>
-        <Button text="💰 লাভ-ক্ষতি হিসাব" styleClass="sidebar-btn" fx:id="btnProfitLoss"/>
-        <Button text="🌦️ আবহাওয়া" styleClass="sidebar-btn" fx:id="btnWeather"/>
-        <Button text="🛒 কৃষক বাজার" styleClass="sidebar-btn" fx:id="btnFarmerMarket"/>
-        <Button styleClass="sidebar-btn" text="🛒 কৃষক বাজার" />
-        <Button styleClass="sidebar-btn" text="🔔 মাটি স্বাস্থ্য" />
-        <Button styleClass="sidebar-btn" text="☀️ কীটপতঙ্গ শনাক্ত" />
-        <Button styleClass="sidebar-btn" text="🗣️ মন্তব্য ভাড্া" />
-        <Button styleClass="sidebar-btn" text="📰 ওয়াম সেবা" />
-        <Button styleClass="sidebar-btn" text="📅 খবর ট্র্যাফিক" />
-        <Button styleClass="sidebar-btn" text="❓ জরুরি সহায়তা" />
-        <Button styleClass="sidebar-btn" text="👥 সম্প্রদায়" />
-        <Button styleClass="sidebar-btn" text="⚙️ অধ্যয়ন" />
+        <Button text="🩺 স্মার্ট ডায়াগনস্টিক" styleClass="sidebar-btn" fx:id="btnSmartDiagnostic"/>
+
+        <Button text="🛒 ডিজিটাল হাট" styleClass="sidebar-btn" fx:id="btnDigitalHat"/>
+
+        <Button text="🛡️ শস্য বীমা" styleClass="sidebar-btn" fx:id="btnCropInsurance"/>
+
+        <Button text="📈 বাজার দর ও বিশ্লেষণ" styleClass="sidebar-btn" fx:id="btnMarketFinance"/>
+        <Button fx:id="btnGovtSchemes" text="🏛️ সরকারি সুবিধা ও ভর্তুকি" styleClass="sidebar-btn" />
+
+        <Button text="💬 বিশেষজ্ঞ চ্যাট" styleClass="sidebar-btn" fx:id="btnExpertChat"/>
+
+        <Button text="📚 কৃষি পাঠশালা" styleClass="sidebar-btn" fx:id="btnLearningHub"/>
+        <Button text="📞 সরকারি সেবা ও সাহায্য" styleClass="sidebar-btn" fx:id="btnEmergencyHelp"/>
         <Button styleClass="sidebar-btn" text="👤 প্রোফাইল" />
     </VBox>
 </ScrollPane>
