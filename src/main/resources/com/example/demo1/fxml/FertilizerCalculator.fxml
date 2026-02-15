@@ -47,30 +47,26 @@
                     <Insets bottom="20" left="10" right="10" top="20" />
                 </padding>
 
-                <Button fx:id="btnHome" styleClass="sidebar-btn" text="🏠 হোম" />
-                <Button fx:id="btnAdvisory" styleClass="sidebar-btn,active-btn" text="📅 পরিকল্পনা ও হিসাব" />
+                <Button text="🏠 হোম" styleClass="sidebar-btn, active-btn" fx:id="btnHome"/>
+                <Button text="📅 পরিকল্পনা ও হিসাব" styleClass="sidebar-btn" fx:id="btnAdvisory"/>
                 <Button fx:id="btnStorage" styleClass="sidebar-btn" text="🏪 গুদাম ও সংরক্ষণ" />
                 <Button text="👷শ্রমিক ব্যবস্থাপনা" styleClass="sidebar-btn" fx:id="btnLocalManagement"/>
                 <Button fx:id="btnMachinery" styleClass="sidebar-btn" text="🚜 যন্ত্রপাতি" />
-                <Button fx:id="btnVideoEducation" styleClass="sidebar-btn" text="🎬 ভিডিও শিক্ষা" />
-                <Button fx:id="btnFarmWeather" styleClass="sidebar-btn" text="📖 খামার আবহাওয়া" />
-                <Button fx:id="btnAgriAnalysis" styleClass="sidebar-btn" text="📈 কৃষি বিশ্লেষণ" />
-<!--                <Button fx:id="btnLocalManagement" styleClass="sidebar-btn" text="👥 স্থানীয় ব্যবস্থাপনা" />-->
-                <Button fx:id="btnAgriNews" styleClass="sidebar-btn" text="📰 কৃষি সংবাদ" />
-                <Button fx:id="btnCropPlanning" styleClass="sidebar-btn" text="🎯 ফসল পরিকল্পনা" />
+                <Button text="🚜 খামার ব্যবস্থাপনা" styleClass="sidebar-btn" fx:id="btnFarmManagement"/>
 
-                <Button fx:id="btnProfitLoss" styleClass="sidebar-btn" text="💰 লাভ-ক্ষতি হিসাব" />
-                <Button fx:id="btnWeather" styleClass="sidebar-btn" text="🌦️ আবহাওয়া" />
-                <Button fx:id="btnMarket" styleClass="sidebar-btn" text="📊 বাজার" />
-                <Button fx:id="btnFarmerMarket" styleClass="sidebar-btn" text="🛒 কৃষক বাজার" />
-                <Button fx:id="btnSoilHealth" styleClass="sidebar-btn" text="🔔 মাটি স্বাস্থ্য" />
-                <Button fx:id="btnPestDetection" styleClass="sidebar-btn" text="☀️ কীটপতঙ্গ শনাক্ত" />
-                <Button fx:id="btnComments" styleClass="sidebar-btn" text="🗣️ মন্তব্য ভাড্া" />
-                <Button fx:id="btnWamService" styleClass="sidebar-btn" text="📰 ওয়াম সেবা" />
-                <Button fx:id="btnNewsTraffic" styleClass="sidebar-btn" text="📅 খবর ট্র্যাফিক" />
-                <Button fx:id="btnEmergencyHelp" styleClass="sidebar-btn" text="❓ জরুরি সহায়তা" />
-                <Button fx:id="btnCommunity" styleClass="sidebar-btn" text="👥 সম্প্রদায়" />
-                <Button fx:id="btnStudy" styleClass="sidebar-btn" text="⚙️ অধ্যয়ন" />
+                <Button text="🩺 স্মার্ট ডায়াগনস্টিক" styleClass="sidebar-btn" fx:id="btnSmartDiagnostic"/>
+
+                <Button text="🛒 ডিজিটাল হাট" styleClass="sidebar-btn" fx:id="btnDigitalHat"/>
+
+                <Button text="🛡️ শস্য বীমা" styleClass="sidebar-btn" fx:id="btnCropInsurance"/>
+
+                <Button text="📈 বাজার দর ও বিশ্লেষণ" styleClass="sidebar-btn" fx:id="btnMarketFinance"/>
+                <Button fx:id="btnGovtSchemes" text="🏛️ সরকারি সুবিধা ও ভর্তুকি" styleClass="sidebar-btn" />
+
+                <Button text="💬 বিশেষজ্ঞ চ্যাট" styleClass="sidebar-btn" fx:id="btnExpertChat"/>
+
+                <Button text="📚 কৃষি পাঠশালা" styleClass="sidebar-btn" fx:id="btnLearningHub"/>
+                <Button text="📞 সরকারি সেবা ও সাহায্য" styleClass="sidebar-btn" fx:id="btnEmergencyHelp"/>
                 <Button fx:id="btnProfile" styleClass="sidebar-btn" text="👤 প্রোফাইল" />
             </VBox>
         </ScrollPane>
@@ -94,7 +90,7 @@
                 <!-- Filter Buttons -->
                 <HBox alignment="CENTER" prefHeight="46.0" prefWidth="970.0" spacing="180.0" stylesheets="@../css/CropAdvisory.css">
                     <!-- 1. Guide Button (Added ID) -->
-                    <Button fx:id="btnGuide" styleClass="filter-btn" text="📖 গাইড" />
+                    <Button fx:id="btnGuide" styleClass="filter-btn" text="📅 শস্য ক্যালেন্ডার" />
 
                     <!-- 2. Fertilizer Button (Active Page) -->
                     <Button fx:id="btnFertilizer" styleClass="filter-btn, filter-btn-active" text="🌾 সার" />

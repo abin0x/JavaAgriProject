@@ -43,24 +43,21 @@
                 <Button fx:id="btnStorage" styleClass="sidebar-btn" text="🏪 গুদাম ও সংরক্ষণ" />
                 <Button text="👷শ্রমিক ব্যবস্থাপনা" styleClass="sidebar-btn" fx:id="btnLocalManagement"/>
                 <Button fx:id="btnMachinery" styleClass="sidebar-btn" text="🚜 যন্ত্রপাতি" />
-                <Button text="🤖 AI সহায়ক" styleClass="sidebar-btn" fx:id="btnAiHelper"/>
-                <Button text="🎬 ভিডিও শিক্ষা" styleClass="sidebar-btn" fx:id="btnVideoEducation"/>
-                <Button text="📖 খামার আবহাওয়া" styleClass="sidebar-btn" fx:id="btnFarmWeather"/>
-                <Button text="📈 কৃষি বিশ্লেষণ" styleClass="sidebar-btn" fx:id="btnAgriAnalysis"/>
-                <Button text="📰 কৃষি সংবাদ" styleClass="sidebar-btn" fx:id="btnAgriNews"/>
-                <Button text="🎯 ফসল পরিকল্পনা" styleClass="sidebar-btn" fx:id="btnCropPlanning"/>
-                <Button text="💰 লাভ-ক্ষতি হিসাব" styleClass="sidebar-btn" fx:id="btnProfitLoss"/>
-                <Button text="🌦️ আবহাওয়া" styleClass="sidebar-btn" fx:id="btnWeather"/>
-                <Button text="📊 বাজার" styleClass="sidebar-btn" fx:id="btnMarket"/>
-                <Button text="🛒 কৃষক বাজার" styleClass="sidebar-btn" fx:id="btnFarmerMarket"/>
-                <Button text="🔔 মাটি স্বাস্থ্য" styleClass="sidebar-btn" fx:id="btnSoilHealth"/>
-                <Button text="☀️ কীটপতঙ্গ শনাক্ত" styleClass="sidebar-btn" fx:id="btnPestDetection"/>
-                <Button text="🗣️ মন্তব্য ভাড্া" styleClass="sidebar-btn" fx:id="btnComments"/>
-                <Button text="📰 ওয়াম সেবা" styleClass="sidebar-btn" fx:id="btnWamService"/>
-                <Button text="📅 খবর ট্র্যাফিক" styleClass="sidebar-btn" fx:id="btnNewsTraffic"/>
-                <Button text="❓ জরুরি সহায়তা" styleClass="sidebar-btn" fx:id="btnEmergencyHelp"/>
-                <Button text="👥 সম্প্রদায়" styleClass="sidebar-btn" fx:id="btnCommunity"/>
-                <Button text="⚙️ অধ্যয়ন" styleClass="sidebar-btn" fx:id="btnStudy"/>
+                <Button text="🚜 খামার ব্যবস্থাপনা" styleClass="sidebar-btn" fx:id="btnFarmManagement"/>
+
+                <Button text="🩺 স্মার্ট ডায়াগনস্টিক" styleClass="sidebar-btn" fx:id="btnSmartDiagnostic"/>
+
+                <Button text="🛒 ডিজিটাল হাট" styleClass="sidebar-btn" fx:id="btnDigitalHat"/>
+
+                <Button text="🛡️ শস্য বীমা" styleClass="sidebar-btn" fx:id="btnCropInsurance"/>
+
+                <Button text="📈 বাজার দর ও বিশ্লেষণ" styleClass="sidebar-btn" fx:id="btnMarketFinance"/>
+                <Button fx:id="btnGovtSchemes" text="🏛️ সরকারি সুবিধা ও ভর্তুকি" styleClass="sidebar-btn" />
+
+                <Button text="💬 বিশেষজ্ঞ চ্যাট" styleClass="sidebar-btn" fx:id="btnExpertChat"/>
+
+                <Button text="📚 কৃষি পাঠশালা" styleClass="sidebar-btn" fx:id="btnLearningHub"/>
+                <Button text="📞 সরকারি সেবা ও সাহায্য" styleClass="sidebar-btn" fx:id="btnEmergencyHelp"/>
 
                 <Button text="👤 প্রোফাইল"
                         styleClass="sidebar-btn"
