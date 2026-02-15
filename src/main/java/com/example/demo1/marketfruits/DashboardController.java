@@ -12,6 +12,7 @@ import javafx.scene.layout.StackPane; // 🛑 নতুন আমদানি �
 import javafx.scene.Parent; // 🛑 নতুন আমদানি 🛑
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.io.IOException;
 
@@ -43,7 +44,13 @@ public class DashboardController implements Initializable {
         // 2. Setup Profile Navigation
         // যেহেতু আপনি FXML-এ onAction="#handleProfileClick" সেট করেছেন, তাই এই লজিকটি (setOnAction) অপ্রয়োজনীয়, তবে এটি থাকলেও সাধারণত সমস্যা হয় না।
         if (btnProfile != null) {
-            btnProfile.setOnAction(e -> handleProfileClick(e));
+            btnProfile.setOnAction(this::handleProfileClick);
+        }
+        if (btnEmergencyHelp != null) {
+            btnEmergencyHelp.setOnAction(event -> {
+                System.out.println("DEBUG: Loading Emergency Help view...");
+                loadContent("/com/example/demo1/fxml/emergency-help.fxml");
+            });
         }
 
         // 3. Setup Placeholder Features (বাকি বাটনগুলোও loadContent ব্যবহার করতে পারে)
@@ -60,7 +67,7 @@ public class DashboardController implements Initializable {
         }
         try {
             // FXML লোড করুন
-            Parent content = FXMLLoader.load(getClass().getResource(fxmlPath));
+            Parent content = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlPath)));
 
             // contentArea এর ভেতরের পুরাতন কন্টেন্ট সরিয়ে নতুন FXML যুক্ত করুন
             contentArea.getChildren().setAll(content);
@@ -69,7 +76,7 @@ public class DashboardController implements Initializable {
 
         } catch (IOException e) {
             System.err.println("Failed to load FXML content: " + fxmlPath + e.getMessage());
-            showErrorAlert("লোডিং ত্রুটি", "পেজ লোড করা যায়নি: " + fxmlPath);
+            showErrorAlert("পেজ লোড করা যায়নি: " + fxmlPath);
         } catch (Exception e) {
             System.err.println("General error loading content: " + e.getMessage());
         }
@@ -109,9 +116,9 @@ public class DashboardController implements Initializable {
         alert.show();
     }
 
-    private void showErrorAlert(String title, String message) {
+    private void showErrorAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(title);
+        alert.setTitle("লোডিং ত্রুটি");
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();

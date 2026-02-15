@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" styleClass="content-scroll" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+    <VBox spacing="25" styleClass="main-content">
+        <padding>
+            <Insets top="30" right="30" bottom="30" left="30"/>
+        </padding>
+
+        <VBox spacing="8">
+            <Label text="❓ জরুরি সহায়তা" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+            <Label text="সরাসরি বিশেষজ্ঞ পরামর্শের জন্য নিচের নম্বরগুলোতে যোগাযোগ করুন" style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;"/>
+        </VBox>
+
+        <GridPane hgap="20" vgap="20">
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="50"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="50"/>
+            </columnConstraints>
+
+            <VBox spacing="12" style="-fx-background-color: #ffffff; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="🌾" style="-fx-font-size: 24px;"/>
+                    <VBox>
+                        <Label text="ব্রি (BRRI) কল সেন্টার" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1b5e20;"/>
+                        <Label text="২৪ ঘণ্টা সেবা" style="-fx-font-size: 12px; -fx-background-color: #e8f5e9; -fx-text-fill: #2e7d32; -fx-padding: 2 5;"/>
+                    </VBox>
+                </HBox>
+                <Label text="পরামর্শ: সার ব্যবস্থাপনা, আগাছা নিয়ন্ত্রণ, বালাই দমন ও সেচ।" wrapText="true" style="-fx-text-fill: #555;"/>
+                <Label text="📞 09644300300" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #d32f2f;"/>
+                <Button text="কল করুন" maxWidth="Infinity" style="-fx-background-color: #1b5e20; -fx-text-fill: white; -fx-cursor: hand;"/>
+            </VBox>
+
+            <VBox spacing="12" style="-fx-background-color: #ffffff; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="📞" style="-fx-font-size: 24px;"/>
+                    <VBox>
+                        <Label text="কৃষি কল সেন্টার (AIS)" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2e7d32;"/>
+                    </VBox>
+                </HBox>
+                <Label text="যেকোনো অপারেটর থেকে কল করে বিশেষজ্ঞ পরামর্শ নিন (সকাল ৮টা - রাত ৮টা)।" wrapText="true" style="-fx-text-fill: #555;"/>
+                <Label text="📞 16123" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #d32f2f;"/>
+                <Button text="কল করুন" maxWidth="Infinity" style="-fx-background-color: #2e7d32; -fx-text-fill: white; -fx-cursor: hand;"/>
+            </VBox>
+
+            <VBox spacing="12" style="-fx-background-color: #ffffff; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="🤝" style="-fx-font-size: 24px;"/>
+                    <VBox>
+                        <Label text="কৃষক বন্ধু সেবা" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1565c0;"/>
+                    </VBox>
+                </HBox>
+                <Label text="উদ্ভিদ পরিচর্যা এবং মাঠ ব্যবস্থাপনা সংক্রান্ত যেকোনো পরামর্শের জন্য।" wrapText="true" style="-fx-text-fill: #555;"/>
+                <Label text="📞 3331" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #d32f2f;"/>
+                <Button text="কল করুন" maxWidth="Infinity" style="-fx-background-color: #1565c0; -fx-text-fill: white; -fx-cursor: hand;"/>
+            </VBox>
+
+            <VBox spacing="12" style="-fx-background-color: #ffffff; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="🏢" style="-fx-font-size: 24px;"/>
+                    <VBox>
+                        <Label text="উপজেলা কৃষি অফিস" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #ef6c00;"/>
+                    </VBox>
+                </HBox>
+                <Label text="আপনার স্থানীয় কৃষি কর্মকর্তার সাথে সরাসরি যোগাযোগ বা রিপোর্ট করতে।" wrapText="true" style="-fx-text-fill: #555;"/>
+                <Button text="তালিকা দেখুন" maxWidth="Infinity" style="-fx-background-color: #ef6c00; -fx-text-fill: white; -fx-cursor: hand;"/>
+            </VBox>
+        </GridPane>
+    </VBox>
+</ScrollPane>
