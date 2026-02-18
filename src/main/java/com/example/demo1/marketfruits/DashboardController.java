@@ -18,6 +18,7 @@ import java.io.IOException;
 
 public class DashboardController implements Initializable {
 
+    public Button btnGovtSchemes;
     // --- Core Navigation Buttons ---
     @FXML private Button btnHome, btnAdvisory, btnStorage, btnLocalManagement, btnMachinery, btnProfile;
 
@@ -57,6 +58,11 @@ public class DashboardController implements Initializable {
         setupPlaceholder(btnAiHelper, "AI সহায়ক");
         setupPlaceholder(btnVideoEducation, "ভিডিও শিক্ষা");
         // ... অন্যান্য বাটন ...
+        btnGovtSchemes.setOnAction(event -> {
+            setPage("govt-schemes.fxml"); // আপনার FXML ফাইলের নাম
+        });
+
+
     }
 
     // 🛑 নতুন মেথড: StackPane এ FXML লোড করার জন্য 🛑
@@ -81,7 +87,17 @@ public class DashboardController implements Initializable {
             System.err.println("General error loading content: " + e.getMessage());
         }
     }
-
+    private void setPage(String fxmlFile) {
+        try {
+            // আপনার FXML ফাইলের পাথ অনুযায়ী নিচের লাইনটি পরিবর্তন করুন
+            Parent fxml = FXMLLoader.load(getClass().getResource("/com/example/demo1/fxml/" + fxmlFile));
+            contentArea.getChildren().clear(); // আগের কন্টেন্ট মুছে ফেলা
+            contentArea.getChildren().add(fxml); // নতুন কন্টেন্ট যোগ করা
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error loading page: " + fxmlFile);
+        }
+    }
 
     // 🛑 ফিক্স ২: Profile ক্লিক হ্যান্ডলার পরিবর্তন করুন 🛑
     @FXML
