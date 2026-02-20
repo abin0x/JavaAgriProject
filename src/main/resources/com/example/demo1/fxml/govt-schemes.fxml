@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="main-scroll-pane"
+            stylesheets="@../css/Home.css" vbarPolicy="AS_NEEDED"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demo1.marketfruits.GovtSchemesController">
+
+    <VBox spacing="30" styleClass="root-container">
+        <padding>
+            <Insets bottom="35" left="35" right="35" top="25" />
+        </padding>
+
+        <!-- ১. হিরো ব্যানার (Government Theme - Deep Green to Gold) -->
+        <AnchorPane styleClass="hero-banner" style="-fx-background-color: linear-gradient(to right, #064E3B, #1B5E20, #DAA520);">
+            <VBox spacing="10" AnchorPane.leftAnchor="30" AnchorPane.topAnchor="30">
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <Label text="🏛️ সরকারি সুবিধা ও কৃষি ঋণ" styleClass="hero-welcome"/>
+                    <Label text="VERIFIED" styleClass="premium-badge" style="-fx-background-color: #FFD700; -fx-text-fill: #1B5E20;"/>
+                </HBox>
+                <Label text="বাংলাদেশ ব্যাংক ও কৃষি মন্ত্রণালয়ের অনুমোদিত তথ্যের সারসংক্ষেপ" styleClass="hero-date"/>
+                <HBox styleClass="alert-pill-container">
+                    <Label text="📞 জরুরি সহায়তায় কল করুন: ১০১০৬ অথবা ১৬১২৩ (২৪/৭)" styleClass="alert-pill-text"/>
+                </HBox>
+            </VBox>
+
+            <VBox alignment="CENTER" AnchorPane.rightAnchor="40" AnchorPane.topAnchor="30" spacing="5">
+                <Label text="🇧🇩" style="-fx-font-size: 50;"/>
+                <Label text="গণপ্রজাতন্ত্রী বাংলাদেশ" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+            </VBox>
+        </AnchorPane>
+
+        <!-- ২. ট্যাব প্যানেল (Loans & Projects) -->
+        <TabPane styleClass="custom-tab-pane" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <!-- ট্যাব ১: কৃষি ঋণ -->
+                <Tab text="🏦 কৃষি ঋণ ও ব্যাংকিং সেবা">
+                    <VBox spacing="20">
+                        <padding>
+                            <Insets top="20"/>
+                        </padding>
+                        <Label text="শীর্ষস্থানীয় ব্যাংকের বিশেষ কৃষি লোন প্রোডাক্টসমূহ" styleClass="card-header-title"/>
+
+                        <GridPane hgap="25" vgap="25">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50"/>
+                                <ColumnConstraints percentWidth="50"/>
+                            </columnConstraints>
+
+                            <!-- AB Bank Card -->
+                            <VBox styleClass="stat-card br-green" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <HBox spacing="15" alignment="CENTER_LEFT">
+                                    <Label text="🏦" style="-fx-font-size: 24;"/>
+                                    <VBox>
+                                        <Label text="AB Bank - স্মার্ট কার্ড লোন" styleClass="task-main-text"/>
+                                        <Label text="প্রান্তিক ও ভূমিহীন কৃষকদের জন্য" styleClass="task-sub-text"/>
+                                    </VBox>
+                                </HBox>
+                                <Label text="DAE কৃষি কার্ড ও NID এর মাধ্যমে সরাসরি সার-বীজ কেনার ঋণ সুবিধা।" wrapText="true" style="-fx-padding: 10 0;"/>
+                                <Button onAction="#handleABBankInfo" text="আবেদন পদ্ধতি দেখুন" styleClass="btn-market-analysis" maxWidth="Infinity"/>
+                            </VBox>
+
+                            <!-- Bank Asia Card -->
+                            <VBox styleClass="stat-card br-blue" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <HBox spacing="15" alignment="CENTER_LEFT">
+                                    <Label text="📉" style="-fx-font-size: 24;"/>
+                                    <VBox>
+                                        <Label text="Bank Asia - ৪% সুদে ঋণ" styleClass="task-main-text"/>
+                                        <Label text="বিশেষ শস্য উৎপাদন সহায়তা" styleClass="task-sub-text"/>
+                                    </VBox>
+                                </HBox>
+                                <Label text="ডাল, তেলবীজ, মশলা ও ভুট্টা চাষের জন্য বিশেষ ৪% রেয়াতি সুদে লোন।" wrapText="true" style="-fx-padding: 10 0;"/>
+                                <Button onAction="#handleBankAsiaInfo" text="বিস্তারিত তথ্য" styleClass="btn-market-analysis" style="-fx-background-color: #1565C0;" maxWidth="Infinity"/>
+                            </VBox>
+
+                            <!-- Dhaka Bank Card -->
+                            <VBox styleClass="stat-card br-orange" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <HBox spacing="15" alignment="CENTER_LEFT">
+                                    <Label text="📱" style="-fx-font-size: 24;"/>
+                                    <VBox>
+                                        <Label text="Dhaka Bank - সুফলা লোন" styleClass="task-main-text"/>
+                                        <Label text="ন্যানো লোন সুবিধা" styleClass="task-sub-text"/>
+                                    </VBox>
+                                </HBox>
+                                <Label text="৫,০০০ থেকে ৫০,০০০ টাকা পর্যন্ত জামানতবিহীন তাৎক্ষণিক ঋণ সুবিধা।" wrapText="true" style="-fx-padding: 10 0;"/>
+                                <Button onAction="#handleDhakaBankInfo" text="বিস্তারিত দেখুন" styleClass="btn-market-analysis" style="-fx-background-color: #E65100;" maxWidth="Infinity"/>
+                            </VBox>
+
+                            <!-- City Bank Card -->
+                            <VBox styleClass="stat-card br-purple" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <HBox spacing="15" alignment="CENTER_LEFT">
+                                    <Label text="🤖" style="-fx-font-size: 24;"/>
+                                    <VBox>
+                                        <Label text="City Bank - ডিজিটাল লোন" styleClass="task-main-text"/>
+                                        <Label text="অটোমেটেড লোন সিস্টেম" styleClass="task-sub-text"/>
+                                    </VBox>
+                                </HBox>
+                                <Label text="ডেটা ও ক্রপ সাইকেল বিশ্লেষণের মাধ্যমে দ্রুত লোন ডিসবার্সমেন্ট সুবিধা।" wrapText="true" style="-fx-padding: 10 0;"/>
+                                <Button onAction="#handleCityBankInfo" text="চেক করুন" styleClass="btn-market-analysis" style="-fx-background-color: #7B1FA2;" maxWidth="Infinity"/>
+                            </VBox>
+                        </GridPane>
+                    </VBox>
+                </Tab>
+
+                <!-- ট্যাব ২: জাতীয় প্রকল্প -->
+                <Tab text="📜 জাতীয় কৃষি প্রকল্প">
+                    <VBox spacing="20">
+                        <padding>
+                            <Insets top="20"/>
+                        </padding>
+                        <Label text="বাংলাদেশ সরকারের দীর্ঘমেয়াদী উন্নয়ন পরিকল্পনা" styleClass="card-header-title"/>
+
+                        <VBox spacing="15">
+                            <HBox styleClass="main-card" spacing="20" alignment="CENTER_LEFT" style="-fx-border-color: #1B5E20; -fx-border-width: 0 0 0 5;">
+                                <Label text="🌊" style="-fx-font-size: 30;"/>
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <Label text="বাংলাদেশ ডেল্টা প্ল্যান ২১০০" styleClass="task-main-text"/>
+                                    <Label text="বদ্বীপ অঞ্চলে টেকসই কৃষি ও জলবায়ু সহনশীলতা বৃদ্ধির মহাপরিকল্পনা।" styleClass="task-sub-text" wrapText="true"/>
+                                </VBox>
+                                <Button text="বিস্তারিত" styleClass="smart-action-btn action-market"/>
+                            </HBox>
+
+                            <HBox styleClass="main-card" spacing="20" alignment="CENTER_LEFT" style="-fx-border-color: #FF9800; -fx-border-width: 0 0 0 5;">
+                                <Label text="⛰️" style="-fx-font-size: 30;"/>
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <Label text="মুজিব ক্লাইমেট প্রসপারিটি প্ল্যান" styleClass="task-main-text"/>
+                                    <Label text="উপকূলীয় এলাকায় লবণাক্ততা সহিষ্ণু চাষাবাদ বৃদ্ধির বিশেষ উদ্যোগ।" styleClass="task-sub-text" wrapText="true"/>
+                                </VBox>
+                                <Button text="বিস্তারিত" styleClass="smart-action-btn action-gov"/>
+                            </HBox>
+
+                            <HBox styleClass="main-card" spacing="20" alignment="CENTER_LEFT" style="-fx-border-color: #9C27B0; -fx-border-width: 0 0 0 5;">
+                                <Label text="👩‍🌾" style="-fx-font-size: 30;"/>
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <Label text="নারীর ক্ষমতায়ন কর্মসূচি" styleClass="task-main-text"/>
+                                    <Label text="কৃষি উপকরণে নারীদের সমান অধিকার ও প্রশিক্ষণের জন্য সরকারি বরাদ্দ।" styleClass="task-sub-text" wrapText="true"/>
+                                </VBox>
+                                <Button text="বিস্তারিত" styleClass="smart-action-btn action-pest"/>
+                            </HBox>
+                        </VBox>
+                    </VBox>
+                </Tab>
+            </tabs>
+        </TabPane>
+
+        <!-- ৩. হেল্পলাইন ও ফুটনোট -->
+        <HBox alignment="CENTER" spacing="15" style="-fx-background-color: #E8F5E9; -fx-padding: 20; -fx-background-radius: 15;">
+            <Label text="💡 তথ্যসূত্র: বাংলাদেশ ব্যাংক ও কৃষি মন্ত্রণালয় (২০২৪-২৫)" style="-fx-text-fill: #2E7D32; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="যেকোনো প্রয়োজনে কল করুন: ১৬১২৩" style="-fx-text-fill: #1B5E20; -fx-font-weight: bold;"/>
+        </HBox>
+    </VBox>
+</ScrollPane>
